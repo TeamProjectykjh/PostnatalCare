@@ -6,7 +6,7 @@
 DB생성 참고
 PostnatalCare\src\main\java\com\team\postnatalcare\CREATESQL
 
-유저 테이블명 POS_USER
+# 유저 테이블명 POS_USER
 
 CREATE TABLE POS_USER 
 (
@@ -62,7 +62,7 @@ STORAGE
 ) 
 NOPARALLEL;
 
-유저 PK시퀀스 POS_USER_SEQ
+# 유저 PK시퀀스 POS_USER_SEQ
 CREATE SEQUENCE POS_USER_SEQ INCREMENT BY 1 MAXVALUE 999 MINVALUE 1 NOCACHE;
 
 
