@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+   <definition name="baseLayout"  template="/WEB-INF/views/layout.jsp">
+      <put-attribute name="top" value="/WEB-INF/views/top.jsp" />
+      <put-attribute name="body" value="" />
+      <put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+   </definition>
+   <definition name="main" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/main.jsp" />
+   </definition>
+   
+   
+   
+   
+   
+   <!--login layout -->
+   <definition name="loginLayout"  template="/WEB-INF/views/login/loginLayout.jsp">
+      <put-attribute name="logintop" value="/WEB-INF/views/login/logintop.jsp" />
+      <put-attribute name="loginbody" value="" />
+      <put-attribute name="loginfooter" value="/WEB-INF/views/login/loginfooter.jsp" />
+   </definition>
+   
+   <definition name="login" extends="loginLayout">   
+      <put-attribute name="loginbody" value="/WEB-INF/views/login/login.jsp" />
+   </definition>
+   
+   <definition name="signin" extends="loginLayout">   
+      <put-attribute name="loginbody" value="/WEB-INF/views/login/signin.jsp" />
+   </definition>
+   
+   <definition name="myinfo" extends="loginLayout">   
+      <put-attribute name="loginbody" value="/WEB-INF/views/login/myinfo.jsp" />
+   </definition>
+   
+ </tiles-definitions>
