@@ -13,7 +13,16 @@
    </definition>
    
    
+   <!-- Postnatal 국태 작업 -->
+   <definition name="reservation" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/postnatal/reservation.jsp" />
+   </definition>
    
+   <definition name="Self-Checker" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/postnatal/Self-Checker.jsp" />
+   </definition>
+   
+   <!-- Postnatal 국태 작업끝 -->
    
    
    <!--login layout -->
