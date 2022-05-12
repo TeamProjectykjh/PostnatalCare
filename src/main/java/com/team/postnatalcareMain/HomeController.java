@@ -1,4 +1,4 @@
-package com.team.postnatalcare;
+package com.team.postnatalcareMain;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -13,6 +13,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.team.postnatalcareMain.UserDTO;
+
 
 /**
  * Handles requests for the application home page.
@@ -138,22 +141,5 @@ public class HomeController {
 		return mav;
 		
 	}
-	
-//	산모 파트 시작
-	@RequestMapping(value = "/reservation")  // 산모예약 페이지로 가기
-	public String reservation(HttpServletRequest request) {			
-		return "reservation";
-	}
-	
-	@RequestMapping(value = "/reservationlist")  // 산모예약 페이지로 가기
-	public String reservationlist(HttpServletRequest request) {			
-		return "reservationlist";
-	}
-	
-	@RequestMapping(value = "/Self-Checker")
-	public String SelfChecker(HttpServletRequest request) {			
-		return "Self-Checker";
-	}
-// 산모파트 끝 
-	
+
 }

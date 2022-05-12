@@ -1,8 +1,10 @@
-package com.team.postnatalcare;
+package com.team.postnatalcare.Sanmo;
 
 import java.util.ArrayList;
 
-public interface Mapper {
+import com.team.postnatalcareMain.UserDTO;
+
+public interface SanmoMapper {
 
 	public void newsign(String id,String password,int state,String job,String name,String age,int phone,String gender,String address);
 	

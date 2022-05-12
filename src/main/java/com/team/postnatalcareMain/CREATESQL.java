@@ -1,4 +1,4 @@
-package com.team.postnatalcare;
+package com.team.postnatalcareMain;
 
 //테이블 명이 USER예약어 생성불가 pos_user이런식으로 변경해야함
 //테이블의 칼럼명 user_id 이런식은 좋지 못하고 헷갈려서 user_id -> id로 변경 전체 테이블 다 적용요망

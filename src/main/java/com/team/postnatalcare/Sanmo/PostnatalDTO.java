@@ -1,4 +1,4 @@
-package com.team.postnatalcare;
+package com.team.postnatalcare.Sanmo;
 
 public class PostnatalDTO {
 	int num;
