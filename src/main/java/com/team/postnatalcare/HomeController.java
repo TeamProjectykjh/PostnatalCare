@@ -139,5 +139,21 @@ public class HomeController {
 		
 	}
 	
+//	산모 파트 시작
+	@RequestMapping(value = "/reservation")  // 산모예약 페이지로 가기
+	public String reservation(HttpServletRequest request) {			
+		return "reservation";
+	}
+	
+	@RequestMapping(value = "/reservationlist")  // 산모예약 페이지로 가기
+	public String reservationlist(HttpServletRequest request) {			
+		return "reservationlist";
+	}
+	
+	@RequestMapping(value = "/Self-Checker")
+	public String SelfChecker(HttpServletRequest request) {			
+		return "Self-Checker";
+	}
+// 산모파트 끝 
 	
 }
