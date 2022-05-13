@@ -1,9 +1,9 @@
 package com.team.postnatalcareMain;
 
-//Å×ÀÌºí ¸íÀÌ USER¿¹¾à¾î »ý¼ººÒ°¡ pos_userÀÌ·±½ÄÀ¸·Î º¯°æÇØ¾ßÇÔ
-//Å×ÀÌºíÀÇ Ä®·³¸í user_id ÀÌ·±½ÄÀº ÁÁÁö ¸øÇÏ°í Çò°¥·Á¼­ user_id -> id·Î º¯°æ ÀüÃ¼ Å×ÀÌºí ´Ù Àû¿ë¿ä¸Á
+//í…Œì´ë¸” ëª…ì´ USERì˜ˆì•½ì–´ ìƒì„±ë¶ˆê°€ pos_userì´ëŸ°ì‹ìœ¼ë¡œ ë³€ê²½í•´ì•¼í•¨
+//í…Œì´ë¸”ì˜ ì¹¼ëŸ¼ëª… user_id ì´ëŸ°ì‹ì€ ì¢‹ì§€ ëª»í•˜ê³  í—·ê°ˆë ¤ì„œ user_id -> idë¡œ ë³€ê²½ ì „ì²´ í…Œì´ë¸” ë‹¤ ì ìš©ìš”ë§
 
-//¾Æ·¡ ÁÖ¼®Ã³¸® µÇ¾îÀÖ´Â °ª(//) ´Ù ±Ü¾î¼­ ctrl / µÎ°³ °°ÀÌ ´©¸£¸é ÀüÃ¼ ÁÖ¼® Á¦°Å
+//ì•„ëž˜ ì£¼ì„ì²˜ë¦¬ ë˜ì–´ìžˆëŠ” ê°’(//) ë‹¤ ê¸ì–´ì„œ ctrl / ë‘ê°œ ê°™ì´ ëˆ„ë¥´ë©´ ì „ì²´ ì£¼ì„ ì œê±°
 
 //CREATE TABLE POS_USER 
 //(
@@ -63,11 +63,15 @@ package com.team.postnatalcareMain;
 
 
 
-//À¯Àú PK(num)ÀÚµ¿ »ý¼ºÀ» À§ÇÑ ½ÃÄö½º »ý¼º
-//À¯Àú 1~999
-//»ê¸ð 1000~1999
-//ÀÇ»ç 2000~2999
-// ÀÌ·±½ÄÀ¸·Î ¼­·Î °ãÄ¥ÀÏÀÌ ¾ø°Ô ½ÃÄö½º¸¦ »ý¼ºÇØ¾ß ÇÑ´Ù ÃßÈÄ ½ÃÄö½º »ý¼º ½Ã ¿©±â¿¡ ¾÷µ¥ÀÌÆ® ¹Ù¶÷.
+//ìœ ì € PK(num)ìžë™ ìƒì„±ì„ ìœ„í•œ ì‹œí€€ìŠ¤ ìƒì„±
+//ìœ ì € 1~999
+//ì‚°ëª¨ 1000~1999
+//ì˜ì‚¬ 2000~2999
+//ì‚°í›„ 3000~3999
+//ì´ëŸ°ì‹ìœ¼ë¡œ ì„œë¡œ ê²¹ì¹ ì¼ì´ ì—†ê²Œ ì‹œí€€ìŠ¤ë¥¼ ìƒì„±í•´ì•¼ í•œë‹¤ ì¶”í›„ ì‹œí€€ìŠ¤ ìƒì„± ì‹œ ì—¬ê¸°ì— ì—…ë°ì´íŠ¸ ë°”ëžŒ.
 //CREATE SEQUENCE POS_USER_SEQ INCREMENT BY 1 MAXVALUE 999 MINVALUE 1 NOCACHE;
+
+
+//CREATE SEQUENCE POS_SANHU_SEQ INCREMENT BY 1 MAXVALUE 3999 MINVALUE 3000 NOCACHE;
 
 

@@ -83,15 +83,13 @@
 	
 	
 	
-	<!-- ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ  -->
+	<!-- ↓Sanhumybatis↓ -->
 	<beans:bean name="SanhudataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 			<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
 			<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
 			<beans:property name="username" value="ezen"/>
-			<beans:property name="password" value="ez311"/>
+			<beans:property name="password" value="ez311"/>			
 	</beans:bean>
-	
-	
 	
 	<beans:bean id="SanhuSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource"/>
@@ -101,7 +99,7 @@
 	<beans:bean id="SanhusqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		 <beans:constructor-arg index="0" ref="SanhuSqlSessionFactory"></beans:constructor-arg>
 	</beans:bean>
-	<!-- ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ  -->
+	<!-- ↑Sanhumybatis↑ -->
 	
 	
 	

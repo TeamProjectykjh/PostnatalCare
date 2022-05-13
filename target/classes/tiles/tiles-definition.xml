@@ -27,9 +27,12 @@
    
    <!-- Sanhu 진현 작업 -->
    
-   
    <definition name="sanhugg" extends="baseLayout">   
       <put-attribute name="body" value="/WEB-INF/views/sanhujori/sanhugg.jsp" />
+   </definition>
+   
+   <definition name="sanhujorisave" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/sanhujori/sanhujorisave.jsp" />
    </definition>
    
    <!-- Sanhu 진현 작업 끝 -->
