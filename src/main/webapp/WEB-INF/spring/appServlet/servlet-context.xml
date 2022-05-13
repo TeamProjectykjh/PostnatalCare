@@ -16,6 +16,7 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
+	<resources mapping="/sanhuimg/**" location="/sanhuimg/" />
 
 	
 	 <!-- tiles설정  -->	 
@@ -78,6 +79,32 @@
 	<beans:bean id="SanmosqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		 <beans:constructor-arg index="0" ref="SanmoSqlSessionFactory"></beans:constructor-arg>
 	</beans:bean>
+	
+	
+	
+	
+	<!-- ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ  -->
+	<beans:bean name="SanhudataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+			<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+			<beans:property name="username" value="ezen"/>
+			<beans:property name="password" value="ez311"/>
+	</beans:bean>
+	
+	
+	
+	<beans:bean id="SanhuSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource"/>
+		<beans:property name="mapperLocations" value="classpath:com/team/postnatalcare/Sanhumanagement/*.xml"/>
+	</beans:bean>
+	
+	<beans:bean id="SanhusqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		 <beans:constructor-arg index="0" ref="SanhuSqlSessionFactory"></beans:constructor-arg>
+	</beans:bean>
+	<!-- ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ  -->
+	
+	
+	
 	<!-- 마이바티스 설정종료  -->
 	
 </beans:beans>

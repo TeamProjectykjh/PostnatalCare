@@ -25,6 +25,16 @@
    <!-- Postnatal 국태 작업끝 -->
    
    
+   <!-- Sanhu 진현 작업 -->
+   
+   
+   <definition name="sanhugg" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/sanhujori/sanhugg.jsp" />
+   </definition>
+   
+   <!-- Sanhu 진현 작업 끝 -->
+   
+   
    <!--login layout -->
    <definition name="loginLayout"  template="/WEB-INF/views/login/loginLayout.jsp">
       <put-attribute name="logintop" value="/WEB-INF/views/login/logintop.jsp" />

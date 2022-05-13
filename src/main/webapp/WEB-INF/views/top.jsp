@@ -52,10 +52,10 @@
         	<s:when test="${job.job eq '산후조리사'}">
 		        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 		          <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="#">산후조리사옵션1</a>
+		            <a class="nav-link active" aria-current="page" href="sanhugg">산후조리사관리</a>
 		          </li>
 		          <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="#">산후조리사옵션2</a>
+		            <a class="nav-link active" aria-current="page" href="#">산후조리사보기</a>
 		          </li>
 		        </ul>
         	</s:when>
