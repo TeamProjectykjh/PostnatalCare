@@ -12,4 +12,8 @@ public interface Mapper {
 	
 	public ArrayList<UserDTO> myinfo(String id);
 	public void modifymyinfo(String password,int state,String job,String name,String age,int phone,String gender,String address,String id);
+	public ArrayList<UserDTO> userinfo();
+	public void unable(int num);
+	public void enable(int num);
+
 }

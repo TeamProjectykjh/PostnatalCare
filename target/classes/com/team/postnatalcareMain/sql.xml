@@ -30,4 +30,16 @@
 		age=#{param5},phone=#{param6},gender=#{param7},address=#{param8} where id = #{param9}
 	
 	</update>
+	
+	<select id="userinfo" resultType="com.team.postnatalcareMain.UserDTO">
+		select * from pos_user
+	</select>
+	
+	
+	<update id="unable">
+		update pos_user set state=0 where num = #{param1}
+	</update>
+	<update id="enable">
+		update pos_user set state=1 where num = #{param1}
+	</update>
 </mapper>

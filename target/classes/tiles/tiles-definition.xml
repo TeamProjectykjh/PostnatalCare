@@ -12,7 +12,6 @@
       <put-attribute name="body" value="/WEB-INF/views/main.jsp" />
    </definition>
    
-   
    <!-- Postnatal 국태 작업 -->
    <definition name="reservation" extends="baseLayout">   
       <put-attribute name="body" value="/WEB-INF/views/postnatal/reservation.jsp" />
@@ -57,4 +56,9 @@
       <put-attribute name="loginbody" value="/WEB-INF/views/login/myinfo.jsp" />
    </definition>
    
+   
+      <!-- 관리자 -->
+   <definition name="userinfo" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/userinfo.jsp" />
+   </definition>
  </tiles-definitions>

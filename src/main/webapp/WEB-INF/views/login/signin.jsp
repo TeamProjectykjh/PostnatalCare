@@ -37,7 +37,7 @@
 	                  </div>
 	                  <!-- state default values ==1 -->
 	                  <div>
-	                  	<input name="state" hidden="hidden" value="1">
+	                  	<input name="state" hidden="hidden" value="0">
 	                  </div>
 	                  
 	                  <div class="form-outline mb-1">
