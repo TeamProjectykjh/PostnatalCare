@@ -16,6 +16,7 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
+	<resources mapping="/sanhuimg/**" location="/sanhuimg/" />
 
 	
 	 <!-- tiles설정  -->	 
@@ -39,7 +40,7 @@
 	</beans:bean>
 	
 	<!-- tiles설정종료  -->
-	<context:component-scan base-package="com.team.postnatalcare" />
+	<context:component-scan base-package="com.team.*" />
 	
 	<!-- 마이바티스 설정  -->
 	<beans:bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -51,12 +52,57 @@
 	
 	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource"/>
-		<beans:property name="mapperLocations" value="classpath:com/team/postnatalcare/*.xml"/>
+		<beans:property name="mapperLocations" value="classpath:com/team/postnatalcareMain/*.xml"/>
+		
 	</beans:bean>
 	
 	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		 <beans:constructor-arg index="0" ref="sqlSessionFactory"></beans:constructor-arg>
 	</beans:bean>
+	
+	<!-- sanmomybatis -->
+	
+	<beans:bean name="SanmodataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+			<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+			<beans:property name="username" value="ezen"/>
+			<beans:property name="password" value="ez311"/>
+	</beans:bean>
+	
+	
+	
+	<beans:bean id="SanmoSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource"/>
+		<beans:property name="mapperLocations" value="classpath:com/team/postnatalcare/Sanmo/*.xml"/>
+	</beans:bean>
+	
+	<beans:bean id="SanmosqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		 <beans:constructor-arg index="0" ref="SanmoSqlSessionFactory"></beans:constructor-arg>
+	</beans:bean>
+	
+	
+	
+	
+	<!-- ↓Sanhumybatis↓ -->
+	<beans:bean name="SanhudataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+			<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+			<beans:property name="username" value="ezen"/>
+			<beans:property name="password" value="ez311"/>			
+	</beans:bean>
+	
+	<beans:bean id="SanhuSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource"/>
+		<beans:property name="mapperLocations" value="classpath:com/team/postnatalcare/Sanhumanagement/*.xml"/>
+	</beans:bean>
+	
+	<beans:bean id="SanhusqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		 <beans:constructor-arg index="0" ref="SanhuSqlSessionFactory"></beans:constructor-arg>
+	</beans:bean>
+	<!-- ↑Sanhumybatis↑ -->
+	
+	
+	
 	<!-- 마이바티스 설정종료  -->
 	
 </beans:beans>

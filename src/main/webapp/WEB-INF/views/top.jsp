@@ -22,10 +22,10 @@
 			<s:when test="${job.job eq '산모'}">
 		        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 		          <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="#">산모옵션1</a>
+		            <a class="nav-link active" aria-current="page" href="reservation">예약</a>
 		          </li>
 		          <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="#">산모옵션2</a>
+		            <a class="nav-link active" aria-current="page" href="Self-Checker">일일문진표</a>
 		          </li>
 		        </ul>
         	</s:when>
@@ -52,10 +52,10 @@
         	<s:when test="${job.job eq '산후조리사'}">
 		        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 		          <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="#">산후조리사옵션1</a>
+		            <a class="nav-link active" aria-current="page" href="sanhugg">산후조리사조회</a>
 		          </li>
 		          <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="#">산후조리사옵션2</a>
+		            <a class="nav-link active" aria-current="page" href="sanhulicense?num=${user.num}">산후조리사관리</a>
 		          </li>
 		        </ul>
         	</s:when>

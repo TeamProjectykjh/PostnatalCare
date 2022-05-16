@@ -1,4 +1,4 @@
-package com.team.postnatalcare;
+package com.team.postnatalcareMain;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -13,6 +13,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.team.postnatalcareMain.UserDTO;
+
 
 /**
  * Handles requests for the application home page.
@@ -29,28 +32,28 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-//	½ÇÇà½Ã /login À¸·Î ½ÇÇàÇØ¾ß ÇÑ´Ù 
-//	ÇÁ·ÎÁ§Æ® ±¸¼º ½Ã ·Î±×ÀÎ ÈÄ ÇÁ·Î±×·¥À» »ç¿ëÇÒ¼ö ÀÖ°Ô ¼³°èÇÔ
-//	¸¸¾à ·Î±×ÀÎ ÇÏÁö ¾Ê°í mainÆäÀÌÁö(/index)¸¦ ÇßÀ»°æ¿ì ºó²®µ¥±âÀÎ ¸ŞÀÎ ÇÁ·ĞÆ®Ã¢¸¸ ¶ç¿î´Ù ÀÇ¹Ì¾ø´Â Á¢±Ù.
+//	ì‹¤í–‰ì‹œ /login ìœ¼ë¡œ ì‹¤í–‰í•´ì•¼ í•œë‹¤ 
+//	í”„ë¡œì íŠ¸ êµ¬ì„± ì‹œ ë¡œê·¸ì¸ í›„ í”„ë¡œê·¸ë¨ì„ ì‚¬ìš©í• ìˆ˜ ìˆê²Œ ì„¤ê³„í•¨
+//	ë§Œì•½ ë¡œê·¸ì¸ í•˜ì§€ ì•Šê³  mainí˜ì´ì§€(/index)ë¥¼ í–ˆì„ê²½ìš° ë¹ˆê»ë°ê¸°ì¸ ë©”ì¸ í”„ë¡ íŠ¸ì°½ë§Œ ë„ìš´ë‹¤ ì˜ë¯¸ì—†ëŠ” ì ‘ê·¼.
 	@RequestMapping(value = "/login")
 	public String login() {			
 		return "login";
 	}
 	
-//	·Î±×ÀÎ ÈÄ ¸ŞÀÎÀÌ µÇ´Â ÆäÀÌÁö
+//	ë¡œê·¸ì¸ í›„ ë©”ì¸ì´ ë˜ëŠ” í˜ì´ì§€
 	@RequestMapping(value = "/index")
 	public String home() {			
 		return "main";
 	}
 	
-//	·Î±×ÀÎ Ã¢¿¡¼­ È¸¿ø°¡ÀÔ(Å¬¸¯)À» ÀÔ·ÂÇßÀ»°æ¿ì °¡´Â ÆäÀÌÁöÀÌ´Ù ÆäÀÌÁö ÀÌµ¿ ¿Ü¿¡ ´Ù¸¥±â´ÉÀº ¾ø´Ù.
+//	ë¡œê·¸ì¸ ì°½ì—ì„œ íšŒì›ê°€ì…(í´ë¦­)ì„ ì…ë ¥í–ˆì„ê²½ìš° ê°€ëŠ” í˜ì´ì§€ì´ë‹¤ í˜ì´ì§€ ì´ë™ ì™¸ì— ë‹¤ë¥¸ê¸°ëŠ¥ì€ ì—†ë‹¤.
 	@RequestMapping(value = "/signin")
 	public String sign() {			
 		return "signin";
 	}
 	
-//	È¸¿ø°¡ÀÔ
-//	pk°ªÀÎ numÀÌ ¾ø´Â ÀÌÀ¯´Â ½ÃÄö½º·Î 1~999±îÁö ÀÚµ¿À¸·Î »ı¼º @sql.xmlÄõ¸® Âü°í(pos_user_seq.nextval)
+//	íšŒì›ê°€ì…
+//	pkê°’ì¸ numì´ ì—†ëŠ” ì´ìœ ëŠ” ì‹œí€€ìŠ¤ë¡œ 1~999ê¹Œì§€ ìë™ìœ¼ë¡œ ìƒì„± @sql.xmlì¿¼ë¦¬ ì°¸ê³ (pos_user_seq.nextval)
 	@RequestMapping(value = "/newsign")
 	public String newsing(HttpServletRequest request) {	
 		String id=request.getParameter("id");
@@ -68,7 +71,7 @@ public class HomeController {
 		return "login";
 	}
 	
-//	¾ÆÀÌµğ ºñ¹Ğ¹øÈ£ ÀÔ·Â ÈÄ ·Î±×ÀÎ ¹öÆ°À» ´­·¶À» °æ¿ì Å¸°Ô µÇ´Â ·ÎÁ÷ÀÌ´Ù.
+//	ì•„ì´ë”” ë¹„ë°€ë²ˆí˜¸ ì…ë ¥ í›„ ë¡œê·¸ì¸ ë²„íŠ¼ì„ ëˆŒë €ì„ ê²½ìš° íƒ€ê²Œ ë˜ëŠ” ë¡œì§ì´ë‹¤.
 	
 	@RequestMapping(value = "userlogin")
 	public String userlogin(HttpServletRequest request,HttpServletResponse response) throws IOException {
@@ -78,28 +81,28 @@ public class HomeController {
 		ArrayList<UserDTO> userinfo = dao.login(id,password);
 		HttpSession hs = request.getSession(true); 
 		
-//		ÀÔ·ÂÇÑ ¾ÆÀÌµğ¿Í ºñ¹Ğ¹øÈ£°¡ DB¿¡ µî·ÏµÇ¾îÀÖ´Â °èÁ¤(id,password)°ú °°´Ù¸é userÅ×ÀÌºí¿¡ ÀÖ´ÂÁ¤º¸ ÀüºÎ select°¡Á®¿Í¼­ userinfo°¡ ´ã´Â´Ù.
-//		userinfo¿¡ Äõ¸®·Î °¡Á®¿Â°ªÀÌ ÀÖ´Ù¸é id password¸¦ Á¤»óÀûÀ¸·ÎÀÔ·ÂÀ¸·Î °£ÁÖÇÑ´Ù
-//		userinfo¿¡ °ªÀÌ ¾ø´Ù¸é id³ª passwordÁß ÇÑ°³ È¤Àº µÑ´Ù Æ²¸°°ªÀ» ÀÔ·ÂÇßÀ½À¸·Î Äõ¸® °Ë»ö°á°ú´Â ¾ø´Ù. Áï ·Î±×ÀÎ ½ÇÆĞ
+//		ì…ë ¥í•œ ì•„ì´ë””ì™€ ë¹„ë°€ë²ˆí˜¸ê°€ DBì— ë“±ë¡ë˜ì–´ìˆëŠ” ê³„ì •(id,password)ê³¼ ê°™ë‹¤ë©´ userí…Œì´ë¸”ì— ìˆëŠ”ì •ë³´ ì „ë¶€ selectê°€ì ¸ì™€ì„œ userinfoê°€ ë‹´ëŠ”ë‹¤.
+//		userinfoì— ì¿¼ë¦¬ë¡œ ê°€ì ¸ì˜¨ê°’ì´ ìˆë‹¤ë©´ id passwordë¥¼ ì •ìƒì ìœ¼ë¡œì…ë ¥ìœ¼ë¡œ ê°„ì£¼í•œë‹¤
+//		userinfoì— ê°’ì´ ì—†ë‹¤ë©´ idë‚˜ passwordì¤‘ í•œê°œ í˜¹ì€ ë‘˜ë‹¤ í‹€ë¦°ê°’ì„ ì…ë ¥í–ˆìŒìœ¼ë¡œ ì¿¼ë¦¬ ê²€ìƒ‰ê²°ê³¼ëŠ” ì—†ë‹¤. ì¦‰ ë¡œê·¸ì¸ ì‹¤íŒ¨
 		if(userinfo.isEmpty()) {
 			PrintWriter out = response.getWriter();
 			response.setContentType("text/html; charset=UTF-8");
-			out.println("<script>alert('·Î±×ÀÎ ½ÇÆĞ. ´Ù½Ã ½ÃµµÇØÁÖ¼¼¿ä.');</script>");
+			out.println("<script>alert('ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½Ù½ï¿½ ï¿½Ãµï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.');</script>");
 			out.flush();
 			return "login";
 		}
 		else {
-//			¼¼¼Ç¿¡ À¯Àú Á¤º¸¸¦ ´ã´Â´Ù ¼¼¼Ç¿¡ ´ã´ÂÀÌÀ¯´Â ¼¼¼Ç ¿¬°áÀÌ ³¡³ª±â Àü±îÁö ¸Å¹ø °ªÀ» ³Ñ±âÁö ¾Ê¾Æµµ »ç¿ëÀÌ °¡´ÉÇØ¼­ÀÌ´Ù.
-//			»ç¿ë¿¹½Ã XXX´Ô È¯¿µÇÕ´Ï´Ù.
+//			ì„¸ì…˜ì— ìœ ì € ì •ë³´ë¥¼ ë‹´ëŠ”ë‹¤ ì„¸ì…˜ì— ë‹´ëŠ”ì´ìœ ëŠ” ì„¸ì…˜ ì—°ê²°ì´ ëë‚˜ê¸° ì „ê¹Œì§€ ë§¤ë²ˆ ê°’ì„ ë„˜ê¸°ì§€ ì•Šì•„ë„ ì‚¬ìš©ì´ ê°€ëŠ¥í•´ì„œì´ë‹¤.
+//			ì‚¬ìš©ì˜ˆì‹œ XXXë‹˜ í™˜ì˜í•©ë‹ˆë‹¤.
 			hs.setAttribute("userinfo", userinfo);
 			return "main";
 		}
 	}
 	
-//	¸ŞÀÎ ÆäÀÌÁö¿¡¼­ ³»Á¤º¸ ¼öÁ¤À» ´­·¶À»¶§ Å¸°ÔµÇ´Â ·ÎÁ÷ÀÌ´Ù .
-//	id°ªÀ» °¡Á®¿Í DB¿Í Ä¿³Ø¼Ç ÈÄ °¡Á®¿Â°ªÀ» ³»»ó¼¼Á¤º¸ ÆäÀÌÁö userinfo¿¡ input value·Î ¶ç¿öÁØ´Ù
-//	Æ¯ÀÌ»çÇ× ¼ºº°Àº ¹Ù²ğ¼ö¾ø±â¶§¹®¿¡ º¯°æÀÌ ºÒ°¡´ÉÇÏ°Ô ÀÛ¼º
-//	modelandview »ç¿ëÀÌÀ¯ ¾øÀ½. model·Î »ç¿ëÇÏ°í ¸®ÅÏÀ¸·Î ³Ñ°ÜÁàµµ »ó°ü¾ø´Ù.
+//	ë©”ì¸ í˜ì´ì§€ì—ì„œ ë‚´ì •ë³´ ìˆ˜ì •ì„ ëˆŒë €ì„ë•Œ íƒ€ê²Œë˜ëŠ” ë¡œì§ì´ë‹¤ .
+//	idê°’ì„ ê°€ì ¸ì™€ DBì™€ ì»¤ë„¥ì…˜ í›„ ê°€ì ¸ì˜¨ê°’ì„ ë‚´ìƒì„¸ì •ë³´ í˜ì´ì§€ userinfoì— input valueë¡œ ë„ì›Œì¤€ë‹¤
+//	íŠ¹ì´ì‚¬í•­ ì„±ë³„ì€ ë°”ë€”ìˆ˜ì—†ê¸°ë•Œë¬¸ì— ë³€ê²½ì´ ë¶ˆê°€ëŠ¥í•˜ê²Œ ì‘ì„±
+//	modelandview ì‚¬ìš©ì´ìœ  ì—†ìŒ. modelë¡œ ì‚¬ìš©í•˜ê³  ë¦¬í„´ìœ¼ë¡œ ë„˜ê²¨ì¤˜ë„ ìƒê´€ì—†ë‹¤.
 	@RequestMapping(value = "/myinfo",method = RequestMethod.GET)
 	public ModelAndView myinfo(HttpServletRequest request) {
 		String id = request.getParameter("id");
@@ -112,8 +115,8 @@ public class HomeController {
 
 	}
 	
-//	È¸¿øÁ¤º¸ ¼öÁ¤¿¡ ´ëÇÑ ÄÁÆ®·Ñ·¯. @Âü°í È¸¿ø°¡ÀÔ ·ÎÁ÷°ú ºñ½ÁÇÏ´Ù insert°¡ ¾Æ´Ï¶ó update¸¦ »ç¿ëÇÑ´ÙÁ¤µµ 
-//	id°ªÀ» °¡Áö°í ¾÷µ¥ÀÌÆ®(Äõ¸®)¸¦ ÁøÇàÇÑ´Ù. @ÆÄ¶ó¹ÌÅÍ ¸¶Áö¸·°ªÀÌ idÀÎ ÀÌÀ¯ (WHERE ID = ¾ÆÀÌµğ)
+//	íšŒì›ì •ë³´ ìˆ˜ì •ì— ëŒ€í•œ ì»¨íŠ¸ë¡¤ëŸ¬. @ì°¸ê³  íšŒì›ê°€ì… ë¡œì§ê³¼ ë¹„ìŠ·í•˜ë‹¤ insertê°€ ì•„ë‹ˆë¼ updateë¥¼ ì‚¬ìš©í•œë‹¤ì •ë„ 
+//	idê°’ì„ ê°€ì§€ê³  ì—…ë°ì´íŠ¸(ì¿¼ë¦¬)ë¥¼ ì§„í–‰í•œë‹¤. @íŒŒë¼ë¯¸í„° ë§ˆì§€ë§‰ê°’ì´ idì¸ ì´ìœ  (WHERE ID = ì•„ì´ë””)
 	@RequestMapping(value = "/modifymyinfo", method = RequestMethod.POST)
 	public ModelAndView modifymyinfo(HttpServletRequest request) {	
 		String id=request.getParameter("id");
@@ -127,10 +130,10 @@ public class HomeController {
 		String address=request.getParameter("address");
 		Mapper dao = sqlSession.getMapper(Mapper.class);
 		
-//		Á¤»óÀûÀÎ °ªµéÀÌ ³Ñ¾î°¡³ª Å×½ºÆ®¸¦ À§ÇÑ ·ÎÁ÷À» Å¸¸é ·Î±×¸¦ CONSOLE·Î È®ÀÎÀÌ °¡´ÉÇÏ´Ù
+//		ì •ìƒì ì¸ ê°’ë“¤ì´ ë„˜ì–´ê°€ë‚˜ í…ŒìŠ¤íŠ¸ë¥¼ ìœ„í•œ ë¡œì§ì„ íƒ€ë©´ ë¡œê·¸ë¥¼ CONSOLEë¡œ í™•ì¸ì´ ê°€ëŠ¥í•˜ë‹¤
 		System.out.println("ID:"+id+" PW:"+password+" state:"+state+" JOB:"+job+" name:"+name+" age:"+age+" PHONE:"+phone+" GENDER:"+gender+" ADDRESS:"+address);
 		dao.modifymyinfo(password,state,job,name,age,phone,gender,address,id);
-//		MAV±»ÀÌ »ç¿ë¾ÈÇØµµ»ó°ü¾øÀ½ test¿ëµµ ¾Æ·¡ °ªÀº »ç¿ë¾ÈÇÔ
+//		MAVêµ³ì´ ì‚¬ìš©ì•ˆí•´ë„ìƒê´€ì—†ìŒ testìš©ë„ ì•„ë˜ ê°’ì€ ì‚¬ìš©ì•ˆí•¨
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("login");
 		mav.addObject("id", id);
@@ -138,6 +141,5 @@ public class HomeController {
 		return mav;
 		
 	}
-	
-	
+
 }

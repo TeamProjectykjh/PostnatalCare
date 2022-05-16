@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.team.postnatalcare.Sanhumanagement.SanhuMapper">
+
+<!-- 유저 테이블에서 산후관리사만 조회 -->
+<select id="jobsearch" resultType="com.team.postnatalcareMain.UserDTO">
+	select * from pos_user where job = #{param1}
+</select>
+
+<!-- 산후관리사 테이블에 데이터 삽입 -->
+<!-- jobstate는 초기상태 0 (0-> 고용가능, 1-> 고용중) -->
+<insert id="sanhujorisave">
+	insert into pos_sanhujori(sanhunum, num, sanhurecord, jobstate, content) values(pos_sanhu_seq.nextval, ${param1}, '${param2}', 0, '${param3}')
+</insert>
+
+</mapper>
