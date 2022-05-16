@@ -87,15 +87,22 @@ public class HomeController {
 		if(userinfo.isEmpty()) {
 			PrintWriter out = response.getWriter();
 			response.setContentType("text/html; charset=UTF-8");
-			out.println("<script>alert('�α��� ����. �ٽ� �õ����ּ���.');</script>");
+			out.println("<script>alert('로그인 실패.');</script>");
 			out.flush();
 			return "login";
 		}
-		else {
+		else if(userinfo.get(0).state==1){
+				hs.setAttribute("userinfo", userinfo);
+				return "main";
+			
 //			세션에 유저 정보를 담는다 세션에 담는이유는 세션 연결이 끝나기 전까지 매번 값을 넘기지 않아도 사용이 가능해서이다.
 //			사용예시 XXX님 환영합니다.
-			hs.setAttribute("userinfo", userinfo);
-			return "main";
+		}else {
+			PrintWriter out = response.getWriter();
+			response.setContentType("text/html; charset=UTF-8");
+			out.println("<script>alert('로그인 실패. 관리자에게 가입승인을 요청하세요');</script>");
+			out.flush();
+			return "login";
 		}
 	}
 	
@@ -141,5 +148,40 @@ public class HomeController {
 		return mav;
 		
 	}
+	
+	
+	@RequestMapping(value = "/userinfo",method = RequestMethod.GET)
+	public ModelAndView userinfo(HttpServletRequest request) {
+		
+		Mapper dao = sqlSession.getMapper(Mapper.class);
+		ArrayList<UserDTO> userinfo = dao.userinfo();
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("userinfo");
+		mav.addObject("usertable", userinfo);
+		return mav;
+
+	}
+	
+	@RequestMapping(value = "/able")
+	public void state(HttpServletRequest request,HttpServletResponse response) throws IOException {
+		int num = Integer.parseInt(request.getParameter("num"));
+		int state = Integer.parseInt(request.getParameter("state"));
+		Mapper dao = sqlSession.getMapper(Mapper.class);
+		if(state==1) {
+			dao.unable(num);
+			PrintWriter out = response.getWriter();
+			response.setContentType("text/html; charset=UTF-8");
+			out.println("<script>alert('계정이 비활성화 되었습니다.');location.href='/company/userinfo';</script>");
+			out.flush();
+		}
+		else {
+			dao.enable(num);
+			PrintWriter out = response.getWriter();
+			response.setContentType("text/html; charset=UTF-8");
+			out.println("<script>alert('계정이 활성화 되었습니다.');location.href='/company/userinfo';</script>");
+			out.flush();
+		}
+	}
+	
 
 }

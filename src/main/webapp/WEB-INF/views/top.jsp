@@ -59,6 +59,13 @@
 		          </li>
 		        </ul>
         	</s:when>
+        	<s:when test="${job.job eq 'admin'}">
+		        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+		          <li class="nav-item">
+		            <a class="nav-link active" aria-current="page" href="userinfo">유저관리</a>
+		          </li>
+		        </ul>
+        	</s:when>
         </s:choose>
       </s:forEach>
         <span class="d-flex">
