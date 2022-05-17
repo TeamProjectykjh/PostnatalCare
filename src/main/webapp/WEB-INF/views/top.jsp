@@ -32,7 +32,7 @@
         	<s:when test="${job.job eq '의사'}">
 		        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 		          <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="#">의사옵션1</a>
+		            <a class="nav-link active" aria-current="page" href="doctor">doctortest</a>
 		          </li>
 		          <li class="nav-item">
 		            <a class="nav-link active" aria-current="page" href="#">의사옵션2</a>
