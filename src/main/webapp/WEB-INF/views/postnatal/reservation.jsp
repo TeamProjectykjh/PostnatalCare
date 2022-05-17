@@ -23,49 +23,48 @@
 	
 	                <form action="newsign" method="post">
 
-	                  <div align="center" class="h6 fw-bold mb-0">산모예약</div>
+	                  <div align="center" class="h6 fw-bold mb-0">산모개인정보등록</div>
 	                  
-	
+	                  
 	                  <div class="form-outline mb-1">
-	                  	<label class="form-label">산모번호</label>
-	                    <input name="pos_num" class="form-control form-control-sm" />   
-	                  </div>
-	
-	                  <div class="form-outline mb-1">
-	                  	<label class="form-label">유저번호</label>
-	                    <input name="u" class="form-control form-control-sm" />
+	                  	<label class="form-label">산모이름</label>
+	                    <input type="text" name="name" class="form-control form-control-sm"  />   
 	                  </div>
 	                  
 	                  <div class="form-outline mb-1">
-	                  	<label class="form-label">의사번호</label>
-	                    <input name="" class="form-control form-control-sm" />
+	                  	<label class="form-label">담당의사</label><br>
+	                    한라산<input type="radio" name="docname"/>
+	                    김기명<input type="radio" name="docname"/>
+	                    김두환<input type="radio" name="docname"/>
 	                  </div>	              
 	                  
 	                  <div class="form-outline mb-1">
-	                  	<label class="form-label">간호사번호</label>
-	                    <input name="" class="form-control form-control-sm" />
+	                  	<label class="form-label">담당간호사</label><br>
+	                  	백두산<input type="radio" name="nurname"/>
+	                    잔나<input type="radio" name="nurname"/>
+	                    소라카<input type="radio" name="nurname"/>
 	                  </div>
-	                  
+	                   
 	                  <div class="form-outline mb-1">
 	                   <label class="form-label">입실일자</label>
-	                   <input type="date" name="" class="form-control form-control-sm" />
+	                   <input type="date" name="startday" class="form-control form-control-sm" />
 	                   <label class="form-label">퇴실일자</label>
-	                   <input type="date" name="" class="form-control form-control-sm" />
+	                   <input type="date" name="endday" class="form-control form-control-sm" />
 	                  </div>
 	                  
 	                  <div class="form-outline mb-1">
 	                  	<label class="form-label">태명</label>
-	                    <input name="" class="form-control form-control-sm" />
+	                    <input name="baby" class="form-control form-control-sm" />
 	                  </div>
 	                  
 	                  <div class="form-outline mb-1">
 	                  	<label class="form-label">보호자명</label>
-	                    <input name="" class="form-control form-control-sm" />
+	                    <input name="protect" class="form-control form-control-sm" />
 	                  </div>
 	                  
 	                  <div class="form-outline mb-1">
 	                  	<label class="form-label">비상연락망</label>
-	                    <input name="" class="form-control form-control-sm" />
+	                    <input name="emergencyphone" class="form-control form-control-sm" />
 	                  </div>
 	                  
 	                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">

@@ -22,7 +22,7 @@
 			<s:when test="${job.job eq '산모'}">
 		        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 		          <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="reservation">예약</a>
+		            <a class="nav-link active" aria-current="page" href="reservation">산모개인정보</a>
 		          </li>
 		          <li class="nav-item">
 		            <a class="nav-link active" aria-current="page" href="Self-Checker">일일문진표</a>

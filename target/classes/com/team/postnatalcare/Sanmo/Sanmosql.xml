@@ -4,6 +4,8 @@
 <mapper namespace="com.team.postnatalcare.Sanmo.SanmoMapper">
 
  
+ 	
+ 
  	<!--회원 가입 -->
  	<!--DB에서 POS_USER_SEQ생성 후 시퀀스를 num값에 활용-->
  	<!--활용 이유PK생성 자동으로 겹치지 않는 임의의 숫자를 넣기위해1~999 -->
@@ -28,6 +30,18 @@
 	<update id="modifymyinfo">
 		update pos_user set password = #{param1},state=#{param2},job=#{param3},name=#{param4},
 		age=#{param5},phone=#{param6},gender=#{param7},address=#{param8} where id = #{param9}
-	
 	</update>
+	
+<!-- 	
+	<select id="insert">
+		select num from pos_user where num = #{param1}
+	</select>
+ -->	
+	
+	<insert id="insertsave">
+		select pos_postnatal.num,pos_user.name,pos_doctor.name,pos_nurse.name,  
+		pos_postnatal.startday,pos_postnatal.endday,pos_postnatal.baby,pos_postnatal.protect,pos_postnatal.emergencyphone
+		from
+		pos_postnatal join pos_user join pos_doctor join pos_nurse on pos_postnatal.num = pos_user.num = pos_doctor.docnum = pos_nurse.nurnum  
+	</insert>
 </mapper>

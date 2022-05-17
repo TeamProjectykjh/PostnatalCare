@@ -22,7 +22,7 @@
 	
 	                <form action="newsign" method="post">
 
-	                  <div align="center" class="h6 fw-bold mb-0">문진표</div>
+	                   <div align="center" class="h6 fw-bold mb-0">문진표</div>
 	                  
 	
 	                  <div class="form-outline mb-1">
