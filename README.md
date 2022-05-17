@@ -7,7 +7,7 @@ DB생성 참고
 PostnatalCare\src\main\java\com\team\postnatalcare\CREATESQL
 
 # 관리자 생성 SQL 
-insert into pos_user (num,id,password,state,job,name,age,phone,gender,address) values(pos_user_seq.nextval,'admin','admin',1,'관리자','admin','day',0,'남자','address');
+insert into pos_user (num,id,password,state,job,name,age,phone,gender,address) values(pos_user_seq.nextval,'admin','admin',1,'admin','admin','day',0,'남자','address');
 
 # 유저 테이블명 POS_USER
 
