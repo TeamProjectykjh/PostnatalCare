@@ -61,4 +61,11 @@
    <definition name="userinfo" extends="baseLayout">   
       <put-attribute name="body" value="/WEB-INF/views/userinfo.jsp" />
    </definition>
+   
+   
+   <!-- doctor -->
+   <definition name="testdoctor" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/doctor/testdoctor.jsp" />
+   </definition>
+   
  </tiles-definitions>
