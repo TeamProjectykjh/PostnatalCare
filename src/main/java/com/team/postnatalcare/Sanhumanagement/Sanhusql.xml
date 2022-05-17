@@ -13,5 +13,16 @@
 <insert id="sanhujorisave">
 	insert into pos_sanhujori(sanhunum, num, sanhurecord, jobstate, content) values(pos_sanhu_seq.nextval, ${param1}, '${param2}', 0, '${param3}')
 </insert>
+<!-- 산후관리사 테이블에 유저테이블의 num값을 가져와 데이터 삽입 -->
+<!-- insert into pos_sanhujori(sanhunum, num, sanhurecord, jobstate, content)
+values(pos_sanhu_seq.nextval, (SELECT num FROM pos_user WHERE num = #{param1}), 'test', 0, 'test') -->
+
+
+<select id="Sanhujoriout" resultType="com.team.postnatalcare.Sanhumanagement.SanhujoriDTO">
+	select * from pos_sanhujori where num = #{param1}
+</select>
+
+<!-- 유저테이블(num)과 산후관리사테이블(num)의 같은 부분 출력 -->
+<!-- SELECT * FROM pos_sanhujori sa inner join pos_user us ON sa.num = us.num; -->
 
 </mapper>

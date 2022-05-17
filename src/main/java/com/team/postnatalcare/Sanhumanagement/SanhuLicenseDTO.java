@@ -2,19 +2,19 @@ package com.team.postnatalcare.Sanhumanagement;
 
 public class SanhuLicenseDTO {
 	int linum, sanhunum;
-	String liname, lipath, licoode;
+	String liname, lipath, licode;
 	public SanhuLicenseDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public SanhuLicenseDTO(int linum, int sanhunum, String liname, String lipath, String licoode) {
+	public SanhuLicenseDTO(int linum, int sanhunum, String liname, String lipath, String licode) {
 		super();
 		this.linum = linum;
 		this.sanhunum = sanhunum;
 		this.liname = liname;
 		this.lipath = lipath;
-		this.licoode = licoode;
+		this.licode = licode;
 	}
 	
 	public int getLinum() {
@@ -41,11 +41,11 @@ public class SanhuLicenseDTO {
 	public void setLipath(String lipath) {
 		this.lipath = lipath;
 	}
-	public String getLicoode() {
-		return licoode;
+	public String getlicode() {
+		return licode;
 	}
-	public void setLicoode(String licoode) {
-		this.licoode = licoode;
+	public void setlicode(String licode) {
+		this.licode = licode;
 	}
 	
 }

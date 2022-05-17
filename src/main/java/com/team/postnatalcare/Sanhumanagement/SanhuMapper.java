@@ -8,5 +8,5 @@ public interface SanhuMapper {
 
 	public ArrayList<UserDTO> jobsearch(String job);
 	public void sanhujorisave(int usernum, String sanhurecord, String content);
-	
+	public SanhujoriDTO Sanhujoriout(int usernum);
 }

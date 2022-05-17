@@ -55,7 +55,10 @@
 		            <a class="nav-link active" aria-current="page" href="sanhugg">산후조리사조회</a>
 		          </li>
 		          <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="sanhulicense?num=${user.num}">산후조리사관리</a>
+		            <a class="nav-link active" aria-current="page" href="sanhulicense?num=${job.num}">산후조리사관리</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link active" aria-current="page" href="sanhutest?num=${job.num}">상세조회</a>
 		          </li>
 		        </ul>
         	</s:when>
@@ -72,7 +75,7 @@
           
           <s:forEach items="${userinfo}" var="user">
          		 <span style="color: white;" class="me-2">
-          				${user.name}&nbsp;<span>${user.job}님 환영합니다.</span>
+          				${user.name}&nbsp;<span>${user.job}님 환영합니다. 당신의 번호 - ${user.num}</span>
           	         </span>
           
  
