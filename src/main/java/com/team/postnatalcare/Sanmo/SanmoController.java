@@ -18,6 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.team.postnatalcare.Sanmo.PostnatalDTO;
 import com.team.postnatalcare.Sanmo.SanmoMapper;
+import com.team.postnatalcareMain.Mapper;
+import com.team.postnatalcareMain.UserDTO;
 
 /**
  * Handles requests for the application home page.
@@ -29,17 +31,18 @@ public class SanmoController {
 	
 	
 	@Autowired
-	SqlSession sqlSession;
+	SqlSession SanmosqlSession;
 	SanmoMapper dao;
 	public DocDTO ddto;
 	public NurDTO ndto;
 	@RequestMapping(value = "/reservation")  // 산모개인정보 페이지로 가기
-	public String reservation(HttpServletRequest request) {
+	public String reservation(HttpServletRequest request,Model mo) {
 	//	int num = Integer.parseInt(request.getParameter("num"));
-	//	dao = sqlSession.getMapper(SanmoMapper.class);
-	//	ArrayList<UserDTO> insert = dao.insert(num);
-	//	HttpSession hs = request.getSession(true);
-		return "reservation";
+		String name = request.getParameter("name");
+		dao = SanmosqlSession.getMapper(SanmoMapper.class);
+		ArrayList<UserDTO> list = dao.test(name);
+		mo.addAttribute("list", list);
+		return "reservation"; 
 	}
 	
 	@RequestMapping(value = "/reservationlist")  // 산모예약 페이지로 가기
@@ -49,7 +52,7 @@ public class SanmoController {
 		String name = request.getParameter("name");
 		String docname = request.getParameter("docname");
 		String nurname = request.getParameter("nurname");
-		dao = sqlSession.getMapper(SanmoMapper.class);
+		dao = SanmosqlSession.getMapper(SanmoMapper.class);
 		dao.user(name);
 		dao.doc(docname);
 		dao.nur(nurname);

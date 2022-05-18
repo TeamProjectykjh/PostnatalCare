@@ -15,5 +15,6 @@ public interface Mapper {
 	public ArrayList<UserDTO> userinfo();
 	public void unable(int num);
 	public void enable(int num);
-
+	
+	
 }

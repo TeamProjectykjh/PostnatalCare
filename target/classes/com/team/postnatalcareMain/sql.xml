@@ -42,4 +42,5 @@
 	<update id="enable">
 		update pos_user set state=1 where num = #{param1}
 	</update>
+	
 </mapper>

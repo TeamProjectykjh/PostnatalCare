@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>     
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,10 +26,11 @@
 
 	                  <div align="center" class="h6 fw-bold mb-0">산모개인정보등록</div>
 	                  
-	                  
 	                  <div class="form-outline mb-1">
 	                  	<label class="form-label">산모이름</label>
-	                    <input type="text" name="name" class="form-control form-control-sm"  />   
+	                  <c:forEach items="${list }" var="sanmo">
+	                    <input type="text" name="name" class="form-control form-control-sm" value="${sanmo.name }" readonly="readonly" /> 
+	                    </c:forEach>  
 	                  </div>
 	                  
 	                  <div class="form-outline mb-1">
