@@ -34,6 +34,9 @@
       <put-attribute name="body" value="/WEB-INF/views/sanhujori/sanhujorisave.jsp" />
    </definition>
    
+   <definition name="sanhutest" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/sanhujori/sanhutest.jsp" />
+   </definition>
    <!-- Sanhu 진현 작업 끝 -->
    
    
@@ -64,8 +67,8 @@
    
    
    <!-- doctor -->
-   <definition name="testdoctor" extends="baseLayout">   
-      <put-attribute name="body" value="/WEB-INF/views/doctor/testdoctor.jsp" />
+   <definition name="doctorinfo" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/doctor/doctorinfo.jsp" />
    </definition>
    
  </tiles-definitions>

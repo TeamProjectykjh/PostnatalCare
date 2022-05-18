@@ -3,27 +3,29 @@ package com.team.postnatalcare.Sanhumanagement;
 public class SanhuEmployDTO {
 	
 	int employnum, posnum, sanhunum;
-	String empstartday, empendday;
+	String empstartday, empendday, empappointment;
 	
 	public SanhuEmployDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public SanhuEmployDTO(int employnum, int posnum, int sanhunum, String empstartday, String empendday) {
+	public SanhuEmployDTO(int employnum, int posnum, int sanhunum, String empstartday, String empendday,
+			String empappointment) {
 		super();
 		this.employnum = employnum;
 		this.posnum = posnum;
 		this.sanhunum = sanhunum;
 		this.empstartday = empstartday;
 		this.empendday = empendday;
+		this.empappointment = empappointment;
 	}
 
-	public int getemploynum() {
+	public int getEmploynum() {
 		return employnum;
 	}
 
-	public void setemploynum(int employnum) {
+	public void setEmploynum(int employnum) {
 		this.employnum = employnum;
 	}
 
@@ -58,7 +60,13 @@ public class SanhuEmployDTO {
 	public void setEmpendday(String empendday) {
 		this.empendday = empendday;
 	}
-	
-	
+
+	public String getEmpappointment() {
+		return empappointment;
+	}
+
+	public void setEmpappointment(String empappointment) {
+		this.empappointment = empappointment;
+	}	
 	
 }

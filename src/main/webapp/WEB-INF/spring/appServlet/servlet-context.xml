@@ -70,7 +70,6 @@
 	</beans:bean>
 	
 	
-	
 	<beans:bean id="SanmoSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource"/>
 		<beans:property name="mapperLocations" value="classpath:com/team/postnatalcare/Sanmo/*.xml"/>
@@ -79,9 +78,6 @@
 	<beans:bean id="SanmosqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		 <beans:constructor-arg index="0" ref="SanmoSqlSessionFactory"></beans:constructor-arg>
 	</beans:bean>
-	
-	
-	
 	
 	<!-- ↓Sanhumybatis↓ -->
 	<beans:bean name="SanhudataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">

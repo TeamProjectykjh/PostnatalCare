@@ -8,16 +8,27 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="sanhumakesave" method="post">
+<form action="doctorsave" method="get">
+	<div class="mb-3">
+	  <label class="form-label" style="margin-top: 3%; font-size: 25px; font-weight: bold;">${docname} 의사님 상세정보 입력</label>
+	  <input type="hidden" name="num" value="${usernum}">
+	</div>
+	<div style="margin-bottom: 3%">
+		<div class="input-group flex-nowrap">
+		  <span class="input-group-text" id="addon-wrapping">면허 이름</span>
+		  <input name="doclicensename" type="text" class="form-control" placeholder="의사면허 명을 입력해주세요." aria-label="Username" aria-describedby="addon-wrapping">
+		</div>
+		<div class="input-group flex-nowrap">
+		  <span class="input-group-text" id="addon-wrapping">면허 번호</span>
+		  <input name="docserial" type="text" class="form-control" placeholder="면허 시리얼번호를 입력해주세요." aria-label="Username" aria-describedby="addon-wrapping">
+		</div>
+	</div>
+
 <div class="mb-3">
-  <label class="form-label" style="margin-top: 3%; font-size: 40px; font-weight: bold;">산후 관리사 - ${usernum}</label>
-  <input type="hidden" name="usernum" value="${usernum}">
-</div>
-<div class="mb-3">
-<label for="sanhurecord" class="form-label" style=" font-size: 20px; font-weight: bold;">경력</label>
-<textarea class="form-control" id="sanhurecord" name="sanhurecord"></textarea>  
+<label for="sanhurecord" class="form-label" style=" font-size: 20px; font-weight: bold;">경력사항 입력</label>
+<textarea class="form-control" id="doctorcareer" name="docrecord"></textarea>  
     <script>
-      $('#sanhurecord').summernote({
+      $('#doctorcareer').summernote({
     	  toolbar: [
   		    // 글꼴 설정
   		    ['fontname', ['fontname']],
@@ -51,8 +62,8 @@
 </div>
 <br>
 <div class="mb-3">
-  <label for="content" class="form-label" style=" font-size: 20px; font-weight: bold;">자기소개</label>
-  <textarea class="form-control" id="content" name="content"></textarea>  
+  <label for="content" class="form-label" style=" font-size: 20px; font-weight: bold;">의사소개</label>
+  <textarea class="form-control" id="content" name="doctorcontent"></textarea>  
     <script>
       $('#content').summernote({
     	  toolbar: [
@@ -86,12 +97,13 @@
       });
     </script>
 </div>
+
 <div class="mb-3">
-  <label for="formFile" class="form-label" style=" font-size: 20px; font-weight: bold;">산후관리사 사진</label>
-  <input class="form-control" type="file" id="formFile">
+  <label for="formFile" class="form-label" style=" font-size: 20px; font-weight: bold;">의사 사진</label>
+  <input class="form-control" type="file" id="formFile" name="docpath">
 </div>
 <input style="margin-bottom: 8%" type="submit" value="전송" class="btn btn-success">
-<input style="margin-bottom: 8%" type="button" value="취소" onclick="location.href='sanhugg'" class="btn btn-warning">
+<input style="margin-bottom: 8%" type="button" value="취소" onclick='history.back(); return false;' class="btn btn-warning">
 </form>
 </body>
 </html>

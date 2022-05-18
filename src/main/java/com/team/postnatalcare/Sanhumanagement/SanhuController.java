@@ -48,7 +48,7 @@ public class SanhuController {
 		//사진 column, 생성인지 수정인지 구별가능한 column => 2개 column 추가
 	}
 	
-	
+	//
 	@RequestMapping(value = "/sanhulicense")
 	public String sanhulicense(HttpServletRequest request, Model mo) {		
 		HttpSession hs = request.getSession();
@@ -56,5 +56,15 @@ public class SanhuController {
 		return "sanhulicense";
 	}
 	
+	//산후관리자의 상세정보를 출력
+	@RequestMapping(value = "/sanhutest")
+	public String sanhutest(HttpServletRequest request, Model mo) {		
+		HttpSession hs = request.getSession();
+		SanhuMapper dao = SanhusqlSession.getMapper(SanhuMapper.class);
+		int num = Integer.parseInt(request.getParameter("num"));
+		SanhujoriDTO dto = dao.Sanhujoriout(num);
+		mo.addAttribute("list", dto);
+		return "sanhutest";
+	}
 	
 }

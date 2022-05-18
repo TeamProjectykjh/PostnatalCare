@@ -22,7 +22,7 @@
 			<s:when test="${job.job eq '산모'}">
 		        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 		          <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="reservation">예약</a>
+		            <a class="nav-link active" aria-current="page" href="reservation">산모개인정보</a>
 		          </li>
 		          <li class="nav-item">
 		            <a class="nav-link active" aria-current="page" href="Self-Checker">일일문진표</a>
@@ -32,7 +32,7 @@
         	<s:when test="${job.job eq '의사'}">
 		        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 		          <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="doctor">doctortest</a>
+		            <a class="nav-link active" aria-current="page" href="doctor?num=${job.num}&name=${job.name}">상세정보입력</a>
 		          </li>
 		          <li class="nav-item">
 		            <a class="nav-link active" aria-current="page" href="#">의사옵션2</a>
@@ -55,7 +55,10 @@
 		            <a class="nav-link active" aria-current="page" href="sanhugg">산후조리사조회</a>
 		          </li>
 		          <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="sanhulicense?num=${user.num}">산후조리사관리</a>
+		            <a class="nav-link active" aria-current="page" href="sanhulicense?num=${job.num}">산후조리사관리</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link active" aria-current="page" href="sanhutest?num=${job.num}">상세조회</a>
 		          </li>
 		        </ul>
         	</s:when>
