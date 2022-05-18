@@ -42,10 +42,10 @@
         	<s:when test="${job.job eq '간호사'}">
 		        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 		          <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="#">간호사옵션1</a>
+		            <a class="nav-link active" aria-current="page" href="Nurseinfo">간호사 정보 보기</a>
 		          </li>
 		          <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="#">간호사옵션2</a>
+		            <a class="nav-link active" aria-current="page" href="inputnurseinfo">간호사 정보 입력</a>
 		          </li>
 		        </ul>
         	</s:when>
