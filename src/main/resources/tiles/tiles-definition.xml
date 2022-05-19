@@ -39,6 +39,20 @@
    </definition>
    <!-- Sanhu 진현 작업 끝 -->
    
+   <!-- Nurse 병문 작업 -->
+   <definition name="calendar" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/nurse/calendar.jsp" />
+   </definition>
+   
+   <definition name="Nurseinfo" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/nurse/Nurseinfo.jsp" />
+   </definition>
+   
+   <definition name="inputnurseinfo" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/nurse/inputnurseinfo.jsp" />
+   </definition>
+   <!-- Nurse 병문 작업 -->
+   
    
    <!--login layout -->
    <definition name="loginLayout"  template="/WEB-INF/views/login/loginLayout.jsp">
