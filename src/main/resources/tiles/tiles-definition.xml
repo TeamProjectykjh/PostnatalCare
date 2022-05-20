@@ -26,16 +26,24 @@
    
    <!-- Sanhu 진현 작업 -->
    
-   <definition name="sanhugg" extends="baseLayout">   
-      <put-attribute name="body" value="/WEB-INF/views/sanhujori/sanhugg.jsp" />
+   <definition name="sanhuinfo" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/sanhujori/sanhuinfo.jsp" />
    </definition>
    
    <definition name="sanhujorisave" extends="baseLayout">   
       <put-attribute name="body" value="/WEB-INF/views/sanhujori/sanhujorisave.jsp" />
    </definition>
    
+   <definition name="sanhudetail" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/sanhujori/sanhudetail.jsp" />
+   </definition>
+   
    <definition name="sanhutest" extends="baseLayout">   
       <put-attribute name="body" value="/WEB-INF/views/sanhujori/sanhutest.jsp" />
+   </definition>
+   
+   <definition name="sanhulicense" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/sanhujori/sanhulicense.jsp" />
    </definition>
    <!-- Sanhu 진현 작업 끝 -->
    
@@ -83,6 +91,9 @@
    <!-- doctor -->
    <definition name="doctorinfo" extends="baseLayout">   
       <put-attribute name="body" value="/WEB-INF/views/doctor/doctorinfo.jsp" />
+   </definition>
+    <definition name="calendar" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/doctor/calendar.jsp" />
    </definition>
    
  </tiles-definitions>

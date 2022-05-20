@@ -1,6 +1,8 @@
 package com.team.postnatalcareMain;
 
-public class UserDTO {
+import java.io.Serializable;
+
+public class UserDTO implements Serializable{
 	
 	int num;
 	String id,password,job,name,gender,address,age;

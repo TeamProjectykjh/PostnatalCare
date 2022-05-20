@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="sanhumakesave" method="post">
+<form action="sanhumakesave" method="post" enctype="multipart/form-data">
 <div class="mb-3">
   <label class="form-label" style="margin-top: 3%; font-size: 40px; font-weight: bold;">산후 관리사 - ${usernum}</label>
   <input type="hidden" name="usernum" value="${usernum}">
@@ -87,8 +87,8 @@
     </script>
 </div>
 <div class="mb-3">
-  <label for="formFile" class="form-label" style=" font-size: 20px; font-weight: bold;">산후관리사 사진</label>
-  <input class="form-control" type="file" id="formFile">
+  <label for="imgfile" class="form-label" style=" font-size: 20px; font-weight: bold;">산후관리사 사진</label>
+  <input class="form-control" type="file" id="imgfile" name="imgfile">
 </div>
 <input style="margin-bottom: 8%" type="submit" value="전송" class="btn btn-success">
 <input style="margin-bottom: 8%" type="button" value="취소" onclick="location.href='sanhugg'" class="btn btn-warning">

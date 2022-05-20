@@ -2,44 +2,19 @@
 <!DOCTYPE mapper PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.team.postnatalcare.Sanmo.SanmoMapper">
-
- 	<!--회원 가입 -->
- 	<!--DB에서 POS_USER_SEQ생성 후 시퀀스를 num값에 활용-->
- 	<!--활용 이유PK생성 자동으로 겹치지 않는 임의의 숫자를 넣기위해1~999 -->
-	<insert id="newsign">
-		insert into pos_user (num,id,password,state,job,name,age,phone,gender,address) values(pos_user_seq.nextval,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9})
-	</insert>
-
-	<!--로그인 을위해 id와 password 둘다 DB값과 같다면 로그인 성공을 하기위한 로직이다. -->
-	<!--id와 password가 같다면 그 유저의 모든 값을 담아온다 -->
-	<select id="login" resultType="com.team.postnatalcare.Sanmo.PostnatalDTO">
-		select * from pos_user where id = #{param1} and password = #{param2}
-	</select>
 	
-	<!--로그인 후 상단바에 내정보 수정을 누르면 실행 -->
-	<!--현재 로그인 되어있는 id값을 넘겨 id에 대한 모든 정보를 가져와 내정보수정 전 눈으로 확인하게 해주는 기능을 위한 쿼리 -->
-	<select id="myinfo" resultType="com.team.postnatalcare.Sanmo.PostnatalDTO">
-		select * from pos_user where id = #{param1}
-	</select>
-	
-	<!--회원정보수정 페이지 에서 값을 변경하거나 변경하지 않고 수정완료 버튼을 눌렀을경우 실행 -->
-	<!--회원정보 를 기존의것 혹은 새로 입력받아 업데이트를 해준다 @현재 로그인한 id를 where id  -->
-	<update id="modifymyinfo">
-		update pos_user set password = #{param1},state=#{param2},job=#{param3},name=#{param4},
-		age=#{param5},phone=#{param6},gender=#{param7},address=#{param8} where id = #{param9}
-	</update>
-	
- 	<!-- 
-	<select id="insert" resultType="com.team.postnatalcareMain.UserDTO">
-		select * from pos_user where num= #{param1}
-	</select>	
-	 -->
 	 <select id="test" resultType="com.team.postnatalcareMain.UserDTO">
 		select * from pos_user where name= #{param1}
 	</select>	
+	
+	 <select id="test1" resultType="com.team.postnatalcare.Sanmo.DocDTO">
+		select * from pos_doctor
+	</select>	
+	
+	 <select id="test2" resultType="com.team.postnatalcare.Sanmo.NurDTO">
+		select * from pos_nurse
+	</select>	
  
-	 
-	 
 	<insert id="insertsave">
 		select pos_postnatal.num,pos_user.name,pos_doctor.name,pos_nurse.name,  
 		pos_postnatal.startday,pos_postnatal.endday,pos_postnatal.baby,pos_postnatal.protect,pos_postnatal.emergencyphone
