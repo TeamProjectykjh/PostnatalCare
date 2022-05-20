@@ -8,6 +8,8 @@ import com.team.postnatalcareMain.UserDTO;
 public interface SanmoMapper {
 	
 	public ArrayList<UserDTO> test(String name);
+	public ArrayList<DocDTO> test1();
+	public ArrayList<NurDTO> test2();
 	public void user(String name);
 	public void doc(String docname);
 	public void nur(String nurname);
