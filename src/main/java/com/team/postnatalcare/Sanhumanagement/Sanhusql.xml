@@ -3,15 +3,18 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.team.postnatalcare.Sanhumanagement.SanhuMapper">
 
-<!-- 유저 테이블에서 산후관리사만 조회 -->
-<select id="jobsearch" resultType="com.team.postnatalcareMain.UserDTO">
-	select * from pos_user where job = #{param1}
+<!-- 유저 테이블(name), 산후관리사(num) 조회 -->
+<select id="jobsearch" resultType="com.team.postnatalcare.Sanhumanagement.SanhuNameDTO">
+	SELECT pos_sanhujori.num, pos_user.name, pos_sanhujori.sanhupath
+	from pos_sanhujori 
+	join pos_user 
+	ON pos_sanhujori.num = pos_user.num
 </select>
 
 <!-- 산후관리사 테이블에 데이터 삽입 -->
 <!-- jobstate는 초기상태 0 (0-> 고용가능, 1-> 고용중) -->
 <insert id="sanhujorisave">
-	insert into pos_sanhujori(sanhunum, num, sanhurecord, jobstate, content) values(pos_sanhu_seq.nextval, ${param1}, '${param2}', 0, '${param3}')
+	insert into pos_sanhujori(sanhunum, num, sanhurecord, jobstate, content, sanhupath) values(pos_sanhu_seq.nextval, ${param1}, '${param2}', 0, '${param3}', '${param4}')
 </insert>
 <!-- 산후관리사 테이블에 유저테이블의 num값을 가져와 데이터 삽입 -->
 <!-- insert into pos_sanhujori(sanhunum, num, sanhurecord, jobstate, content)

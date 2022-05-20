@@ -31,7 +31,11 @@
                    value="org.springframework.web.servlet.view.tiles2.SpringBeanPreparerFactory" />
 	</beans:bean>
 	
-	
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+      <beans:property name="maxUploadSize" value="52428800"/>
+      <beans:property name="maxInMemorySize" value="1000000"/>
+      <beans:property name="defaultEncoding" value="utf-8"/>
+	</beans:bean>
 
 		<!-- viewresolver 경로/페이지.jsp 페이지는 jsp라는걸 인식해줌  -->
 	<beans:bean id="viewResolver"
