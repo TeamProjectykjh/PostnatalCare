@@ -45,8 +45,10 @@
 		            <a class="nav-link active" aria-current="page" href="Nurseinfo">간호사 정보 보기</a>
 		          </li>
 		          <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="inputnurseinfo?num=${job.num}&
-		            name=${job.name}&phone=${job.phone}">간호사 정보 입력</a>
+		            <a class="nav-link active" aria-current="page" href="inputnurseinfo?num=${job.num}&name=${job.name}&phone=${job.phone}">간호사 정보 입력</a>
+		          </li>
+		           <li class="nav-item">
+		            <a class="nav-link active" aria-current="page" href="nursetest">간호사 정보 보기(기능만 구현)</a>
 		          </li>
 		        </ul>
         	</s:when>

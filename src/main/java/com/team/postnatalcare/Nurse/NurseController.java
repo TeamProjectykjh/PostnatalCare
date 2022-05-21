@@ -1,5 +1,7 @@
 package com.team.postnatalcare.Nurse;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 
 
@@ -10,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -41,6 +44,11 @@ public class NurseController {
 		
 		return "Nurseinfo";
 	}
+	@RequestMapping(value = "/nursetest")
+	public String nurset(HttpServletRequest req){
+		
+		return "redirect:nurselista";
+	}
 	@RequestMapping(value = "/inputnurseinfo")
 	public String Nurse2(HttpServletRequest req, Model mo){
 		int num = Integer.parseInt(req.getParameter("num"));
@@ -51,8 +59,9 @@ public class NurseController {
 		mo.addAttribute("userphone", phone);
 		return "inputnurseinfo";
 	}
-	@RequestMapping(value = "/nurseinfonext")
+	@RequestMapping(value = "/nurseinfonext", method = RequestMethod.POST)
 	public String Nurse3(MultipartHttpServletRequest multi){
+		int num = Integer.parseInt(multi.getParameter("num"));
 		MultipartFile mf = multi.getFile("nurpath");
 		String nurpath = mf.getOriginalFilename();
 		int phone = Integer.parseInt(multi.getParameter("phone"));
@@ -60,12 +69,23 @@ public class NurseController {
 		String nurlicensename = multi.getParameter("nurlicensename");
 		String nurserial = multi.getParameter("nurserial");
 		String nurrecord = multi.getParameter("nurrecord");
-		String nurcontent = multi.getParameter("nurcontent");
-		
+		String nurcontent = multi.getParameter("nurcontent");		
 		NurseMapper dao = NursesqlSession.getMapper(NurseMapper.class);
-		return "Nurseinfo";
+		dao.insert(num ,nurlicensename, nurpath, nurserial, nurrecord, nurcontent, name, phone);
+		System.out.println("/ num : "+num+"/ nurlicensename : "+nurlicensename+"/ nurpath : "+nurpath+"/ nurserial : "+nurserial
+				+"/ nurrecord : "+nurrecord+"/ nurcontent : "+nurcontent+"/ name : "+name+"/ phone : "+phone);
+		return "redirect:nurselista";
 	}
 	
+	@RequestMapping(value = "/nurselista")
+	public String Nurse4(Model mo){
+		
+		NurseMapper dao = NursesqlSession.getMapper(NurseMapper.class);
+		ArrayList<NurseDTO> list = dao.select();		
+		mo.addAttribute("lista", list);
+		
+		return "nurselist";
+	}
 	
 
 }
