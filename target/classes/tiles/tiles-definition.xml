@@ -47,17 +47,17 @@
    </definition>
    <!-- Sanhu 진현 작업 끝 -->
    
-   <!-- Nurse 병문 작업 -->
-   <definition name="calendar" extends="baseLayout">   
-      <put-attribute name="body" value="/WEB-INF/views/nurse/calendar.jsp" />
-   </definition>
-   
+   <!-- Nurse 병문 작업 -->   
    <definition name="Nurseinfo" extends="baseLayout">   
       <put-attribute name="body" value="/WEB-INF/views/nurse/Nurseinfo.jsp" />
    </definition>
    
    <definition name="inputnurseinfo" extends="baseLayout">   
       <put-attribute name="body" value="/WEB-INF/views/nurse/inputnurseinfo.jsp" />
+   </definition>
+   
+   <definition name="nurselist" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/nurse/nurselist.jsp" />
    </definition>
    <!-- Nurse 병문 작업 -->
    
