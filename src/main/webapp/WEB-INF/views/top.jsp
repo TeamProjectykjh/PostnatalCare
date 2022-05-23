@@ -66,6 +66,9 @@
 		          <li class="nav-item">
 		            <a class="nav-link active" aria-current="page" href="aaaa">테스트</a>
 		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link active" aria-current="page" href="rating">후기</a>
+		          </li>
 		        </ul>
         	</s:when>
         	<s:when test="${job.job eq 'admin'}">

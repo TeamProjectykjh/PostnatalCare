@@ -93,4 +93,16 @@ public class SanhuController {
 	}
 	
 	
+	@RequestMapping(value = "/rating")
+	public String rating(HttpServletRequest request) {
+		return "rating";
+	}
+	
+	@RequestMapping(value = "/ratingsave")
+	public String ratingsave(HttpServletRequest request) {
+		float score = Float.parseFloat(request.getParameter("rating"));
+		System.out.println(score);
+		return "rating";
+	}
+	
 }
