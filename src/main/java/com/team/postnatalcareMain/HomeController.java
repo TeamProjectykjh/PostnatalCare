@@ -92,8 +92,27 @@ public class HomeController {
 			return "login";
 		}
 		else if(userinfo.get(0).state==1){
-				hs.setAttribute("userinfo", userinfo);
-				return "main";
+			int switchi = 0;
+			String sqlparam = "";
+			//동적으로 테이블 조회를 위한 String
+			int usernum = userinfo.get(0).getNum();
+			String job = userinfo.get(0).getJob();
+			//조회를 위한 유저 정보 가져오기
+			if(job.equals("산후조리사")) {
+				sqlparam = "pos_sanhujori";
+				//유저 테이블에 job이 산후조리사이면 산후조리사 테이블 조회를 위한 테이블이름 저장
+			}
+			if(sqlparam != "") {
+				//sqlparam에 값이 없다면 넘기기
+				//(추후 원하는 사람있다면 else if로 값 넣기)
+				JobDTO dto = dao.jobswitch(sqlparam, usernum);
+				if(dto != null) {
+					switchi = 1;
+				}
+			}
+			hs.setAttribute("userinfo", userinfo);
+			hs.setAttribute("switchi", switchi);
+			return "main";
 			
 //			세션에 유저 정보를 담는다 세션에 담는이유는 세션 연결이 끝나기 전까지 매번 값을 넘기지 않아도 사용이 가능해서이다.
 //			사용예시 XXX님 환영합니다.

@@ -14,7 +14,7 @@
 <!-- 산후관리사 테이블에 데이터 삽입 -->
 <!-- jobstate는 초기상태 0 (0-> 고용가능, 1-> 고용중) -->
 <insert id="sanhujorisave">
-	insert into pos_sanhujori(sanhunum, num, sanhurecord, jobstate, content, sanhupath) values(pos_sanhu_seq.nextval, ${param1}, '${param2}', 0, '${param3}', '${param4}')
+	insert into pos_sanhujori(sanhunum, num, sanhurecord, jobstate, content, sanhupath) values(pos_sanhu_seq.nextval, #{param1}, #{param2}, 0, #{param3}, #{param4})
 </insert>
 <!-- 산후관리사 테이블에 유저테이블의 num값을 가져와 데이터 삽입 -->
 <!-- insert into pos_sanhujori(sanhunum, num, sanhurecord, jobstate, content)

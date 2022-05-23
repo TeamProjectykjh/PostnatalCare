@@ -9,7 +9,7 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-		<table class="table table-striped">
+		<table class="table table-striped" style="margin-bottom: 8%">
 			<caption align="top" style="text-align: center; margin-top: 5%">가입유저 정보</caption>
 		    <thead>
 			    <tr>

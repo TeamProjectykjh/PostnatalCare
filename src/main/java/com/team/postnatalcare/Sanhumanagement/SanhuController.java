@@ -46,7 +46,6 @@ public class SanhuController {
 		SanhuMapper dao = SanhusqlSession.getMapper(SanhuMapper.class);
 		dao.sanhujorisave(usernum, sanhurecord, content, sanhupath);
 		return "redirect:index";
-		//사진 column, 생성인지 수정인지 구별가능한 column => 2개 column 추가
 	}
 
 	//산후관리사 관리 페이지 이동
@@ -111,4 +110,16 @@ public class SanhuController {
 		return "redirect:/index";
 	}
 	
+	
+	@RequestMapping(value = "/sanhumodify")
+	public String sanhumodify(HttpServletRequest request) {
+		return "sanhumodify";
+	}
+	
+	@RequestMapping(value = "/sanhumodifysave")
+	public String sanhumodifysave(HttpServletRequest request) {
+//		String ment = request.getParameter("ment");
+//		SanhuMapper dao = SanhusqlSession.getMapper(SanhuMapper.class);
+		return "redirect:/index";
+	}
 }
