@@ -28,4 +28,8 @@ values(pos_sanhu_seq.nextval, (SELECT num FROM pos_user WHERE num = #{param1}), 
 <!-- 유저테이블(num)과 산후관리사테이블(num)의 같은 부분 출력 -->
 <!-- SELECT * FROM pos_sanhujori sa inner join pos_user us ON sa.num = us.num; -->
 
+<insert id="sanhureviewsave">
+	insert into pos_review(reviewnum, employnum, posnum, sanhunum, starpoint, ment)
+	values(pos_review_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4}, #{param5})
+</insert>
 </mapper>

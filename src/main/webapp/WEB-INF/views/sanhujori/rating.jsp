@@ -78,7 +78,7 @@ fieldset, label { margin: 0; padding: 0; }
 	    <label class="half" for="starhalf"></label>
 	</fieldset>
 	<br>
-	<textarea rows="6" cols="50" name="content" placeholder="간단한 후기를 작성해주세요."></textarea>   
+	<textarea rows="6" cols="50" name="ment" placeholder="간단한 후기를 작성해주세요."></textarea>   
 	<br>
 	<input type="submit" value="작성">
 </form>

@@ -100,9 +100,15 @@ public class SanhuController {
 	
 	@RequestMapping(value = "/ratingsave")
 	public String ratingsave(HttpServletRequest request) {
-		float score = Float.parseFloat(request.getParameter("rating"));
-		System.out.println(score);
-		return "rating";
+		int employnum, posnum, sanhunum;
+		employnum = 1;
+		posnum = 1;
+		sanhunum = 1;
+		float starpoint = Float.parseFloat(request.getParameter("rating"));
+		String ment = request.getParameter("ment");
+		SanhuMapper dao = SanhusqlSession.getMapper(SanhuMapper.class);
+		dao.sanhureviewsave(employnum, posnum, sanhunum, starpoint, ment);
+		return "redirect:/index";
 	}
 	
 }
