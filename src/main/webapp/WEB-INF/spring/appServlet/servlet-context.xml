@@ -18,7 +18,7 @@
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/sanhuimg/**" location="/sanhuimg/" />
 	<resources mapping="/nurseimg/**" location="/nurseimg/" />
-
+	<resources mapping="/doctorimg/**" location="/doctorimg/" />
 	
 	 <!-- tiles설정  -->	 
  

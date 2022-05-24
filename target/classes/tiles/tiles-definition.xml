@@ -99,5 +99,8 @@
     <definition name="calendar" extends="baseLayout">   
       <put-attribute name="body" value="/WEB-INF/views/doctor/calendar.jsp" />
    </definition>
+   <definition name="doctordetail" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/doctor/doctordetail.jsp" />
+   </definition>
    
  </tiles-definitions>

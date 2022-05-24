@@ -37,6 +37,9 @@
 		          <li class="nav-item">
 		            <a class="nav-link active" aria-current="page" href="calendar">의료진 휴진일정</a>
 		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link active" aria-current="page" href="doctordetail?num=${job.num}&name=${job.name}">내 프로필 관리</a>
+		          </li>
 		        </ul>
         	</s:when>
         	<s:when test="${job.job eq '간호사'}">
