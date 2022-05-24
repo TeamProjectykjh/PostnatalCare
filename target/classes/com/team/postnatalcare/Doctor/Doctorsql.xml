@@ -11,4 +11,8 @@
 	<select id="doctordetail" resultType="com.team.postnatalcare.Doctor.DoctorDTO">
 		select * from pos_doctor where num = #{param1}
 	</select>
+	
+	<select id="docmodify" resultType="com.team.postnatalcare.Doctor.DoctorDTO">
+		select * from pos_doctor where docnum = #{param1}
+	</select>
 </mapper>

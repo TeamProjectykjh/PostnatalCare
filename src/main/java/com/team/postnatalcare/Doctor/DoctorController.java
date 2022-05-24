@@ -91,9 +91,23 @@ public class DoctorController {
 		int num = Integer.parseInt(request.getParameter("num"));
 		String name = request.getParameter("name");
 		ArrayList<DoctorDTO> list = dao.doctordetail(num);
+		mo.addAttribute("num", num);
 		mo.addAttribute("name", name);
 		mo.addAttribute("docinfo", list);
 		return "doctordetail";
+	}
+	
+	@RequestMapping(value = "/doctormodify")
+	public String doctormodify(HttpServletRequest request,Model mo) {	
+		DoctorMapper dao = DoctorsqlSession.getMapper(DoctorMapper.class);
+		//HttpSession hs = request.getSession();
+		int docnum = Integer.parseInt(request.getParameter("docnum"));
+		String name = request.getParameter("name");
+		
+		ArrayList<DoctorDTO> list = dao.docmodify(docnum);
+		mo.addAttribute("name", name);
+		mo.addAttribute("docinfo", list);
+		return "doctormodify";
 	}
 
 	

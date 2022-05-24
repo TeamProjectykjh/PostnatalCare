@@ -102,5 +102,8 @@
    <definition name="doctordetail" extends="baseLayout">   
       <put-attribute name="body" value="/WEB-INF/views/doctor/doctordetail.jsp" />
    </definition>
+   <definition name="doctormodify" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/doctor/doctormodify.jsp" />
+   </definition>
    
  </tiles-definitions>

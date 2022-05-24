@@ -9,7 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<form action="doctormodify" method="get">
 	<c:forEach items="${docinfo}" var="info">
+	<input type="hidden" name="docnum" value="${info.docnum}">
 	<div class="card border-dark mt-5" style="min-height: 300px">
 	  <div class="row g-0">
 	    <div class="col-md-4">
@@ -18,6 +20,7 @@
 	    <div class="col-md-8">
 	      <div class="card-body">
 	    	  <c:forEach items="${name}" var="name">
+	    	  <input type="hidden" name="name" value="${name}">
 	        <h5 class="card-title">${name}원장님</h5>
 	          </c:forEach>
 	        <p class="card-text">${info.doctorcontent}</p>
@@ -33,5 +36,12 @@
    </div>
 </div>
 </c:forEach>
+
+<input style="margin-bottom: 8%" type="submit" value="수정" class="btn btn-success">
+</form>
+<form action="modifypicture" method="get">
+	<input style="margin-bottom: 8%" type="submit" value="사진만변경" class="btn btn-success">
+</form>
+
 </body>
 </html>
