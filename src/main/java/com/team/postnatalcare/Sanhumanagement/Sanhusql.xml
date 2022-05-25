@@ -11,6 +11,13 @@
 	ON pos_sanhujori.num = pos_user.num
 </select>
 
+<select id="namesearch" resultType="com.team.postnatalcare.Sanhumanagement.SanhuNameDTO">
+	SELECT pos_sanhujori.num, pos_user.name, pos_sanhujori.sanhupath
+	from pos_sanhujori 
+	join pos_user 
+	ON pos_sanhujori.num = pos_user.num and pos_sanhujori.num = #{param1}
+</select>
+
 <!-- 산후관리사 테이블에 데이터 삽입 -->
 <!-- jobstate는 초기상태 0 (0-> 고용가능, 1-> 고용중) -->
 <insert id="sanhujorisave">
@@ -32,4 +39,8 @@ values(pos_sanhu_seq.nextval, (SELECT num FROM pos_user WHERE num = #{param1}), 
 	insert into pos_review(reviewnum, employnum, posnum, sanhunum, starpoint, ment)
 	values(pos_review_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4}, #{param5})
 </insert>
+
+<update id="sanhumodi">
+	update pos_sanhujori SET sanhurecord = #{param1}, content = #{param2}, sanhupath = #{param3} where sanhunum = #{param4}
+</update>
 </mapper>

@@ -5,7 +5,17 @@
 <html>
 <head>
 <style type="text/css">
-#container{	border: 0px solid #bcbcbc;	}
+html {
+height: 100%;
+}
+body {
+margin: 0;
+height: 100%;
+}
+#container{	border: 0px solid #bcbcbc;
+min-height: 100%;
+position: relative;
+padding-bottom: 19px;}
 #header{background-color: lightgreen;position: fixed;
 top:0px;height:90px;line-height: 90px }
 #body{	width:70%;text-align:center;
@@ -21,7 +31,8 @@ font-size:15px;
 color:#000000;
 border : 0px solid  #bcbcbc;
 background-color: #212529;
-position: fixed;
+    position: absolute;
+    transform: translatY(-100%);
 bottom : 0;
 text-align: center;
 color: white;
@@ -41,7 +52,6 @@ color: white;
 			<div id="footer">
 				<tiles:insertAttribute name="footer"/> 
 			</div>
-
 	</div>
 </body>
 </html>

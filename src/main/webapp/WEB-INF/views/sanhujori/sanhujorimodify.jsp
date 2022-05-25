@@ -4,18 +4,37 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script>
+// 이미지 업로드
+function PreviewImage() {
+       // 파일리더 생성 
+       var preview = new FileReader();
+       preview.onload = function (e) {
+       // img id 값 
+       document.getElementById("preview").src = e.target.result;
+   };
+   // input id 값 
+   preview.readAsDataURL(document.getElementById("imgfile").files[0]);
+};
+</script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <form action="sanhumodifysave" method="post" enctype="multipart/form-data">
 <div class="mb-3">
-  <label class="form-label" style="margin-top: 3%; font-size: 40px; font-weight: bold;">산후 관리사 - ${usernum}</label>
-  <input type="hidden" name="usernum" value="${usernum}">
+  <label class="form-label" style="margin-top: 3%; font-size: 40px; font-weight: bold;">산후 관리사 - ${list.sanhunum}</label>
+  <input type="hidden" name="sanhunum" value="${list.sanhunum}">
+  <input type="hidden" name="imgdefault" value="${list.sanhupath}">
+</div>
+<div class="mb-3">
+  <label for="imgfile" class="form-label" style=" font-size: 20px; font-weight: bold;">${name.name}</label><br>
+  <label for="imgfile"><img src="sanhuimg/${list.sanhupath }" id="preview" height="400px" width="300px" class="img-thumbnail"></label>
+  <input type="file" id="imgfile" name="imgfile" style="display:none" onchange="PreviewImage();">
 </div>
 <div class="mb-3">
 <label for="sanhurecord" class="form-label" style=" font-size: 20px; font-weight: bold;">경력</label>
-<textarea class="form-control" id="sanhurecord" name="sanhurecord"></textarea>  
+<textarea class="form-control" id="sanhurecord" name="sanhurecord">${list.sanhurecord}</textarea>  
     <script>
       $('#sanhurecord').summernote({
     	  toolbar: [
@@ -52,7 +71,7 @@
 <br>
 <div class="mb-3">
   <label for="content" class="form-label" style=" font-size: 20px; font-weight: bold;">자기소개</label>
-  <textarea class="form-control" id="content" name="content"></textarea>  
+  <textarea class="form-control" id="content" name="content">${list.content}</textarea>  
     <script>
       $('#content').summernote({
     	  toolbar: [
@@ -86,12 +105,8 @@
       });
     </script>
 </div>
-<div class="mb-3">
-  <label for="imgfile" class="form-label" style=" font-size: 20px; font-weight: bold;">산후관리사 사진</label>
-  <input class="form-control" type="file" id="imgfile" name="imgfile">
-</div>
-<input style="margin-bottom: 8%" type="submit" value="전송" class="btn btn-success">
-<input style="margin-bottom: 8%" type="button" value="취소" onclick="location.href='sanhugg'" class="btn btn-warning">
+<input style="margin-bottom: 8%" type="submit" value="전송" class="btn btn-success" onclick="if(!confirm('정말 수정하시겠습니까?')) return false">
+<input style="margin-bottom: 8%" type="button" value="취소" onclick="location.href='index'" class="btn btn-warning">
 </form>
 </body>
 </html>
