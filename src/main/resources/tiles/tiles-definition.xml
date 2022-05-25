@@ -49,6 +49,14 @@
    <definition name="rating" extends="baseLayout">   
       <put-attribute name="body" value="/WEB-INF/views/sanhujori/rating.jsp" />
    </definition>
+   
+   <definition name="sanhujorimodify" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/sanhujori/sanhujorimodify.jsp" />
+   </definition>
+   
+   <definition name="sanhuchoice" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/sanhujori/sanhuchoice.jsp" />
+   </definition>
    <!-- Sanhu 진현 작업 끝 -->
    
    <!-- Nurse 병문 작업 -->   

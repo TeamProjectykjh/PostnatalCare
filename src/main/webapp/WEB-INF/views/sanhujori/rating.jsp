@@ -69,7 +69,7 @@ fieldset, label { margin: 0; padding: 0; }
 	    <label class = "full" for="star2"></label>
 	    
 	    <input type="radio" id="star1half" name="rating" value="1.5" />
-	    <label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+	    <label class="half" for="star1half"></label>
 	    
 	    <input type="radio" id="star1" name="rating" value="1" />
 	    <label class = "full" for="star1"></label>

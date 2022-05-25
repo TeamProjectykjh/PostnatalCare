@@ -28,9 +28,9 @@ public class SanhuController {
 		MultipartFile mf = multi.getFile("imgfile");
 		String sanhupath = mf.getOriginalFilename();
 		try(
-				FileOutputStream fos = new FileOutputStream("/PostnatalCare/src/main/webapp/sanhuimg/" + sanhupath);
+				FileOutputStream fos = new FileOutputStream("C:/JAVA/Spring/PostnatalCare/src/main/webapp/sanhuimg/" + sanhupath);
 			    InputStream is = mf.getInputStream();
-			    ){
+				){
 			      int readCount = 0;
 			      byte[] buffer = new byte[1024];
 			      while((readCount = is.read(buffer)) != -1){
@@ -38,8 +38,7 @@ public class SanhuController {
 			    }
 			    }catch(Exception ex){
 			      throw new RuntimeException("file Save Error");
-			}
-
+			    }
 		int usernum = Integer.parseInt(request.getParameter("usernum"));
 		String sanhurecord = request.getParameter("sanhurecord");
 		String content = request.getParameter("content");
@@ -53,8 +52,7 @@ public class SanhuController {
 	public String sanhugg(HttpServletRequest request, Model mo) {		
 		SanhuMapper dao = SanhusqlSession.getMapper(SanhuMapper.class);
 		//HttpSession hs = request.getSession();
-		String job = "산후조리사";
-		ArrayList<SanhuNameDTO> list = dao.jobsearch(job);
+		ArrayList<SanhuNameDTO> list = dao.jobsearch();
 		mo.addAttribute("list", list);
 		return "sanhuinfo";
 	}
@@ -112,14 +110,40 @@ public class SanhuController {
 	
 	
 	@RequestMapping(value = "/sanhumodify")
-	public String sanhumodify(HttpServletRequest request) {
-		return "sanhumodify";
+	public String sanhumodify(HttpServletRequest request, Model mo) {	
+		HttpSession hs = request.getSession();
+		SanhuMapper dao = SanhusqlSession.getMapper(SanhuMapper.class);
+		int num = (int)hs.getAttribute("num");
+		SanhujoriDTO dto = dao.Sanhujoriout(num);
+		SanhuNameDTO name = dao.namesearch(num);
+		mo.addAttribute("list", dto);
+		mo.addAttribute("name", name);
+		return "sanhujorimodify";
 	}
 	
 	@RequestMapping(value = "/sanhumodifysave")
-	public String sanhumodifysave(HttpServletRequest request) {
-//		String ment = request.getParameter("ment");
-//		SanhuMapper dao = SanhusqlSession.getMapper(SanhuMapper.class);
-		return "redirect:/index";
+	public String sanhumodifysave(HttpServletRequest request, MultipartHttpServletRequest multi) {
+		SanhuMapper dao = SanhusqlSession.getMapper(SanhuMapper.class);
+		String content = request.getParameter("content");
+		int sanhunum = Integer.parseInt(request.getParameter("sanhunum"));
+		String sanhurecord = request.getParameter("sanhurecord");
+		MultipartFile mf = multi.getFile("imgfile");
+		String sanhupath = mf.getOriginalFilename();
+		if(sanhupath.equals("")) {
+			sanhupath = request.getParameter("imgdefault");
+		}
+		System.out.println(sanhupath);
+		dao.sanhumodi(sanhurecord, content, sanhupath, sanhunum);
+		return "redirect:index";
+	}
+	
+	@RequestMapping(value = "/sanhuchoice")
+	public String sanhuchoice(HttpServletRequest request, Model mo) {
+		SanhuMapper dao = SanhusqlSession.getMapper(SanhuMapper.class);
+		HttpSession hs = request.getSession();
+		int num = (int)hs.getAttribute("num");
+		SanhuNameDTO name = dao.namesearch(num);
+		mo.addAttribute("name", name);
+		return "sanhuchoice";
 	}
 }

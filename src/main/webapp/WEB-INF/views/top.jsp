@@ -65,10 +65,7 @@
 		        	</s:when>
 		        	<s:otherwise>
 						<li class="nav-item">						
-							<a class="nav-link active" aria-current="page" href="sanhumodify?num=${job.num}">산후조리사정보수정</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="sanhulicense?num=${job.num}">자격증등록</a>
+							<a class="nav-link active" aria-current="page" href="sanhuchoice">산후조리사정보수정</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link active" aria-current="page" href="sanhuinfo">상세조회</a>
