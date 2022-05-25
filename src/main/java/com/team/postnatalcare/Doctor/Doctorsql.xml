@@ -6,4 +6,13 @@
 	<insert id="doctorsave">
 		insert into pos_doctor(docnum, num, doclicensename, docpath, docserial, docrecord, doctorcontent) values(pos_doctor_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6})
 	</insert>
+	
+		
+	<select id="doctordetail" resultType="com.team.postnatalcare.Doctor.DoctorDTO">
+		select * from pos_doctor where num = #{param1}
+	</select>
+	
+	<select id="docmodify" resultType="com.team.postnatalcare.Doctor.DoctorDTO">
+		select * from pos_doctor where docnum = #{param1}
+	</select>
 </mapper>

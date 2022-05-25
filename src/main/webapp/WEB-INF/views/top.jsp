@@ -37,6 +37,9 @@
 		          <li class="nav-item">
 		            <a class="nav-link active" aria-current="page" href="calendar">의료진 휴진일정</a>
 		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link active" aria-current="page" href="doctordetail?num=${job.num}&name=${job.name}">내 프로필 관리</a>
+		          </li>
 		        </ul>
         	</s:when>
         	<s:when test="${job.job eq '간호사'}">
@@ -54,20 +57,32 @@
         	</s:when>
         	<s:when test="${job.job eq '산후조리사'}">
 		        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-		          <li class="nav-item">						
-		            <a class="nav-link active" aria-current="page" href="sanhujoriinput?num=${job.num}">산후조리사정보입력</a>
-		          </li>
-		          <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="sanhulicense?num=${job.num}">자격증등록</a>
-		          </li>
-		          <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="sanhuinfo">상세조회</a>
-		          </li>
-		          <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="aaaa">테스트</a>
-		          </li>
-		        </ul>
-        	</s:when>
+		        <s:choose>
+		        	<s:when test="${switchi eq 0}">
+			        	<li class="nav-item">						
+			            	<a class="nav-link active" aria-current="page" href="sanhujoriinput?num=${job.num}">산후조리사정보입력</a>
+			         	</li>
+		        	</s:when>
+		        	<s:otherwise>
+						<li class="nav-item">						
+							<a class="nav-link active" aria-current="page" href="sanhumodify?num=${job.num}">산후조리사정보수정</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="sanhulicense?num=${job.num}">자격증등록</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="sanhuinfo">상세조회</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="aaaa">테스트</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="rating">후기</a>
+						</li>
+					</s:otherwise>
+				</s:choose>
+				</ul>
+			</s:when>
         	<s:when test="${job.job eq 'admin'}">
 		        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 		          <li class="nav-item">

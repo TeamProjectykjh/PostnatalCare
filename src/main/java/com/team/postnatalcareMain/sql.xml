@@ -43,4 +43,9 @@
 		update pos_user set state=1 where num = #{param1}
 	</update>
 	
+	<!-- ${param1} = 동적테이블 조회 -->
+	<select id="jobswitch" resultType="com.team.postnatalcareMain.JobDTO">
+		select num from ${param1} where num = #{param2}
+	</select>
+	
 </mapper>

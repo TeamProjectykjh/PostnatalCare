@@ -16,5 +16,7 @@ public interface Mapper {
 	public void unable(int num);
 	public void enable(int num);
 	
+	//입력인지 수정인지 구분
+	public JobDTO jobswitch(String job, int usernum);
 	
 }

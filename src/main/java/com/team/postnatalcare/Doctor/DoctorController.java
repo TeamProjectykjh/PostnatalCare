@@ -1,6 +1,9 @@
 package com.team.postnatalcare.Doctor;
 
 
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -20,6 +23,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.team.postnatalcare.Sanhumanagement.SanhuMapper;
 
@@ -46,10 +51,24 @@ public class DoctorController {
 	}
 	
 	@RequestMapping(value = "/doctorsave")
-	public String doctorsave(HttpServletRequest request, Model mo) {		
+	public String doctorsave(HttpServletRequest request, Model mo,MultipartHttpServletRequest mp) {		
+		MultipartFile mf = mp.getFile("docpath");
+		String docpath = mf.getOriginalFilename();
+		try(
+				FileOutputStream fos = new FileOutputStream("/PostnatalCare/src/main/webapp/doctorimg/" + docpath);
+			    InputStream is = mf.getInputStream();
+			    ){
+			      int readCount = 0;
+			      byte[] buffer = new byte[1024];
+			      while((readCount = is.read(buffer)) != -1){
+			      fos.write(buffer,0,readCount);
+			    }
+			    }catch(Exception ex){
+			      throw new RuntimeException("file Save Error");
+			}
 		int num = Integer.parseInt(request.getParameter("num"));
 		String doclicensename = request.getParameter("doclicensename");
-		String docpath = request.getParameter("docpath");
+		
 		int docserial = Integer.parseInt(request.getParameter("docserial"));
 		String docrecord = request.getParameter("docrecord");
 		String doctorcontent = request.getParameter("doctorcontent");
@@ -57,7 +76,6 @@ public class DoctorController {
 		System.out.println("num:"+num+" doclicensename:"+doclicensename+" docserial:"+docserial+" docrecord:"+docrecord+" doctorcontent:"+doctorcontent);
 		dao.doctorsave(num, doclicensename,docpath, docserial, docrecord, doctorcontent);
 		return "redirect:index";
-		//사진 column, 생성인지 수정인지 구별가능한 column => 2개 column 추가
 	}
 	
 	@RequestMapping(value = "/calendar")
@@ -66,7 +84,31 @@ public class DoctorController {
 		return "calendar";
 	}
 
+	@RequestMapping(value = "/doctordetail")
+	public String doctordetail(HttpServletRequest request,Model mo) {	
+		DoctorMapper dao = DoctorsqlSession.getMapper(DoctorMapper.class);
+		//HttpSession hs = request.getSession();
+		int num = Integer.parseInt(request.getParameter("num"));
+		String name = request.getParameter("name");
+		ArrayList<DoctorDTO> list = dao.doctordetail(num);
+		mo.addAttribute("num", num);
+		mo.addAttribute("name", name);
+		mo.addAttribute("docinfo", list);
+		return "doctordetail";
+	}
 	
+	@RequestMapping(value = "/doctormodify")
+	public String doctormodify(HttpServletRequest request,Model mo) {	
+		DoctorMapper dao = DoctorsqlSession.getMapper(DoctorMapper.class);
+		//HttpSession hs = request.getSession();
+		int docnum = Integer.parseInt(request.getParameter("docnum"));
+		String name = request.getParameter("name");
+		
+		ArrayList<DoctorDTO> list = dao.docmodify(docnum);
+		mo.addAttribute("name", name);
+		mo.addAttribute("docinfo", list);
+		return "doctormodify";
+	}
 
 	
 }

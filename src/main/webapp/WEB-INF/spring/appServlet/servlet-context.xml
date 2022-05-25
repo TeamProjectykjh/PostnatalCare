@@ -18,7 +18,7 @@
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/sanhuimg/**" location="/sanhuimg/" />
 	<resources mapping="/nurseimg/**" location="/nurseimg/" />
-
+	<resources mapping="/doctorimg/**" location="/doctorimg/" />
 	
 	 <!-- tiles설정  -->	 
  
@@ -67,14 +67,6 @@
 	
 	<!-- sanmomybatis -->
 	
-	<beans:bean name="SanmodataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-			<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-			<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-			<beans:property name="username" value="ezen"/>
-			<beans:property name="password" value="ez311"/>
-	</beans:bean>
-	
-	
 	<beans:bean id="SanmoSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource"/>
 		<beans:property name="mapperLocations" value="classpath:com/team/postnatalcare/Sanmo/*.xml"/>
@@ -85,12 +77,6 @@
 	</beans:bean>
 	
 	<!-- ↓Sanhumybatis↓ -->
-	<beans:bean name="SanhudataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-			<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-			<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-			<beans:property name="username" value="ezen"/>
-			<beans:property name="password" value="ez311"/>			
-	</beans:bean>
 	
 	<beans:bean id="SanhuSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource"/>
@@ -103,12 +89,6 @@
 	<!-- ↑Sanhumybatis↑ -->
 	
 	<!-- Nurse Mybatis -->
-	<beans:bean name="NursedataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-			<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-			<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-			<beans:property name="username" value="ezen"/>
-			<beans:property name="password" value="ez311"/>			
-	</beans:bean>
 	
 	<beans:bean id="NurseSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource"/>
@@ -119,14 +99,6 @@
 		 <beans:constructor-arg index="0" ref="NurseSqlSessionFactory"></beans:constructor-arg>
 	</beans:bean>
 	<!-- Nurse Mybatis -->
-	
-	
-	<beans:bean name="DoctordataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-			<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-			<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-			<beans:property name="username" value="ezen"/>
-			<beans:property name="password" value="ez311"/>			
-	</beans:bean>
 	
 	<beans:bean id="DoctorSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource"/>

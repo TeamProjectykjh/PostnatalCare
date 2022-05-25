@@ -45,6 +45,10 @@
    <definition name="sanhulicense" extends="baseLayout">   
       <put-attribute name="body" value="/WEB-INF/views/sanhujori/sanhulicense.jsp" />
    </definition>
+   
+   <definition name="rating" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/sanhujori/rating.jsp" />
+   </definition>
    <!-- Sanhu 진현 작업 끝 -->
    
    <!-- Nurse 병문 작업 -->   
@@ -94,6 +98,12 @@
    </definition>
     <definition name="calendar" extends="baseLayout">   
       <put-attribute name="body" value="/WEB-INF/views/doctor/calendar.jsp" />
+   </definition>
+   <definition name="doctordetail" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/doctor/doctordetail.jsp" />
+   </definition>
+   <definition name="doctormodify" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/doctor/doctormodify.jsp" />
    </definition>
    
  </tiles-definitions>

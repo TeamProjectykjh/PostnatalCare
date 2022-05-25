@@ -28,7 +28,7 @@ public class SanhuController {
 		MultipartFile mf = multi.getFile("imgfile");
 		String sanhupath = mf.getOriginalFilename();
 		try(
-				FileOutputStream fos = new FileOutputStream("c:/JAVA/Spring/PostnatalCare/src/main/webapp/sanhuimg/" + sanhupath);
+				FileOutputStream fos = new FileOutputStream("/PostnatalCare/src/main/webapp/sanhuimg/" + sanhupath);
 			    InputStream is = mf.getInputStream();
 			    ){
 			      int readCount = 0;
@@ -46,7 +46,6 @@ public class SanhuController {
 		SanhuMapper dao = SanhusqlSession.getMapper(SanhuMapper.class);
 		dao.sanhujorisave(usernum, sanhurecord, content, sanhupath);
 		return "redirect:index";
-		//사진 column, 생성인지 수정인지 구별가능한 column => 2개 column 추가
 	}
 
 	//산후관리사 관리 페이지 이동
@@ -93,4 +92,34 @@ public class SanhuController {
 	}
 	
 	
+	@RequestMapping(value = "/rating")
+	public String rating(HttpServletRequest request) {
+		return "rating";
+	}
+	
+	@RequestMapping(value = "/ratingsave")
+	public String ratingsave(HttpServletRequest request) {
+		int employnum, posnum, sanhunum;
+		employnum = 1;
+		posnum = 1;
+		sanhunum = 1;
+		float starpoint = Float.parseFloat(request.getParameter("rating"));
+		String ment = request.getParameter("ment");
+		SanhuMapper dao = SanhusqlSession.getMapper(SanhuMapper.class);
+		dao.sanhureviewsave(employnum, posnum, sanhunum, starpoint, ment);
+		return "redirect:/index";
+	}
+	
+	
+	@RequestMapping(value = "/sanhumodify")
+	public String sanhumodify(HttpServletRequest request) {
+		return "sanhumodify";
+	}
+	
+	@RequestMapping(value = "/sanhumodifysave")
+	public String sanhumodifysave(HttpServletRequest request) {
+//		String ment = request.getParameter("ment");
+//		SanhuMapper dao = SanhusqlSession.getMapper(SanhuMapper.class);
+		return "redirect:/index";
+	}
 }

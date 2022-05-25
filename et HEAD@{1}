@@ -1,0 +1,39 @@
+[33m8e4059d[m[33m ([m[1;36mHEAD -> [m[1;32mjang[m[33m, [m[1;31morigin/jang[m[33m)[m HEAD@{0}: commit: 신규 가입자인지 확인
+[33m76702a0[m HEAD@{1}: commit: 후기남기기test
+[33mafc0d36[m HEAD@{2}: commit: 후기초기작업
+[33m4c7870b[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{3}: pull origin main: Fast-forward
+[33m95a322d[m HEAD@{4}: reset: moving to HEAD
+[33m95a322d[m HEAD@{5}: commit: 이미지 파일 업로드
+[33m19d9161[m[33m ([m[1;31morigin/tae[m[33m)[m HEAD@{6}: reset: moving to HEAD^
+[33me432cba[m HEAD@{7}: commit: 이미지 파일 업로드
+[33m19d9161[m[33m ([m[1;31morigin/tae[m[33m)[m HEAD@{8}: reset: moving to HEAD^
+[33m12b0b88[m HEAD@{9}: commit: 이미지 파일 업로드
+[33m19d9161[m[33m ([m[1;31morigin/tae[m[33m)[m HEAD@{10}: pull origin tae: Fast-forward
+[33m8d6ffca[m HEAD@{11}: reset: moving to HEAD
+[33m8d6ffca[m HEAD@{12}: pull origin main: Fast-forward
+[33me6ff269[m[33m ([m[1;31morigin/yjt[m[33m)[m HEAD@{13}: reset: moving to HEAD
+[33me6ff269[m[33m ([m[1;31morigin/yjt[m[33m)[m HEAD@{14}: reset: moving to HEAD^
+[33ma99fcad[m HEAD@{15}: commit: 산후관리사 상세조회
+[33me6ff269[m[33m ([m[1;31morigin/yjt[m[33m)[m HEAD@{16}: merge refs/remotes/origin/yjt: Fast-forward
+[33me12ecd4[m HEAD@{17}: reset: moving to HEAD@{4}
+[33m0a2874c[m HEAD@{18}: pull origin tae: Merge made by the 'ort' strategy.
+[33meb6ff9a[m HEAD@{19}: reset: moving to HEAD@{1}
+[33mb07b8d7[m HEAD@{20}: merge refs/remotes/origin/jang: Merge made by recursive.
+[33meb6ff9a[m HEAD@{21}: commit (amend): summernote 활성화
+[33me12ecd4[m HEAD@{22}: commit: summernote 홯성화
+[33m149c81f[m HEAD@{23}: reset: moving to HEAD@{7}
+[33mdee4bda[m HEAD@{24}: commit: summernot 활성화
+[33m149c81f[m HEAD@{25}: reset: moving to HEAD@{5}
+[33ma900abc[m HEAD@{26}: commit (amend): summernote 활성화
+[33m772ea3f[m HEAD@{27}: commit (amend): summernote 활성화
+[33m8ef7821[m HEAD@{28}: commit: summernote 활성화
+[33m149c81f[m HEAD@{29}: reset: moving to HEAD@{1}
+[33m2f049f8[m HEAD@{30}: commit: summernote 활성화
+[33m149c81f[m HEAD@{31}: pull origin tae: Fast-forward
+[33mb7c08d8[m HEAD@{32}: reset: moving to HEAD
+[33mb7c08d8[m HEAD@{33}: pull origin main: Fast-forward
+[33m4a970e3[m[33m ([m[1;32mmain[m[33m)[m HEAD@{34}: reset: moving to HEAD
+[33m4a970e3[m[33m ([m[1;32mmain[m[33m)[m HEAD@{35}: pull origin main: Fast-forward
+[33mee326ec[m HEAD@{36}: checkout: moving from main to jang
+[33m4a970e3[m[33m ([m[1;32mmain[m[33m)[m HEAD@{37}: reset: moving to origin/main
+[33m4a970e3[m[33m ([m[1;32mmain[m[33m)[m HEAD@{38}: clone: from https://github.com/TeamProjectykjh/PostnatalCare
