@@ -9,7 +9,7 @@
 		</head>
 
 		<body>
-			<form action="doctorsave" method="get">
+			<form action="doctorsave" method="post" enctype="multipart/form-data">
 				<div class="mb-3">
 					<label class="form-label" style="margin-top: 3%; font-size: 25px; font-weight: bold;">${docname} 의사님
 						상세정보 입력</label>

@@ -39,9 +39,6 @@
 
 <input style="margin-bottom: 8%" type="submit" value="수정" class="btn btn-success">
 </form>
-<form action="modifypicture" method="get">
-	<input style="margin-bottom: 8%" type="submit" value="사진만변경" class="btn btn-success">
-</form>
 
 </body>
 </html>

@@ -55,7 +55,10 @@ public class HomeController {
       //조회를 위한 유저 정보 가져오기
       if(job.equals("산후조리사")) {
          sqlparam = "pos_sanhujori";
+         
          //유저 테이블에 job이 산후조리사이면 산후조리사 테이블 조회를 위한 테이블이름 저장
+      }else if(job.equals("의사")){
+    	  sqlparam = "pos_doctor";
       }
       if(sqlparam != "") {
          //sqlparam에 값이 없다면 넘기기
