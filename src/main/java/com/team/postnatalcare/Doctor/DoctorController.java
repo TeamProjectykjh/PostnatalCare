@@ -139,4 +139,11 @@ public class DoctorController {
 		return "redirect:index";
 	}
 	
+	@RequestMapping(value = "/doctorlist")
+	public String doctorlist(Model mo) {	
+		DoctorMapper dao = DoctorsqlSession.getMapper(DoctorMapper.class);
+		ArrayList<DoctorlistDTO> list = dao.doctorlist();
+		mo.addAttribute("doclist", list);
+		return "doctorlist";
+	}
 }
