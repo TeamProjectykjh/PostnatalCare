@@ -8,18 +8,31 @@
 			<meta charset="UTF-8">
 			<title>Insert title here</title>
 		</head>
-
+		<script>
+			// 이미지 업로드
+			function PreviewImage() {
+			       // 파일리더 생성 
+			       var preview = new FileReader();
+			       preview.onload = function (e) {
+			       // img id 값 
+			       document.getElementById("preview").src = e.target.result;
+			   };
+			   // input id 값 
+			   preview.readAsDataURL(document.getElementById("imgfile").files[0]);
+			};
+		</script>
 		<body>
-			<form action="doctorsave" method="get">
+			<form action="docmodifysave" method="post" enctype="multipart/form-data">
 				<c:forEach items="${docinfo}" var="doc">
+				<label class="form-label" style="margin-top: 3%; font-size: 25px; font-weight: bold;">${name} 의사님
+						프로필 수정</label>
+				<div class="mb-3">  
+				  <label for="imgfile"><img src="doctorimg/${doc.docpath }" id="preview" height="400px" width="300px" class="img-thumbnail"></label>
+				  <input type="file" id="imgfile" name="imgfile" style="display:none" onchange="PreviewImage();">
+				</div>
 				<div class="mb-3">
-				<c:forEach items="${name}" var="name">
-					<label class="form-label" style="margin-top: 3%; font-size: 25px; font-weight: bold;">${name} 의사님
-						상세정보 입력</label>
-						</c:forEach>
-					<c:forEach items="${docnum}" var="docnum">
-					<input type="hidden" name="docnum" value="${docnum}">
-					</c:forEach>
+					<input type="hidden" name="docnum" value="${doc.docnum}">
+ 					
 				</div>
 				<div style="margin-bottom: 3%">
 					<div class="input-group flex-nowrap">
