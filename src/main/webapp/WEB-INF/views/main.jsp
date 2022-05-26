@@ -100,38 +100,38 @@
 			<div class="row g-4 mb-5">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
                     <a style="text-decoration-line: none;" class="service-item d-block rounded text-center h-100 p-4" href="">
-                        <img class="img-fluid rounded mb-4" src="https://technext.github.io/dgcom/img/service-1.jpg" alt="">
-                        <h4 style="color: black" class="mb-0">옵션1</h4>
+                        <img style="object-fit: cover; height: 70%;" class="img-fluid rounded mb-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1s-O8GtdOTLMs5y1LX9Z7k9q1pmCCuUP_5w&usqp=CAU" alt="">
+                        <h4 style="color: black" class="mb-0">의사 소개</h4>
                     </a>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
                     <a style="text-decoration-line: none;" class="service-item d-block rounded text-center h-100 p-4" href="">
-                        <img class="img-fluid rounded mb-4" src="https://technext.github.io/dgcom/img/service-2.jpg" alt="">
+                        <img style="object-fit: cover; height: 70%;" class="img-fluid rounded mb-4" src="https://technext.github.io/dgcom/img/service-2.jpg" alt="">
                         <h4 style="color: black" class="mb-0">옵션2</h4>
                     </a>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
                     <a style="text-decoration-line: none;" class="service-item d-block rounded text-center h-100 p-4" href="">
-                        <img class="img-fluid rounded mb-4" src="https://technext.github.io/dgcom/img/service-3.jpg" alt="">
+                        <img style="object-fit: cover; height: 70%;" class="img-fluid rounded mb-4" src="https://technext.github.io/dgcom/img/service-3.jpg" alt="">
                         <h4 style="color: black" class="mb-0">옵션3</h4>
                     </a>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
                     <a style="text-decoration-line: none;" class="service-item d-block rounded text-center h-100 p-4" href="">
-                        <img class="img-fluid rounded mb-4" src="https://technext.github.io/dgcom/img/service-4.jpg	" alt="">
+                        <img style="object-fit: cover; height: 70%;" class="img-fluid rounded mb-4" src="https://technext.github.io/dgcom/img/service-4.jpg	" alt="">
                         <h4 style="color: black" class="mb-0">옵션옵션</h4>
                     </a>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
-                    <a style="text-decoration-line: none;" class="service-item d-block rounded text-center h-100 p-4" href="">
-                        <img class="img-fluid rounded mb-4" src="https://technext.github.io/dgcom/img/service-5.jpg" alt="">
-                        <h4 style="color: black" class="mb-0">옵션4</h4>
+                    <a style="text-decoration-line: none;" class="service-item d-block rounded text-center h-100 p-4" href="/PostnatalCare/calendar">
+                        <img style="object-fit: cover; height: 70%;" class="img-fluid rounded mb-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9xqqQ6uCjsvQFaiDtevJssxlZsb4D28Ee3g&usqp=CAU" alt="">
+                        <h4 style="color: black" class="mb-0">의료진 휴진일정</h4>
                     </a>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-                    <a style="text-decoration-line: none;" class="service-item d-block rounded text-center h-100 p-4" href="">
-                        <img class="img-fluid rounded mb-4" src="https://technext.github.io/dgcom/img/service-6.jpg" alt="">
-                        <h4 style="color: black" class="mb-0">옵션5</h4>
+                    <a style="text-decoration-line: none;" class="service-item d-block rounded text-center h-100 p-4" href="/PostnatalCare/address">
+                        <img style="object-fit: cover; height: 70%;" class="img-fluid rounded mb-4" src="https://i.pinimg.com/originals/1c/6e/da/1c6eda8a6ffb92bb7fb141b478814401.png" alt="">
+                        <h4 style="color: black;">오시는길</h4>
                     </a>
                 </div>
             </div>
