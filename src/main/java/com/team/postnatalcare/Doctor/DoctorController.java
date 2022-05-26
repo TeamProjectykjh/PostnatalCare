@@ -109,6 +109,34 @@ public class DoctorController {
 		mo.addAttribute("docinfo", list);
 		return "doctormodify";
 	}
-
+	
+	@RequestMapping(value = "/docmodifysave")
+	public String sanhumodifysave(HttpServletRequest request, MultipartHttpServletRequest multi) {
+		DoctorMapper dao = DoctorsqlSession.getMapper(DoctorMapper.class);
+		int docnum = Integer.parseInt(request.getParameter("docnum"));
+		String doclicensename = request.getParameter("doclicensename");
+		int docserial = Integer.parseInt(request.getParameter("docserial"));
+		String docrecord = request.getParameter("docrecord");
+		String doctorcontent = request.getParameter("doctorcontent");
+		MultipartFile mf = multi.getFile("imgfile");
+		String docpath = mf.getOriginalFilename();
+		try(
+				FileOutputStream fos = new FileOutputStream("/PostnatalCare/src/main/webapp/doctorimg/" + docpath);
+			    InputStream is = mf.getInputStream();
+			    ){
+			      int readCount = 0;
+			      byte[] buffer = new byte[1024];
+			      while((readCount = is.read(buffer)) != -1){
+			      fos.write(buffer,0,readCount);
+			    }
+			    }catch(Exception ex){
+			      throw new RuntimeException("file Save Error");
+			}
+		if(docpath.equals("")) {
+			docpath = request.getParameter("imgdefault");
+		}
+		dao.docmodifysave(doclicensename,docpath,docserial,docrecord,doctorcontent, docnum);
+		return "redirect:index";
+	}
 	
 }

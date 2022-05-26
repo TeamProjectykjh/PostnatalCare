@@ -8,4 +8,6 @@ public interface DoctorMapper {
 
 	public ArrayList<DoctorDTO> doctordetail(int num);
 	public ArrayList<DoctorDTO> docmodify(int docnum);
+
+	public void docmodifysave(String doclicensename,String docpath,int docserial,String docrecord,String doctorcontent, int docnum);
 }

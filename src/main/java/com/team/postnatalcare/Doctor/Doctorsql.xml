@@ -15,4 +15,8 @@
 	<select id="docmodify" resultType="com.team.postnatalcare.Doctor.DoctorDTO">
 		select * from pos_doctor where docnum = #{param1}
 	</select>
+	
+	<update id="docmodifysave">
+		update pos_doctor SET doclicensename = #{param1}, docpath = #{param2}, docserial = #{param3}, docrecord = #{param4}, doctorcontent = #{param5} where docnum = #{param6}
+	</update>
 </mapper>
