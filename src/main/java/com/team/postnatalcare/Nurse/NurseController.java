@@ -30,14 +30,8 @@ public class NurseController {
 	
 	@Autowired
 	SqlSession NursesqlSession;
-	NurseMapper dao;
+	NurseMapper dao;	
 	
-	//�ٹ�����
-	@RequestMapping(value = "/calender")
-	public String Calendar(HttpServletRequest req){
-		
-		return "calendar";
-	}
 	//CRUD
 	@RequestMapping(value = "/Nurseinfo")
 	public String Nurse1(HttpServletRequest req){
@@ -82,12 +76,18 @@ public class NurseController {
 	public String Nurse4(Model mo){
 		
 		NurseMapper dao = NursesqlSession.getMapper(NurseMapper.class);
-		ArrayList<NurseDTO> list = dao.select();
-		
+		ArrayList<NurseDTO> list = dao.select();		
 		mo.addAttribute("lista", list);
-
-		return "redirect:nurselist";
+		return "nurselist";
 	}
-	
+	@RequestMapping(value = "/deletelist")
+	public String Nurse5(HttpServletRequest req,Model mo){
+		
+		String name = req.getParameter("name");
+		NurseMapper dao = NursesqlSession.getMapper(NurseMapper.class);
+		dao.delete(name);
+		
+		return "redirect:nurselista";
+	}
 
 }

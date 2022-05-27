@@ -16,5 +16,10 @@
 		where pos_nurse.num=pos_user.num
 	</select>
 	
-	
+	<delete id="delete">
+		delete from pos_nurse.nurlicensename, pos_nurse.nurpath, pos_nurse.nurserial, 
+		pos_nurse.nurrecord,pos_nurse.nurcontent, pos_user.name, pos_user.phone 
+		from pos_nurse,pos_user
+		where pos_nurse.num=pos_user.num and name=#{param1}
+	</delete>
 </mapper>

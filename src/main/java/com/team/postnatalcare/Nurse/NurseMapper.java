@@ -9,6 +9,8 @@ public interface NurseMapper {
 			String nurserial, String nurrecord, String nurcontent, String name, int phone);
 	//출력
 	public ArrayList<NurseDTO> select();
+	//삭제
+	public void delete(String name);
 
 	
 
