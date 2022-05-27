@@ -14,6 +14,7 @@
 		<h4 style="text-align: center; padding-top: 20px;">간호사 정보 입력</h4>
 			<form action="nurseinfonext" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="num" value="${usernum }">
+			<input type="hidden" name="nurnum" >
 			    <div class="mb-3">
 			        <label class="form-label" >사진</label>
 			        <input type="file"  name="nurpath" class="form-control" placeholder="nurpath">

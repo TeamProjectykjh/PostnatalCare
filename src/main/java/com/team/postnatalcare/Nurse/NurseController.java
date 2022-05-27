@@ -30,14 +30,8 @@ public class NurseController {
 	
 	@Autowired
 	SqlSession NursesqlSession;
-	NurseMapper dao;
+	NurseMapper dao;	
 	
-	//�ٹ�����
-	@RequestMapping(value = "/calender")
-	public String Calendar(HttpServletRequest req){
-		
-		return "calendar";
-	}
 	//CRUD
 	@RequestMapping(value = "/Nurseinfo")
 	public String Nurse1(HttpServletRequest req){
@@ -62,6 +56,7 @@ public class NurseController {
 	@RequestMapping(value = "/nurseinfonext", method = RequestMethod.POST)
 	public String Nurse3(MultipartHttpServletRequest multi){
 		int num = Integer.parseInt(multi.getParameter("num"));
+		int nurnum = Integer.parseInt(multi.getParameter("nurnum"));
 		MultipartFile mf = multi.getFile("nurpath");
 		String nurpath = mf.getOriginalFilename();
 		int phone = Integer.parseInt(multi.getParameter("phone"));
@@ -71,7 +66,8 @@ public class NurseController {
 		String nurrecord = multi.getParameter("nurrecord");
 		String nurcontent = multi.getParameter("nurcontent");		
 		NurseMapper dao = NursesqlSession.getMapper(NurseMapper.class);
-		dao.insert(num ,nurlicensename, nurpath, nurserial, nurrecord, nurcontent, name, phone);
+		dao.insert(num ,nurnum, nurlicensename, nurpath, nurserial, nurrecord, nurcontent, name, phone);
+
 		System.out.println("/ num : "+num+"/ nurlicensename : "+nurlicensename+"/ nurpath : "+nurpath+"/ nurserial : "+nurserial
 				+"/ nurrecord : "+nurrecord+"/ nurcontent : "+nurcontent+"/ name : "+name+"/ phone : "+phone);
 		return "redirect:nurselista";
@@ -83,9 +79,16 @@ public class NurseController {
 		NurseMapper dao = NursesqlSession.getMapper(NurseMapper.class);
 		ArrayList<NurseDTO> list = dao.select();		
 		mo.addAttribute("lista", list);
-		
 		return "nurselist";
 	}
-	
+	@RequestMapping(value = "/deletelist")
+	public String Nurse5(HttpServletRequest req,Model mo){
+		
+		int nurnum = Integer.parseInt(req.getParameter("nurnum"));
+		NurseMapper dao = NursesqlSession.getMapper(NurseMapper.class);
+		dao.delete(nurnum);
+		
+		return "redirect:nurselista";
+	}
 
 }

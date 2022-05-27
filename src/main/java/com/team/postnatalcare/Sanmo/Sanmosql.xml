@@ -3,23 +3,60 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.team.postnatalcare.Sanmo.SanmoMapper">
 	
-	 <select id="test" resultType="com.team.postnatalcareMain.UserDTO">
-		select * from pos_user where name= #{param1}
+	 <select id="username" resultType="com.team.postnatalcareMain.UserDTO">
+		select * from pos_user where num = #{param1}
 	</select>	
 	
-	 <select id="test1" resultType="com.team.postnatalcare.Sanmo.DocDTO">
-		select * from pos_doctor
+	 <select id="docname" resultType="com.team.postnatalcare.Sanmo.DocDTO">
+		select pos_user.name,pos_doctor.num,pos_doctor.docnum from pos_user join pos_doctor on pos_user.num = pos_doctor.num
 	</select>	
 	
-	 <select id="test2" resultType="com.team.postnatalcare.Sanmo.NurDTO">
-		select * from pos_nurse
+	 <select id="nurname" resultType="com.team.postnatalcare.Sanmo.NurDTO">
+		select pos_user.name,pos_nurse.num,pos_nurse.nurnum from pos_user join pos_nurse on pos_user.num = pos_nurse.num
 	</select>	
- 
+	
 	<insert id="insertsave">
-		select pos_postnatal.num,pos_user.name,pos_doctor.name,pos_nurse.name,  
-		pos_postnatal.startday,pos_postnatal.endday,pos_postnatal.baby,pos_postnatal.protect,pos_postnatal.emergencyphone
-		from
-		pos_postnatal join pos_user join pos_doctor join pos_nurse on pos_postnatal.num = pos_user.num = pos_doctor.docnum = pos_nurse.nurnum  
-	</insert>
+ 		insert into pos_postnatal(posnum,num,docnum,nurnum,startday,endday,baby,protect,emergencyphone)
+ 		values(pos_postnatal_seq.nextval,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8})
+ 	</insert>
+		
+	 <select id="doctorname" resultType="com.team.postnatalcare.Sanmo.DocnameDTO">
+		select u.name from pos_doctor d,(select name,num from pos_user)u where d.num = u.num and d.docnum=(select docnum from pos_postnatal where num = #{param1})
+	</select>	
+	
+	 <select id="nursename" resultType="com.team.postnatalcare.Sanmo.NurnameDTO">
+	 	select u.name from pos_nurse n,(select name,num from pos_user)u where n.num = u.num and n.nurnum=(select nurnum from pos_postnatal where num = #{param1})
+	</select>
+	
+	<select id="poslist" resultType="com.team.postnatalcare.Sanmo.PostnatalDTO">
+		select * from pos_postnatal where num = #{param1}
+	</select>
+	
+	<select id="sanmonum" resultType="com.team.postnatalcare.Sanmo.PostnatalDTO">
+		select * from pos_postnatal where num = #{param1}
+	</select>
+
+	<insert id="selfsave">
+ 		insert into pos_questionnaire(qusnum,posnum,qusday,quscondition,quspain,qusdiscomfort,qustext)
+ 		values(pos_questionnaire_seq.nextval,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6})
+ 	</insert>
+ 	
+ 	<select id="userlist" resultType="com.team.postnatalcareMain.UserDTO">
+		select * from pos_user where num = #{param1}
+	</select>	
+	
+	<select id="quslist" resultType="com.team.postnatalcare.Sanmo.QuestionnaireDTO"> 
+		select p.posnum,q.qusday from POS_QUESTIONNAIRE q,(select posnum from pos_postnatal)p where q.posnum = p.posnum and q.posnum=(select posnum from pos_postnatal where num = #{param1})
+	</select>
+	
+	<select id="alllist" resultType="com.team.postnatalcare.Sanmo.QuestionnaireDTO">
+		select * from pos_questionnaire where qusnum = #{param1}	
+	</select>
+
+	<select id="sanhuname" resultType="com.team.postnatalcare.Sanmo.SanhuDTO" >
+		select u.name from pos_sanhujori s,(select name,num from pos_user)u where s.num = u.num and s.sanhunum=(select sanhunum from pos_user where num = #{param1})
+	</select>
+	
+
 </mapper>
 

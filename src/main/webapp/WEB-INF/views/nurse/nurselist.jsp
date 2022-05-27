@@ -9,7 +9,6 @@
 </head>
 	<body>
 		<table border="2"  style="width: 800px;" align="center">			
-			
 			<c:forEach items="${lista}" var="ko">
 				<tr>	
 								
@@ -45,12 +44,11 @@
 								<th>수정/삭제</th>
 								<td>
 									<a href="">Modify</a> / 
-									<a href="">Delete</a>
+									<a href="deletelist?nurnum=${ko.nurnum }">Delete</a>
 								</td>
 							</tr>							
 						</table>						
 					</td>
-					
 				</tr>
 			</c:forEach>
 		</table>

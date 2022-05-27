@@ -1,28 +1,31 @@
 package com.team.postnatalcare.Sanmo;
 
 public class PostnatalDTO {
-	int num;
+	int posnum;
 	String startday,endday;
 	String baby,protect;
 	int emergencyphone;
+	int num;
 	public PostnatalDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public PostnatalDTO(int num, String startday, String endday, String baby, String protect, int emergencyphone) {
+	public PostnatalDTO(int posnum, String startday, String endday, String baby, String protect, int emergencyphone,
+			int num) {
 		super();
-		this.num = num;
+		this.posnum = posnum;
 		this.startday = startday;
 		this.endday = endday;
 		this.baby = baby;
 		this.protect = protect;
 		this.emergencyphone = emergencyphone;
-	}
-	public int getNum() {
-		return num;
-	}
-	public void setNum(int num) {
 		this.num = num;
+	}
+	public int getPosnum() {
+		return posnum;
+	}
+	public void setPosnum(int posnum) {
+		this.posnum = posnum;
 	}
 	public String getStartday() {
 		return startday;
@@ -54,6 +57,14 @@ public class PostnatalDTO {
 	public void setEmergencyphone(int emergencyphone) {
 		this.emergencyphone = emergencyphone;
 	}
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
+	
+	
 	
 	
 }
