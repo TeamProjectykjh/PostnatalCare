@@ -31,16 +31,12 @@
 	<select id="poslist" resultType="com.team.postnatalcare.Sanmo.PostnatalDTO">
 		select * from pos_postnatal where num = #{param1}
 	</select>
-
-	<select id="self" resultType="com.team.postnatalcareMain.UserDTO">
-		select * from pos_user where num = #{param1}
-	</select>
 	
 	<select id="sanmonum" resultType="com.team.postnatalcare.Sanmo.PostnatalDTO">
 		select * from pos_postnatal where num = #{param1}
 	</select>
 
-	<insert id="que">
+	<insert id="selfsave">
  		insert into pos_questionnaire(qusnum,posnum,qusday,quscondition,quspain,qusdiscomfort,qustext)
  		values(pos_questionnaire_seq.nextval,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6})
  	</insert>
@@ -49,14 +45,17 @@
 		select * from pos_user where num = #{param1}
 	</select>	
 	
-	<select id="quslist" resultType="com.team.postnatalcare.Sanmo.QuestionnaireDTO">
-		select * from pos_questionnaire order by qusday desc
+	<select id="quslist" resultType="com.team.postnatalcare.Sanmo.QuestionnaireDTO"> 
+		select p.posnum,q.qusday from POS_QUESTIONNAIRE q,(select posnum from pos_postnatal)p where q.posnum = p.posnum and q.posnum=(select posnum from pos_postnatal where num = #{param1})
 	</select>
 	
 	<select id="alllist" resultType="com.team.postnatalcare.Sanmo.QuestionnaireDTO">
 		select * from pos_questionnaire where qusnum = #{param1}	
 	</select>
 
+	<select id="sanhuname" resultType="com.team.postnatalcare.Sanmo.SanhuDTO" >
+		select u.name from pos_sanhujori s,(select name,num from pos_user)u where s.num = u.num and s.sanhunum=(select sanhunum from pos_user where num = #{param1})
+	</select>
 	
 
 </mapper>

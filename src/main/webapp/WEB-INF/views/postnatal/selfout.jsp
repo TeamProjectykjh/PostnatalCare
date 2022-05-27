@@ -48,11 +48,11 @@
 				  <tr>
 				  		<th>작성일자</th>
 				  </tr>
-			   <c:forEach items="${qlist}" var="ql">
+			   <c:forEach items="${qlist}" var="q">
 				  <tr>
 				  		<td>
-				  			<a href="detail?qusnum=${ql.qusnum }">
-				  				${ql.qusday}
+				  			<a href="detail?qusnum=${q.qusnum }">
+				  				${q.qusday}
 				  			</a>
 				  		</td>
 				  </tr>

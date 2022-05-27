@@ -8,12 +8,13 @@ public class QuestionnaireDTO {
 	String quspain;
 	String qusdiscomfort;
 	String qustext;
+	int num;
 	public QuestionnaireDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public QuestionnaireDTO(int qusnum, int posnum, String qusday, String quscondition, String quspain,
-			String qusdiscomfort, String qustext) {
+			String qusdiscomfort, String qustext, int num) {
 		super();
 		this.qusnum = qusnum;
 		this.posnum = posnum;
@@ -22,6 +23,7 @@ public class QuestionnaireDTO {
 		this.quspain = quspain;
 		this.qusdiscomfort = qusdiscomfort;
 		this.qustext = qustext;
+		this.num = num;
 	}
 	public int getQusnum() {
 		return qusnum;
@@ -64,6 +66,12 @@ public class QuestionnaireDTO {
 	}
 	public void setQustext(String qustext) {
 		this.qustext = qustext;
+	}
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
 	}
 	
 	
