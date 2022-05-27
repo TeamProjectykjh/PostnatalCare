@@ -22,36 +22,33 @@
 	            <div class="col-md-6 col-lg-7 d-flex align-items-center">
 	              <div class="card-body p-2 p-lg-2 text-black">
 	
-	                <form action="newsign" method="get">
-
-	                  <div align="center" class="h6 fw-bold mb-0">산모개인정보등록</div>
-	                  
+                  <div align="center" class="h6 fw-bold mb-0">산모개인정보등록</div>
+	                	                  
 	                  <div class="form-outline mb-1">
 	                  	<label class="form-label">산모이름</label>
 	                  <c:forEach items="${list }" var="sanmo">
-	                    <input type="text" name="name" class="form-control form-control-sm" value="${sanmo.name }" readonly="readonly" style="text-align: center;"/> 
+	                  	<input name="num" type="hidden" value="${sanmo.num }">
+	                    <input  class="form-control form-control-sm" value="${sanmo.name }" readonly="readonly" style="text-align: center;"/> 
 	                    </c:forEach>  
 	                  </div>
 	                  
 	                  <div class="form-outline mb-1">
 	                  	<label class="form-label">담당의사</label><br>
-	                  	<select name="docname" class="form-control form-control-sm" style="text-align: center;" >
+	                  	<select name="docnum" class="form-control form-control-sm" style="text-align: center;" >
 	                  		<option value="">담당 의사 선택해 주세요</option>
 	                    	<c:forEach items="${dlist }" var="doc">
-	                    	<option class="form-control form-control-sm" value="${doc.docname}">${doc.docname}</option>
+	                    	<option class="form-control form-control-sm" value="${doc.docnum}">${doc.name}</option>
 	                    	</c:forEach>
 	                    </select>
-	                    
 	                  </div>	              
 	                  
 	                  <div class="form-outline mb-1">
 	                  	<label class="form-label">담당간호사</label><br>
-	                  	<select name="nurname" class="form-control form-control-sm" style="text-align: center;">
+	                  	<select name="nurnum" class="form-control form-control-sm" style="text-align: center;">
 	                  		<option value="">담당 간호사 선택해 주세요</option>
 	                  		<c:forEach items="${nlist }" var="nur">
-	                  		<option class="form-control form-control-sm" value="${nur.nurname}">${nur.nurname}</option>
+	                  		<option class="form-control form-control-sm" value="${nur.nurnum}">${nur.name}</option>
 	                  		</c:forEach>
-	                    	
 	                    </select>
 	                  </div>
 	                   
@@ -81,7 +78,7 @@
 	                  	  <input class="btn btn-dark mt-3" type="submit" value="작성완료">
 		                  <input class="btn btn-danger mt-3" type="reset"  value="취소">
 	                  </div>
-	                </form>
+	               
 	              </div>
 	            </div>
 	          </div>

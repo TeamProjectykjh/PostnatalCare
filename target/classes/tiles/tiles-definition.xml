@@ -20,8 +20,24 @@
       <put-attribute name="body" value="/WEB-INF/views/postnatal/reservation.jsp" />
    </definition>
    
+   <definition name="reservationlistout" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/postnatal/reservationlistout.jsp" />
+   </definition>
+   
    <definition name="Self-Checker" extends="baseLayout">   
       <put-attribute name="body" value="/WEB-INF/views/postnatal/Self-Checker.jsp" />
+   </definition>
+   
+   <definition name="selfout" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/postnatal/selfout.jsp" />
+   </definition>
+   
+   <definition name="detail" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/postnatal/detail.jsp" />
+   </definition>
+   
+   <definition name="employ" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/postnatal/employ.jsp" />
    </definition>
    
    <!-- Postnatal 국태 작업끝 -->
