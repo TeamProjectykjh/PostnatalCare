@@ -56,6 +56,7 @@ public class NurseController {
 	@RequestMapping(value = "/nurseinfonext", method = RequestMethod.POST)
 	public String Nurse3(MultipartHttpServletRequest multi){
 		int num = Integer.parseInt(multi.getParameter("num"));
+		int nurnum = Integer.parseInt(multi.getParameter("nurnum"));
 		MultipartFile mf = multi.getFile("nurpath");
 		String nurpath = mf.getOriginalFilename();
 		int phone = Integer.parseInt(multi.getParameter("phone"));
@@ -65,7 +66,7 @@ public class NurseController {
 		String nurrecord = multi.getParameter("nurrecord");
 		String nurcontent = multi.getParameter("nurcontent");		
 		NurseMapper dao = NursesqlSession.getMapper(NurseMapper.class);
-		dao.insert(num ,nurlicensename, nurpath, nurserial, nurrecord, nurcontent, name, phone);
+		dao.insert(num ,nurnum, nurlicensename, nurpath, nurserial, nurrecord, nurcontent, name, phone);
 
 		System.out.println("/ num : "+num+"/ nurlicensename : "+nurlicensename+"/ nurpath : "+nurpath+"/ nurserial : "+nurserial
 				+"/ nurrecord : "+nurrecord+"/ nurcontent : "+nurcontent+"/ name : "+name+"/ phone : "+phone);
@@ -83,9 +84,9 @@ public class NurseController {
 	@RequestMapping(value = "/deletelist")
 	public String Nurse5(HttpServletRequest req,Model mo){
 		
-		String name = req.getParameter("name");
+		int nurnum = Integer.parseInt(req.getParameter("nurnum"));
 		NurseMapper dao = NursesqlSession.getMapper(NurseMapper.class);
-		dao.delete(name);
+		dao.delete(nurnum);
 		
 		return "redirect:nurselista";
 	}

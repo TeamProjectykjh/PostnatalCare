@@ -111,6 +111,17 @@ package com.team.postnatalcareMain;
 //  BUFFER_POOL DEFAULT 
 //) 
 //NOPARALLEL;
+//ALTER TABLE POS_NURSE
+//ADD CONSTRAINT POS_NURSE_FK1 FOREIGN KEY
+//(
+//  NUM 
+//)
+//REFERENCES POS_USER
+//(
+//  NUM 
+//)
+//ENABLE;
+
 
 //의사 POS_DOCTOR
 //CREATE TABLE POS_DOCTOR 

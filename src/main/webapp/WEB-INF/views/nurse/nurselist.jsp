@@ -44,7 +44,7 @@
 								<th>수정/삭제</th>
 								<td>
 									<a href="">Modify</a> / 
-									<a href="deletelist?name=${ko.name}">Delete</a>
+									<a href="deletelist?nurnum=${ko.nurnum }">Delete</a>
 								</td>
 							</tr>							
 						</table>						
