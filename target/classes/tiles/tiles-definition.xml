@@ -49,6 +49,7 @@
       <put-attribute name="body" value="/WEB-INF/views/sanhujori/sanhulicense.jsp" />
    </definition>
    
+
    <definition name="rating" extends="baseLayout">   
       <put-attribute name="body" value="/WEB-INF/views/sanhujori/rating.jsp" />
    </definition>
@@ -62,6 +63,7 @@
    </definition>
    <!-- Sanhu 진현 작업 끝 -->
    
+
    <!-- Nurse 병문 작업 -->   
    <definition name="Nurseinfo" extends="baseLayout">   
       <put-attribute name="body" value="/WEB-INF/views/nurse/Nurseinfo.jsp" />

@@ -9,7 +9,6 @@
 </head>
 	<body>
 		<table border="2"  style="width: 800px;" align="center">			
-			
 			<c:forEach items="${lista}" var="ko">
 				<tr>	
 								
@@ -50,7 +49,6 @@
 							</tr>							
 						</table>						
 					</td>
-					
 				</tr>
 			</c:forEach>
 		</table>

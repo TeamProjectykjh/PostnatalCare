@@ -72,6 +72,7 @@ public class NurseController {
 		String nurcontent = multi.getParameter("nurcontent");		
 		NurseMapper dao = NursesqlSession.getMapper(NurseMapper.class);
 		dao.insert(num ,nurlicensename, nurpath, nurserial, nurrecord, nurcontent, name, phone);
+
 		System.out.println("/ num : "+num+"/ nurlicensename : "+nurlicensename+"/ nurpath : "+nurpath+"/ nurserial : "+nurserial
 				+"/ nurrecord : "+nurrecord+"/ nurcontent : "+nurcontent+"/ name : "+name+"/ phone : "+phone);
 		return "redirect:nurselista";
@@ -81,10 +82,11 @@ public class NurseController {
 	public String Nurse4(Model mo){
 		
 		NurseMapper dao = NursesqlSession.getMapper(NurseMapper.class);
-		ArrayList<NurseDTO> list = dao.select();		
-		mo.addAttribute("lista", list);
+		ArrayList<NurseDTO> list = dao.select();
 		
-		return "nurselist";
+		mo.addAttribute("lista", list);
+
+		return "redirect:nurselist";
 	}
 	
 
