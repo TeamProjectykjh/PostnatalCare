@@ -36,8 +36,11 @@
    </div>
 </div>
 </c:forEach>
-
+<c:choose>
+<c:when test="${state==1}">
 <input style="margin-bottom: 8%" type="submit" value="수정" class="btn btn-success">
+</c:when>
+</c:choose>
 </form>
 
 </body>

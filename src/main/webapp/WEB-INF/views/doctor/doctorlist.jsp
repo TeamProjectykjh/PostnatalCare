@@ -29,7 +29,8 @@
 			<div class="row g-4 mb-5">
 			<c:forEach items="${doclist}" var="list">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-                    <a style="text-decoration-line: none;" class="service-item d-block rounded text-center h-100 p-4" href="/PostnatalCare/doctordetail?num=${list.num}&name=${list.name}">
+                    <a style="text-decoration-line: none;" class="service-item d-block rounded text-center h-100 p-4" href="/PostnatalCare/doctordetail?num=${list.num}&name=${list.name}&username=${name}">
+                     
                         <img style="object-fit: cover; height: 70%;" class="img-fluid rounded mb-4" src="doctorimg/${list.docpath}" alt="">
                         <h4 style="color: black" class="mb-0">${list.name} 원장님</h4>
                         <h5 style="color: black" class="mb-0">${list.doclicensename}</h5>

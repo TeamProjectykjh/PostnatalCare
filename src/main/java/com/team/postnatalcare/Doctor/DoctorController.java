@@ -90,10 +90,18 @@ public class DoctorController {
 		//HttpSession hs = request.getSession();
 		int num = Integer.parseInt(request.getParameter("num"));
 		String name = request.getParameter("name");
+		String username=request.getParameter("username");
+		int state =0;
 		ArrayList<DoctorDTO> list = dao.doctordetail(num);
+		if(name.equals(username)) {
+			state= 1;
+			System.out.println(state);
+		}
+		
 		mo.addAttribute("num", num);
 		mo.addAttribute("name", name);
 		mo.addAttribute("docinfo", list);
+		mo.addAttribute("state", state);
 		return "doctordetail";
 	}
 	
@@ -140,10 +148,12 @@ public class DoctorController {
 	}
 	
 	@RequestMapping(value = "/doctorlist")
-	public String doctorlist(Model mo) {	
+	public String doctorlist(HttpServletRequest request,Model mo) {	
+		String name = request.getParameter("name");
 		DoctorMapper dao = DoctorsqlSession.getMapper(DoctorMapper.class);
 		ArrayList<DoctorlistDTO> list = dao.doctorlist();
 		mo.addAttribute("doclist", list);
+		mo.addAttribute("name", name);
 		return "doctorlist";
 	}
 }
