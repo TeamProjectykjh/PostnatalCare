@@ -50,13 +50,16 @@
 	</select>
 	
 	<select id="alllist" resultType="com.team.postnatalcare.Sanmo.QuestionnaireDTO">
-		select * from pos_questionnaire where qusnum = #{param1}	
+		select * from pos_questionnaire where posnum = #{param1} and qusday = #{param2}	
 	</select>
 
 	<select id="sanhuname" resultType="com.team.postnatalcare.Sanmo.SanhuDTO" >
 		select u.name from pos_sanhujori s,(select name,num from pos_user)u where s.num = u.num and s.sanhunum=(select sanhunum from pos_user where num = #{param1})
 	</select>
 	
+	<select id="test" resultType="com.team.postnatalcare.Sanmo.SanhuDTO" >
+		select * from pos_sanhujori
+	</select>
 
 </mapper>
 

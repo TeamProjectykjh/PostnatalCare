@@ -51,7 +51,7 @@
 			   <c:forEach items="${qlist}" var="q">
 				  <tr>
 				  		<td>
-				  			<a href="detail?qusnum=${q.qusnum }">
+				  			<a href="detail?posnum=${q.posnum }&qusday=${q.qusday}">
 				  				${q.qusday}
 				  			</a>
 				  		</td>
