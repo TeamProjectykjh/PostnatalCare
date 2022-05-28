@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="selfsave">
+<form action="">
 	<section class="vh-100">
 	  <div class="container py-5 h-100">
 	    <div class="row d-flex justify-content-center align-items-center h-100">
@@ -37,11 +37,6 @@
 		                  		<input class="form-control form-control-sm" value="${ql.qustext }"  style="height: 200px; background-color: white;" readonly="readonly">
 		                  </c:forEach>
 	                  </div>
-	                  
-	                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-	                  	  <input class="btn btn-dark mt-3" type="button" value="뒤로가기" onclick="location.href='selfout?num=1'">
-	                  </div>
-	  
 	              </div>
 	            </div>
 	          </div>

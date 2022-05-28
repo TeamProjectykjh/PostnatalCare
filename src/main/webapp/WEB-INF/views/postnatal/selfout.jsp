@@ -12,7 +12,7 @@
 <span class="col-sm-3"></span>
 <h3 style="margin-top: 20px" align="center">일일문진표내역</h3>
 	  <div style="margin: 40px" class="row">
-	          <span class="col-sm-3" style="center;">
+	          <span class="col-sm-3" style="center; margin-left: 8%">
 		        <span class="input-group">
 				  <span class="input-group-text">이름</span>
 				  <c:forEach items="${list}" var="sanmo">
@@ -51,7 +51,7 @@
 			   <c:forEach items="${qlist}" var="q">
 				  <tr>
 				  		<td>
-				  			<a href="detail?qusnum=${q.qusnum }">
+				  			<a href="detail?posnum=${q.posnum }&qusday=${q.qusday}">
 				  				${q.qusday}
 				  			</a>
 				  		</td>

@@ -25,4 +25,11 @@
 		from pos_doctor,pos_user
 		where pos_doctor.num=pos_user.num
 	</select>
+	
+	<select id="mypostnatal" resultType="com.team.postnatalcare.Doctor.MypostnatalDTO">
+		select u.name,p.num,p.docnum,p.posnum
+		from pos_user u,pos_postnatal p 
+		where p.num=u.num and docnum=(select docnum from pos_doctor where num=#{param1})
+	</select>
+	
 </mapper>

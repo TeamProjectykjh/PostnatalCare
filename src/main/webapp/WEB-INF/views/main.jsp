@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <jsp:include page="cdn.jsp"></jsp:include>
-
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="s"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -99,7 +99,9 @@
 	
 			<div class="row g-4 mb-5">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-                    <a style="text-decoration-line: none;" class="service-item d-block rounded text-center h-100 p-4" href="/PostnatalCare/doctorlist">
+                    <s:forEach items="${userinfo}" var="user">
+                    <a style="text-decoration-line: none;" class="service-item d-block rounded text-center h-100 p-4" href="/PostnatalCare/doctorlist?name=${user.name}">
+                        </s:forEach>
                         <img style="object-fit: cover; height: 70%;" class="img-fluid rounded mb-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1s-O8GtdOTLMs5y1LX9Z7k9q1pmCCuUP_5w&usqp=CAU" alt="">
                         <h4 style="color: black" class="mb-0">의사 소개</h4>
                     </a>
