@@ -142,5 +142,8 @@
    <definition name="doctorlist" extends="baseLayout">   
       <put-attribute name="body" value="/WEB-INF/views/doctor/doctorlist.jsp" />
    </definition>
+   <definition name="mypostnatal" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/doctor/mypostnatal.jsp" />
+   </definition>
    
  </tiles-definitions>

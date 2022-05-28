@@ -156,4 +156,13 @@ public class DoctorController {
 		mo.addAttribute("name", name);
 		return "doctorlist";
 	}
+	
+	@RequestMapping(value = "/mypostnatal")
+	public String mypostnatal(HttpServletRequest request,Model mo) {	
+		int num=Integer.parseInt(request.getParameter("num"));
+		DoctorMapper dao = DoctorsqlSession.getMapper(DoctorMapper.class);
+		ArrayList<MypostnatalDTO> list = dao.mypostnatal(num);
+		mo.addAttribute("myposlist", list);
+		return "mypostnatal";
+	}
 }
