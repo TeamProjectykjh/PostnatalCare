@@ -14,6 +14,9 @@
    <definition name="address" extends="baseLayout">   
       <put-attribute name="body" value="/WEB-INF/views/address.jsp" />
    </definition>
+   <definition name="info" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/info.jsp" />
+   </definition>
    
    <!-- Postnatal 국태 작업 -->
    <definition name="reservation" extends="baseLayout">   

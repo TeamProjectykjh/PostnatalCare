@@ -38,6 +38,10 @@ public class HomeController {
    public String address() {         
       return "address";
    }
+   @RequestMapping(value = "/info")
+   public String info() {         
+      return "info";
+   }
    
 //   로그인 후 메인이 되는 페이지
    @RequestMapping(value = "/index")
