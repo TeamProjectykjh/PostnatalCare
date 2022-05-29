@@ -55,18 +55,18 @@
 <body>
 <div class="tabs">
   <input type="radio" name="tabs" id="tabone" checked="checked">
-  <label for="tabone">Tab One</label>
+  <label for="tabone">경력사항</label>
   <div class="tab">
     ${list.sanhurecord }
   </div>
   
   <input type="radio" name="tabs" id="tabtwo">
-  <label for="tabtwo">Tab Two</label>
+  <label for="tabtwo">자기소개</label>
   <div class="tab">
      ${list.content }
   </div>
 </div>
-	<form action="employment" method="post">
+	<form action="employment" method="post" style="margin-bottom: 8%">
 	<input type="hidden" name="sanhunum" value="${list.sanhunum}">
 	<br>
 	<c:if test="${empstate eq 1 }">
@@ -74,9 +74,13 @@
 		<input type="date" name="empdate" id="empdate" class="form-control form-control-sm" />
 		<br>
 		<label>고용기간</label><br>
-		<input type="radio" name="date" value="7">7일 &emsp;
-		<input type="radio" name="date" value="14">14일 &emsp;
-		<input type="radio" name="date" value="21">21일 &emsp;<br><br>
+		<input type="radio" name="date" id="7date" value="7">
+		<label for="7date">7일</label>&emsp;
+		<input type="radio" name="date" id="14date" value="14">
+		<label for="14date">14일</label>&emsp;
+		<input type="radio" name="date" id="24date" value="21">
+		<label for="24date">21일</label>&emsp;
+		<br><br>
 		<input type="submit" value="고용하기"> &emsp;
 	</c:if>
 	<button type="button" onclick="location.href='sanhuinfo'">뒤로가기</button>

@@ -44,12 +44,31 @@ values(pos_sanhu_seq.nextval, (SELECT num FROM pos_user WHERE num = #{param1}), 
 	update pos_sanhujori SET sanhurecord = #{param1}, content = #{param2}, sanhupath = #{param3} where sanhunum = #{param4}
 </update>
 
-<select id="sanhuliout" resultType="com.team.postnatalcare.Sanhumanagement.SanhuLicenseDTO">
-	select * from pos_license
-</select>
-
 <insert id="sanhuemploymentsave">
 	insert into POS_EMPLOY
 	values(pos_employ_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4})
 </insert>
+
+<select id="sanhuliout" resultType="com.team.postnatalcare.Sanhumanagement.SanhuLicenseDTO">
+	select * from pos_license order by linum asc
+</select>
+
+<insert id="sanhulisave">
+	insert into pos_license
+	values(POS_SANHULICENSE_SEQ.nextval, #{param1}, #{param2}, #{param3})
+</insert>
+
+<delete id="sanhulidel">
+	delete from pos_license where linum = #{param1}
+</delete>
+
+<update id="sanhulimodi">
+	update pos_license SET liname = #{param2}, licode = #{param3} where linum = #{param1}
+</update>
+
+
+<select id="posnumfind" resultType="com.team.postnatalcare.Sanmo.PostnatalDTO">
+	select * from POS_POSTNATAL
+</select>
+
 </mapper>

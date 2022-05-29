@@ -7,13 +7,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-   // Activate tooltip
+   //툴팁 활성화
    $('[data-toggle="tooltip"]').tooltip();
    
-   // Select/Deselect checkboxes
+   //체크박스 전체 선택 / 해제
    var checkbox = $('table tbody input[type="checkbox"]');
    $("#selectAll").click(function(){
       if(this.checked){
@@ -33,37 +33,18 @@ $(document).ready(function(){
    });
 });
 
-$('#modal').modal("hide");
+//modal창에 값 전달
+$(document).ready(function () {
+    $(".edit").click(function () {
+        $('#modilinum').val($(this).data('id'));
+        $('#modiliname').val($(this).data('name'));
+        $('#modilicode').val($(this).data('code'));
+    });
+});
 
-//https://truecode-95.tistory.com/70
-/*
-function DelClick(){
-     var checkBoxArr = []; 
-     $("input:checkbox[name='options']:checked").each(function() {
-     checkBoxArr.push($(this).val());     // 체크된 것만 값을 뽑아서 배열에 push
-     console.log(checkBoxArr);
-   })
-   $.ajax({
-         type  : "POST",
-         url    : "checkboxdel",
-         data: {
-         checkBoxArr : checkBoxArr        // folder seq 값을 가지고 있음.
-         },
-         success: function(result){
-            console.log(result);
-         },
-         error: function(xhr, status, error) {
-            alert(error);
-         }  
-      });
-   }
-*/
-//**참고
-//form 안에 동일한 name의 파라미터가 있다면 form태그가 자동으로 배열로 만들어버립니다 
-//자바 서버에서 문자열로 받아보면 name의 개수만큼 [ , ] 로 값이 이어진 것을 받아볼 수 있습니다
-//https://okky.kr/article/686721
 
-//https://blog.naver.com/lanslot5/221228750513
+
+
 
 //String[] brdID = request.getParameterValues("chklst"); 배열로 받기
 // for(int i =0 ; i < chk.length ; i++)
@@ -86,7 +67,7 @@ function DelClick(){
                
                <div class="col-sm-6">
                   <a href="#addEmployeeModal" class="btn btn-success" data-bs-toggle="modal" style="float: right; margin-left: 10px;"><span>자격증 추가</span></a>
-                  <a onclick="DelClick()" class="btn btn-danger" data-toggle="modal" style="float: right; margin-left: 10px;"><span>선택삭제</span></a>   
+                  <button onclick="multidel()" class="btn btn-danger" style="float: right; margin-left: 10px;"><span>선택삭제</span></button>   
                   <!-- <a href="comdel?num=${com.num}" class="btn btn-danger btn-sm" onclick="if(!confirm('정말 삭제하시겠습니까?')) return false">삭제</a> -->
                   <!-- if(!confirm('정말 수정하시겠습니까?')) return false -->               
                </div>
@@ -107,19 +88,20 @@ function DelClick(){
                     </tr>
                 </thead>
                 <tbody>
-                <c:forEach>
+                <c:forEach items="${licenselist }" var="list">
                     <tr>
                   <td>
                      <span class="custom-checkbox">
-                        <input type="checkbox" id="checkbox" name="options" value="">
+                        <input type="checkbox" id="checkbox" name="options" value="${list.linum }">
                         <label for="checkbox"></label>
                      </span>
                   </td>
-                        <td>Thomas Hardy</td>
-                        <td>thomashardy@mail.com</td>
+                        <td>${list.liname }</td>
+                        <td>${list.licode }</td>
                         <td>
-                            <a href="#editEmployeeModal" class="edit" data-bs-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            <a href="licensedel" class="delete" data-bs-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            <a href="#editEmployeeModal" class="edit" data-bs-toggle="modal" data-id="${list.linum }" data-name="${list.liname }" data-code="${list.licode }">
+                            <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            <a href="licensedel?linum=${list.linum }" onclick="if(!confirm('정말 삭제하시겠습니까?')) return false"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                         </td>
                     </tr>
                     </c:forEach>
@@ -161,17 +143,18 @@ function DelClick(){
          <div class="modal-content">
             <form action="licensemodi" method="post">
                <div class="modal-header">                  
-                  <h4 class="modal-title">수정</h4>
+                  <h4 class="modal-title">자격증 수정</h4>
                   <button type="reset" class="close" data-bs-dismiss="modal" aria-hidden="true">&times;</button>
                </div>
                <div class="modal-body">               
                   <div class="form-group">
+                  <input type="hidden" name="modilinum" id="modilinum" value="">
                      <label>이름</label>
-                     <input type="text" value="" class="form-control" name="name" required>
+                     <input type="text" value="" class="form-control" name="modiliname" id="modiliname" required>
                   </div>
                   <div class="form-group">
                      <label>코드</label>
-                     <input type="text" value="" class="form-control" name="code" required>
+                     <input type="text" value="" class="form-control" name="modilicode" id="modilicode" required>
                   </div>               
                </div>
                <div class="modal-footer">

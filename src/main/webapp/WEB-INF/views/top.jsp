@@ -92,15 +92,6 @@
 						<li class="nav-item">						
 							<a class="nav-link active" aria-current="page" href="sanhuchoice">산후조리사정보수정</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="sanhuinfo">상세조회</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="aaaa">테스트</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="rating">후기</a>
-						</li>
 					</s:otherwise>
 				</s:choose>
 				</ul>

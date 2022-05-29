@@ -20,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.team.postnatalcare.Sanmo.PostnatalDTO;
 import com.team.postnatalcareMain.UserDTO;
+
 
 
 @Controller
@@ -118,7 +120,11 @@ public class SanhuController {
 		HttpSession hs = request.getSession();
 		int num = (int)hs.getAttribute("num");
 		SanhuNameDTO name = dao.namesearch(num);
+	    SanhujoriDTO dto = dao.Sanhujoriout(num);
+	    int sanhunum = dto.getSanhunum();
 		mo.addAttribute("name", name);
+		ArrayList<SanhuLicenseDTO> licenselist = dao.sanhuliout(sanhunum);
+	    mo.addAttribute("licenselist", licenselist);
 		return "sanhuchoice";
 	}
 	
@@ -126,8 +132,11 @@ public class SanhuController {
 	   public String sanhulicense(HttpServletRequest request, Model mo) {      
 	      HttpSession hs = request.getSession();      
 	      SanhuMapper dao = SanhusqlSession.getMapper(SanhuMapper.class);
-	   //   ArrayList<SanhuLicenseDTO> list = dao.sanhuliout();
-	   //   mo.addAttribute("list", list);
+	      int num = (int)hs.getAttribute("num");
+		  SanhujoriDTO dto = dao.Sanhujoriout(num);
+		  int sanhunum = dto.getSanhunum();
+	      ArrayList<SanhuLicenseDTO> licenselist = dao.sanhuliout(sanhunum);
+	      mo.addAttribute("licenselist", licenselist);
 	      return "sanhulicense";
 	   }
 	   
@@ -135,7 +144,12 @@ public class SanhuController {
 	   public String licensesave(HttpServletRequest request, Model mo) {
 	      SanhuMapper dao = SanhusqlSession.getMapper(SanhuMapper.class);
 	      HttpSession hs = request.getSession();
-	      
+	      int num = (int)hs.getAttribute("num");
+	      SanhujoriDTO dto = dao.Sanhujoriout(num);
+	      int sanhunum = dto.getSanhunum();
+	      String name = request.getParameter("name");
+	      String code = request.getParameter("code");
+	      dao.sanhulisave(sanhunum, name, code);
 	      return "redirect:sanhulicense";
 	   }
 	   
@@ -143,15 +157,18 @@ public class SanhuController {
 	   public String licensedel(HttpServletRequest request, Model mo) {
 	      SanhuMapper dao = SanhusqlSession.getMapper(SanhuMapper.class);
 	      HttpSession hs = request.getSession();
-	      
+	      int linum = Integer.parseInt(request.getParameter("linum"));
+	      dao.sanhulidel(linum);
 	      return "redirect:sanhulicense";
 	   }
 	   
 	   @RequestMapping(value = "/licensemodi")
 	   public String licensemodi(HttpServletRequest request, Model mo) {
 	      SanhuMapper dao = SanhusqlSession.getMapper(SanhuMapper.class);
-	      HttpSession hs = request.getSession();
-	      
+	      int modilinum = Integer.parseInt(request.getParameter("modilinum"));
+	      String modiliname = request.getParameter("modiliname");
+	      String modilicode = request.getParameter("modilicode");
+	      dao.sanhulimodi(modilinum, modiliname, modilicode);
 	      return "redirect:sanhulicense";
 	   }
 	   	   
@@ -171,13 +188,15 @@ public class SanhuController {
 	      int adddate = Integer.parseInt(request.getParameter("date"));
 	      int sanhunum = Integer.parseInt(request.getParameter("sanhunum"));
 	      int num = (int)hs.getAttribute("num");
+	      PostnatalDTO dto = dao.posnumfind(num);
+	      int posnum = dto.getPosnum();
 	      DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 	      Date date = df.parse(empdate);
 	      Calendar cal = Calendar.getInstance();
 	      cal.setTime(date);
 	      cal.add(Calendar.DATE, adddate);
 	      String enddate = df.format(cal.getTime());
-	      dao.sanhuemploymentsave(sanhunum, num, empdate, enddate);
+	      dao.sanhuemploymentsave(sanhunum, posnum, empdate, enddate);
 	      return "redirect:index";
 	   }
 	  
