@@ -1,11 +1,13 @@
+<%@page import="javax.swing.ImageIcon"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <jsp:include page="cdn.jsp"/>
 <head>
 	<style type="text/css">
-		body{margin-top:20px;
+		body{
 background:#eee;
 }
 .single_advisor_profile {
@@ -144,7 +146,11 @@ background:#eee;
 	<title>Insert title here</title>	
 </head>
 	<body>
+	
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<c:forEach items="${lista }" var="nur">
+
+
 
 <div class="container">
         <div class="row justify-content-center">
@@ -162,17 +168,19 @@ background:#eee;
           <div class="col-12 col-sm-6 col-lg-3">
             <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
               <!-- Team Thumb-->
-              <div class="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+              <div class="advisor_thumb"><img src="nurseimg/${nur.nurpath }" style="width: 250px; height: 350px;" >
                 <!-- Social Info-->
-               <div class="social-info"><a href="#" style="cursor: pointer;">
+               <div class="social-info"><a href="#" style="cursor: pointer;" >
                 정보 보기</a></div></div>
+                <!-- <button onclick="window.open('address','window_name','width=430,height=500,location=no,status=no,scrollbars=yes');">button</button> -->
               <!-- Team Details-->
               <div class="single_advisor_details_info">
-                <h6>Samantha Sarah</h6>
+                <h6>${name }</h6>
                 <p class="designation">간호사님</p>
               </div>
             </div>
           </div>
+          
           <!-- Single Advisor-->
           <div class="col-12 col-sm-6 col-lg-3">
             <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
@@ -187,41 +195,9 @@ background:#eee;
                 <p class="designation">간호사님</p>
               </div>
             </div>
-          </div>
-          <!-- Single Advisor-->
-          <div class="col-12 col-sm-6 col-lg-3">
-            <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
-              <!-- Team Thumb-->
-              <div class="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="">
-                <!-- Social Info-->
-                <div class="social-info"><a href="#" style="cursor: pointer;">
-                정보 보기</a></div></div>
-              <!-- Team Details-->
-              <div class="single_advisor_details_info">
-                <h6>Riyadh Khan</h6>
-                <p class="designation">간호사님</p>
-              </div>
-            </div>
-          </div>
-          <!-- Single Advisor-->
-          <div class="col-12 col-sm-6 col-lg-3">
-            <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-              <!-- Team Thumb-->
-              <div class="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="">
-                <!-- Social Info-->
-                <div class="social-info"><a href="#" style="cursor: pointer;">
-                정보 보기</a></div>
-              </div>
-              <!-- Team Details-->
-              <div class="single_advisor_details_info">
-                <h6>Niloy Islam</h6>
-                <p class="designation">간호사님</p>
-              </div>
-            </div>
-          </div>
+          </div>   
         </div>
-      </div>
-      
-      <h4>정보 보기 클릭시 작은 창이 띄워져 간호사 프로필이 보이는 방식</h4>
+      </div>      
+      </c:forEach>
 	</body>
 </html>

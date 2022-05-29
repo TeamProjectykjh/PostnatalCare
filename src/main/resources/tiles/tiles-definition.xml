@@ -90,6 +90,14 @@
    <definition name="nurselist" extends="baseLayout">   
       <put-attribute name="body" value="/WEB-INF/views/nurse/nurselist.jsp" />
    </definition>
+   
+   <definition name="modifyform" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/nurse/modifyform.jsp" />
+   </definition>
+   
+   <definition name="nurselist2" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/nurse/nurselist2.jsp" />
+   </definition>
    <!-- Nurse 병문 작업 -->
    
    

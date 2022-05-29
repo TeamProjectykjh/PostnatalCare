@@ -4,9 +4,7 @@
 <mapper namespace="com.team.postnatalcare.Nurse.NurseMapper"> 
  	
 	<insert id="insert">
-		insert into pos_nurse(nurnum, num, nurlicensename, nurpath, nurserial, nurrecord, nurcontent)
-		 values(pos_nurse_seq.nextval, #{param1},#{param2},#{param3},#{param4},#{param5},
-		 #{param6})
+		insert into pos_nurse(nurnum, num, nurlicensename, nurpath, nurserial, nurrecord, nurcontent) values(pos_nurse_seq.nextval, #{param1},#{param2},#{param3},#{param4},#{param5},#{param6})
 	</insert>	
 
 	<select id="select" resultType="com.team.postnatalcare.Nurse.NursejoinDTO">
@@ -19,4 +17,13 @@
 	<delete id="delete">
 		delete from pos_nurse where nurnum=#{param1}
 	</delete>
+	
+	<select id="modifyselect" resultType="com.team.postnatalcare.Nurse.NurseDTO">
+		select * from pos_nurse where nurnum=#{param1}
+	</select>
+	
+	<update id="modifysava">
+		update pos_nurse set nurpath=#{param2}, nurlicensename=#{param3}, nurserial=#{param4}, nurrecord=#{param5}, nurcontent=#{param6} where nurnum=#{param1}
+	</update>
+
 </mapper>

@@ -3,7 +3,7 @@ package com.team.postnatalcare.Nurse;
 import com.team.postnatalcareMain.UserDTO;
 
 public class NurseDTO {
-	UserDTO dto = new UserDTO();
+	
 	int nurnum, num;
 	String nurlicensename, nurpath;
 	int nurserial;

@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 	<body>
-		<table border="2"  style="width: 800px;" align="center">			
+		<table border="2"  style="width: 800px; padding-bottom: 30px;" align="center" >			
 			<c:forEach items="${lista}" var="ko">
 				<tr>	
 								
@@ -43,8 +43,8 @@
 							<tr>
 								<th>수정/삭제</th>
 								<td>
-									<a href="">Modify</a> / 
-									<a href="deletelist?nurnum=${ko.nurnum }">Delete</a>
+									<a href="modifyshh?nurnum=${ko.nurnum }">Modify</a> / 
+									<a href="deletelist?nurnum=${ko.nurnum }&name=${ko.name}">Delete</a>
 								</td>
 							</tr>							
 						</table>						

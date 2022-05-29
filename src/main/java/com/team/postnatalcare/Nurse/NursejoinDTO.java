@@ -2,7 +2,7 @@ package com.team.postnatalcare.Nurse;
 
 public class NursejoinDTO {
 
-	int nurnum;
+	int nurnum,num;
 	String nurlicensename, nurpath;
 	int nurserial;
 	String nurrecord, nurcontent, name;
@@ -11,10 +11,11 @@ public class NursejoinDTO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public NursejoinDTO(int nurnum, String nurlicensename, String nurpath, int nurserial, String nurrecord,
+	public NursejoinDTO(int nurnum, int num, String nurlicensename, String nurpath, int nurserial, String nurrecord,
 			String nurcontent, String name, int phone) {
 		super();
 		this.nurnum = nurnum;
+		this.num = num;
 		this.nurlicensename = nurlicensename;
 		this.nurpath = nurpath;
 		this.nurserial = nurserial;
@@ -28,6 +29,12 @@ public class NursejoinDTO {
 	}
 	public void setNurnum(int nurnum) {
 		this.nurnum = nurnum;
+	}
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
 	}
 	public String getNurlicensename() {
 		return nurlicensename;
@@ -71,5 +78,6 @@ public class NursejoinDTO {
 	public void setPhone(int phone) {
 		this.phone = phone;
 	}
+	
 	
 }
