@@ -2,7 +2,13 @@ package com.team.postnatalcare.Sanhumanagement;
 
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.apache.ibatis.session.SqlSession;
@@ -28,7 +34,7 @@ public class SanhuController {
 		MultipartFile mf = multi.getFile("imgfile");
 		String sanhupath = mf.getOriginalFilename();
 		try(
-				FileOutputStream fos = new FileOutputStream("C:/Spring/PostnatalCare/src/main/webapp/sanhuimg" + sanhupath);
+				FileOutputStream fos = new FileOutputStream("/PostnatalCare/src/main/webapp/sanhuimg/" + sanhupath);
 			    InputStream is = mf.getInputStream();
 				){
 			      int readCount = 0;
@@ -65,49 +71,18 @@ public class SanhuController {
 		return "sanhujorisave";
 	}
 	
-	//
-	@RequestMapping(value = "/sanhulicense")
-	public String sanhulicense(HttpServletRequest request, Model mo) {		
-		HttpSession hs = request.getSession();		
-		return "sanhulicense";
-	}
-	
 	//산후관리자의 상세정보를 출력
 	@RequestMapping(value = "/sanhudetail")
 	public String sanhutest(HttpServletRequest request, Model mo) {		
 		HttpSession hs = request.getSession();
+		int empstate = (int)hs.getAttribute("empstate");
 		SanhuMapper dao = SanhusqlSession.getMapper(SanhuMapper.class);
 		int num = Integer.parseInt(request.getParameter("num"));
 		SanhujoriDTO dto = dao.Sanhujoriout(num);
 		mo.addAttribute("list", dto);
+		mo.addAttribute("empstate", empstate);
 		return "sanhudetail";
 	}
-	
-	@RequestMapping(value = "/aaaa")
-	public String aaaa() {
-		
-		return "sanhutest";
-	}
-	
-	
-	@RequestMapping(value = "/rating")
-	public String rating(HttpServletRequest request) {
-		return "rating";
-	}
-	
-	@RequestMapping(value = "/ratingsave")
-	public String ratingsave(HttpServletRequest request) {
-		int employnum, posnum, sanhunum;
-		employnum = 1;
-		posnum = 1;
-		sanhunum = 1;
-		float starpoint = Float.parseFloat(request.getParameter("rating"));
-		String ment = request.getParameter("ment");
-		SanhuMapper dao = SanhusqlSession.getMapper(SanhuMapper.class);
-		dao.sanhureviewsave(employnum, posnum, sanhunum, starpoint, ment);
-		return "redirect:/index";
-	}
-	
 	
 	@RequestMapping(value = "/sanhumodify")
 	public String sanhumodify(HttpServletRequest request, Model mo) {	
@@ -146,4 +121,64 @@ public class SanhuController {
 		mo.addAttribute("name", name);
 		return "sanhuchoice";
 	}
+	
+	@RequestMapping(value = "/sanhulicense")
+	   public String sanhulicense(HttpServletRequest request, Model mo) {      
+	      HttpSession hs = request.getSession();      
+	      SanhuMapper dao = SanhusqlSession.getMapper(SanhuMapper.class);
+	   //   ArrayList<SanhuLicenseDTO> list = dao.sanhuliout();
+	   //   mo.addAttribute("list", list);
+	      return "sanhulicense";
+	   }
+	   
+	   @RequestMapping(value = "/licensesave")
+	   public String licensesave(HttpServletRequest request, Model mo) {
+	      SanhuMapper dao = SanhusqlSession.getMapper(SanhuMapper.class);
+	      HttpSession hs = request.getSession();
+	      
+	      return "redirect:sanhulicense";
+	   }
+	   
+	   @RequestMapping(value = "/licensedel")
+	   public String licensedel(HttpServletRequest request, Model mo) {
+	      SanhuMapper dao = SanhusqlSession.getMapper(SanhuMapper.class);
+	      HttpSession hs = request.getSession();
+	      
+	      return "redirect:sanhulicense";
+	   }
+	   
+	   @RequestMapping(value = "/licensemodi")
+	   public String licensemodi(HttpServletRequest request, Model mo) {
+	      SanhuMapper dao = SanhusqlSession.getMapper(SanhuMapper.class);
+	      HttpSession hs = request.getSession();
+	      
+	      return "redirect:sanhulicense";
+	   }
+	   	   
+	   @RequestMapping(value = "/checkboxdel")
+	   public String checkboxdel(HttpServletRequest request, Model mo) {
+	      SanhuMapper dao = SanhusqlSession.getMapper(SanhuMapper.class);
+	      HttpSession hs = request.getSession();
+	      
+	      return "redirect:sanhulicense";
+	   }
+	   
+	   @RequestMapping(value = "/employment")
+	   public String employment(HttpServletRequest request, Model mo) throws ParseException {
+	      SanhuMapper dao = SanhusqlSession.getMapper(SanhuMapper.class);
+	      HttpSession hs = request.getSession();
+	      String empdate = request.getParameter("empdate");
+	      int adddate = Integer.parseInt(request.getParameter("date"));
+	      int sanhunum = Integer.parseInt(request.getParameter("sanhunum"));
+	      int num = (int)hs.getAttribute("num");
+	      DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+	      Date date = df.parse(empdate);
+	      Calendar cal = Calendar.getInstance();
+	      cal.setTime(date);
+	      cal.add(Calendar.DATE, adddate);
+	      String enddate = df.format(cal.getTime());
+	      dao.sanhuemploymentsave(sanhunum, num, empdate, enddate);
+	      return "redirect:index";
+	   }
+	  
 }

@@ -43,4 +43,13 @@ values(pos_sanhu_seq.nextval, (SELECT num FROM pos_user WHERE num = #{param1}), 
 <update id="sanhumodi">
 	update pos_sanhujori SET sanhurecord = #{param1}, content = #{param2}, sanhupath = #{param3} where sanhunum = #{param4}
 </update>
+
+<select id="sanhuliout" resultType="com.team.postnatalcare.Sanhumanagement.SanhuLicenseDTO">
+	select * from pos_license
+</select>
+
+<insert id="sanhuemploymentsave">
+	insert into POS_EMPLOY
+	values(pos_employ_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4})
+</insert>
 </mapper>

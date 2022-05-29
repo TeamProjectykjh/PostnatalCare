@@ -13,4 +13,9 @@ public interface SanhuMapper {
 	public SanhujoriDTO Sanhujoriout(int usernum);
 	public void sanhureviewsave(int emplonum, int posnum, int sanhunum, float point, String ment);
 	public void sanhumodi(String sanhurecord, String content, String sanhupath, int sanhunum);
+	public ArrayList<SanhuLicenseDTO> sanhuliout ();
+	public void sanhulisave(int sanhunum, String liname, String licode);
+	public void sanhulidel(int linum);
+	public void sanhulimodi(int linum);
+	public void sanhuemploymentsave(int sanhunum, int posnum, String empstartday, String empendday);
 }

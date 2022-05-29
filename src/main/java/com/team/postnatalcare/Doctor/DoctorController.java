@@ -55,7 +55,7 @@ public class DoctorController {
 		MultipartFile mf = mp.getFile("docpath");
 		String docpath = mf.getOriginalFilename();
 		try(
-				FileOutputStream fos = new FileOutputStream("/PostnatalCare/src/main/webapp/doctorimg/" + docpath);
+				FileOutputStream fos = new FileOutputStream("C:/JAVA/Spring/PostnatalCare/src/main/webapp/doctorimg/" + docpath);
 			    InputStream is = mf.getInputStream();
 			    ){
 			      int readCount = 0;
