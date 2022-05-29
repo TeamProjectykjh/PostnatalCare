@@ -110,12 +110,9 @@ public class SanmoController {
 	@RequestMapping(value = "/selfout")
 	public String selfout(HttpServletRequest request,Model mo) {
 		int num = Integer.parseInt(request.getParameter("num"));
-		System.out.println("num1:"+num);
 		dao = SanmosqlSession.getMapper(SanmoMapper.class);
 		ArrayList<UserDTO> list = dao.userlist(num);
-		System.out.println("num2:"+num);
 		ArrayList<QuestionnaireDTO> qlist = dao.quslist(num);
-		System.out.println("num3:"+num);
 		ArrayList<DocnameDTO> dlist = dao.doctorname(num);
 		ArrayList<NurnameDTO> nlist = dao.nursename(num);
 		mo.addAttribute("list", list);
@@ -127,9 +124,10 @@ public class SanmoController {
 	
 	@RequestMapping(value = "/detail")
 	public String detail(HttpServletRequest request,Model mo) {
-		int qusnum = Integer.parseInt(request.getParameter("qusnum"));
+		int posnum = Integer.parseInt(request.getParameter("posnum"));
+		String qusday = request.getParameter("qusday");
 		dao = SanmosqlSession.getMapper(SanmoMapper.class);
-		ArrayList<QuestionnaireDTO> qlist = dao.alllist(qusnum);
+		ArrayList<QuestionnaireDTO> qlist = dao.alllist(posnum,qusday);
 		mo.addAttribute("qlist", qlist);
 		return "detail";
 	}
@@ -145,6 +143,21 @@ public class SanmoController {
 	return "employ";
 	}
 	
+	@RequestMapping(value = "/personalhistory")
+	public String history(HttpServletRequest request,Model mo) {
+		dao = SanmosqlSession.getMapper(SanmoMapper.class);
+		ArrayList<SanhuDTO> slist = dao.test();
+		mo.addAttribute("slist", slist);
+		return "personalhistory";
+	}
 	
+	@RequestMapping(value = "/review")
+	public String review(HttpServletRequest request,Model mo) {
+		int num = Integer.parseInt(request.getParameter("num"));
+		dao = SanmosqlSession.getMapper(SanmoMapper.class);
+		ArrayList<UserDTO> list = dao.username(num);
+		mo.addAttribute("list", list);
+		return "review";
+	}
 
 }

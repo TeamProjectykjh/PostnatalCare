@@ -55,7 +55,7 @@ public class DoctorController {
 		MultipartFile mf = mp.getFile("docpath");
 		String docpath = mf.getOriginalFilename();
 		try(
-				FileOutputStream fos = new FileOutputStream("/PostnatalCare/src/main/webapp/doctorimg/" + docpath);
+				FileOutputStream fos = new FileOutputStream("C:/Users/home/Desktop/프젝/PostnatalCare/src/main/webapp/doctorimg" + docpath);
 			    InputStream is = mf.getInputStream();
 			    ){
 			      int readCount = 0;
@@ -90,10 +90,18 @@ public class DoctorController {
 		//HttpSession hs = request.getSession();
 		int num = Integer.parseInt(request.getParameter("num"));
 		String name = request.getParameter("name");
+		String username=request.getParameter("username");
+		int state =0;
 		ArrayList<DoctorDTO> list = dao.doctordetail(num);
+		if(name.equals(username)) {
+			state= 1;
+			System.out.println(state);
+		}
+		
 		mo.addAttribute("num", num);
 		mo.addAttribute("name", name);
 		mo.addAttribute("docinfo", list);
+		mo.addAttribute("state", state);
 		return "doctordetail";
 	}
 	
@@ -118,9 +126,11 @@ public class DoctorController {
 		int docserial = Integer.parseInt(request.getParameter("docserial"));
 		String docrecord = request.getParameter("docrecord");
 		String doctorcontent = request.getParameter("doctorcontent");
+		
 		MultipartFile mf = multi.getFile("imgfile");
 		String docpath = mf.getOriginalFilename();
-		try(
+		
+		try( 
 				FileOutputStream fos = new FileOutputStream("/PostnatalCare/src/main/webapp/doctorimg/" + docpath);
 			    InputStream is = mf.getInputStream();
 			    ){
@@ -140,10 +150,21 @@ public class DoctorController {
 	}
 	
 	@RequestMapping(value = "/doctorlist")
-	public String doctorlist(Model mo) {	
+	public String doctorlist(HttpServletRequest request,Model mo) {	
+		String name = request.getParameter("name");
 		DoctorMapper dao = DoctorsqlSession.getMapper(DoctorMapper.class);
 		ArrayList<DoctorlistDTO> list = dao.doctorlist();
 		mo.addAttribute("doclist", list);
+		mo.addAttribute("name", name);
 		return "doctorlist";
+	}
+	
+	@RequestMapping(value = "/mypostnatal")
+	public String mypostnatal(HttpServletRequest request,Model mo) {	
+		int num=Integer.parseInt(request.getParameter("num"));
+		DoctorMapper dao = DoctorsqlSession.getMapper(DoctorMapper.class);
+		ArrayList<MypostnatalDTO> list = dao.mypostnatal(num);
+		mo.addAttribute("myposlist", list);
+		return "mypostnatal";
 	}
 }

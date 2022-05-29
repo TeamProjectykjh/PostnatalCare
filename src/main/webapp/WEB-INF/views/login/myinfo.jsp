@@ -49,10 +49,6 @@
 	                  	<label class="form-label">사용 권한</label>
 	                    <select  name="job" class="form-control form-control-sm" >
 	                    	<option value="${my.job}">${my.job}입니다</option>
-						    <option value="산모">산모</option>
-						    <option value="의사">의사</option>
-						    <option value="간호사">간호사</option>
-						    <option value="산후조리사">산후조리사</option>
 	                    </select>
 	                  </div>
 	                  

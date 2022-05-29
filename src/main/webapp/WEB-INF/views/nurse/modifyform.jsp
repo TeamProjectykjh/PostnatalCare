@@ -47,8 +47,9 @@
 		        	<div class="row">
 		        		<div class="col-sm-12">
 		        			 <div class="form-group">
-    					 <label for="nurpath"><img src="nurseimg/${nur.nurpath }" id="preview" height="400px" width="300px" class="img-responsive img-thumbnail"></label>
-				 		<input type="file" id="nurpath" name="nurpath" style="display:none" onchange="PreviewImage();">				 		
+    					 <label for="imgfile"><img src="nurseimg/${nur.nurpath }" id="preview" height="400px" width="300px" 
+			class="img-responsive img-thumbnail"></label>
+				 		<input type="file" id="imgfile" name="imgfile" style="display:none" onchange="PreviewImage();">				 		
 							</div>
 						</div>
 					</div>
@@ -69,7 +70,7 @@
 		                <div class="col-sm-12">
 		                    <div class="form-group">자격증 번호
 		                        <div class="input-group"> 
-		                       <input class="form-control" type="text" value="${nur.nurserial }"
+		                       <input class="form-control" type="number" value="${nur.nurserial }"
 		                       style="text-align: center;" name="nurserial"> </div>
 		                    </div>
 		                </div>

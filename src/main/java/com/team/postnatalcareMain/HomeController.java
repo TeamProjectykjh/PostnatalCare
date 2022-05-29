@@ -38,6 +38,10 @@ public class HomeController {
    public String address() {         
       return "address";
    }
+   @RequestMapping(value = "/info")
+   public String info() {         
+      return "info";
+   }
    
 //   로그인 후 메인이 되는 페이지
    @RequestMapping(value = "/index")
@@ -49,6 +53,8 @@ public class HomeController {
       ArrayList<UserDTO> userinfo = dao.login(id,password);
       int num = userinfo.get(0).getNum();
       String name = userinfo.get(0).getName();
+      String names = userinfo.get(0).getName();
+      hs.setAttribute("names", names);
       hs.setAttribute("num", num);
       hs.setAttribute("name", name);
       int switchi = 0;
@@ -67,6 +73,7 @@ public class HomeController {
       else if(job.equals("간호사")){
     	  sqlparam = "pos_nurse";
       }
+     
       if(sqlparam != "") {
          //sqlparam에 값이 없다면 넘기기
          //(추후 원하는 사람있다면 else if로 값 넣기)

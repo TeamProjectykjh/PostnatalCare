@@ -28,7 +28,8 @@
 						프로필 수정</label>
 				
 				<div class="mb-3">  
-				  <label for="imgfile"><img src="doctorimg/${doc.docpath }" id="preview" height="400px" width="300px" class="img-thumbnail"></label>
+				  <label for="imgfile"><img src="doctorimg/${doc.docpath }" id="preview" height="400px" width="300px" 
+				  class="img-thumbnail"></label>
 				  <input type="file" id="imgfile" name="imgfile" style="display:none" onchange="PreviewImage();">
 				
 				</div>
