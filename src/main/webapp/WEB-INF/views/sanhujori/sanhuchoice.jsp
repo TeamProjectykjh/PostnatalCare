@@ -1,19 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <style type="text/css"> 
-
-
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
-
-body{
-	color: #102770;
-	background-color: #ffeba7;
-}
 .pricing:checked + label,
 .pricing:not(:checked) + label{
+  top: 40px;
   position: relative;
   display: block;
   text-align: center;
@@ -92,7 +87,7 @@ body{
 .card-front, .card-back {
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: gray;
   position: absolute;
   border-radius: 6px;
   left: 0;
@@ -118,8 +113,10 @@ body{
   display: block;
 }
 .link {
+  top: 430px;
+  left: 130px;
   text-decoration: none;
-  position: relative;
+  position: fixed;
   padding: 10px 20px;
   border-radius: 4px;
   display: inline-block;
@@ -155,11 +152,8 @@ body{
 		<div class="card-3d-wrapper">	
 			<div class="card-front">
 			<h2>${name.name}님</h2>
-			<img src="sanhuimg/${name.sanhupath }" style="width: 300px; height: 150px;">
+			<img src="sanhuimg/${name.sanhupath }" style="width: 300px; height: 350px;">
 				<div class="pricing-wrap">
-					<h2>자기소개</h2>
-					<label>자기소개 들어갈 위치</label>
-					<br>
 					<a href="sanhumodify" class="link">수&emsp;정</a>
 			    </div>
 			</div>
@@ -167,8 +161,10 @@ body{
 				<h2>${name.name}님</h2>
 					<div class="pricing-wrap">
 						<h2>자격증</h2>
-						<label>º 산후관리사</label><br>
-						<a href="#0" class="link">수&emsp;정</a>
+						<c:forEach items="${licenselist }" var="list">
+						<h4><label>º ${list.liname }</label></h4><br>
+						</c:forEach>
+						<a href="sanhulicense" class="link">수&emsp;정</a>
 			      	</div>
 			    </div>
 		</div>

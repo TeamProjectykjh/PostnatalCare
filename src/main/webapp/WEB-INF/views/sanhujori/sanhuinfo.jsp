@@ -31,7 +31,7 @@ h1{
   <div class="row">
 	 <c:forEach items="${list}" var="my" varStatus="status">
 	 	<div class="col-lg-4 col-md-4 col-xl-4">
-	    	<div class="col"><a href="sanhudetail?num=${my.num }"><img src="sanhuimg/${my.sanhupath }" height="400px" width="300px" class="img-thumbnail"></a></div>
+	    	<div class="col"><a href="sanhudetail?num=${my.num }"><img src="sanhuimg/${my.sanhupath }" style="height=400px; width=300px;" class="img-thumbnail"></a></div>
 	    	<label>${status.count}번</label><br>
 	    	<label>${my.name }</label>
 	    </div>

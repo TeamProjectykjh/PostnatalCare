@@ -82,6 +82,11 @@ public class HomeController {
             switchi = 1;
          }
       }
+      if(job.equals("산모")) {
+    	  hs.setAttribute("empstate", 1);
+      } else {
+    	  hs.setAttribute("empstate", 0);
+      }
       hs.setAttribute("switchi", switchi);
       return "main";
    }
