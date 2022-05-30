@@ -160,11 +160,27 @@
 				<div class="card-back">
 				<h2>${name.name}님</h2>
 					<div class="pricing-wrap">
-						<h2>자격증</h2>
-						<c:forEach items="${licenselist }" var="list">
-						<h4><label>º ${list.liname }</label></h4><br>
-						</c:forEach>
-						<a href="sanhulicense" class="link">수&emsp;정</a>
+					<c:choose>
+						<c:when test="${!empty licenselist}">
+							<h2>자격증</h2>
+							<br>
+							<c:set var="loop_flag" value="false" />
+							<c:forEach items="${licenselist }" var="list" varStatus="status">
+								<c:if test="${not loop_flag }">
+									<h4><label>º ${list.liname }</label></h4><br>
+									<c:if test="${status.count eq 3}">
+										<h4>외...</h4>
+										<c:set var="loop_flag" value="true" />
+									</c:if>
+								</c:if>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<br><br>
+							<h2><label>자격증이 없습니다.</label></h2><br>
+						</c:otherwise>
+					</c:choose>
+					<a href="sanhulicense" class="link">수&emsp;정</a>
 			      	</div>
 			    </div>
 		</div>

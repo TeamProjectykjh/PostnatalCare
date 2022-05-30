@@ -2,36 +2,27 @@ package com.team.postnatalcare.Sanhumanagement;
 
 public class SanhuReviewDTO {
 	int reviewnum, employnum, posnum, sanhunum;
-	String ment, writedate; 
+	String ment; 
 	float starpoint;
 	public SanhuReviewDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	public SanhuReviewDTO(int reviewnum, float starpoint, int employnum, int posnum, int sanhunum, String ment,
-			String writedate) {
+	public SanhuReviewDTO(int reviewnum, int employnum, int posnum, int sanhunum, String ment,
+			float starpoint) {
 		super();
 		this.reviewnum = reviewnum;
-		this.starpoint = starpoint;
 		this.employnum = employnum;
 		this.posnum = posnum;
 		this.sanhunum = sanhunum;
 		this.ment = ment;
-		this.writedate = writedate;
+		this.starpoint = starpoint;
 	}
-	
 	public int getReviewnum() {
 		return reviewnum;
 	}
 	public void setReviewnum(int reviewnum) {
 		this.reviewnum = reviewnum;
-	}
-	public float getStarpoint() {
-		return starpoint;
-	}
-	public void setStarpoint(int starpoint) {
-		this.starpoint = starpoint;
 	}
 	public int getEmploynum() {
 		return employnum;
@@ -57,11 +48,11 @@ public class SanhuReviewDTO {
 	public void setMent(String ment) {
 		this.ment = ment;
 	}
-	public String getWritedate() {
-		return writedate;
+	public float getStarpoint() {
+		return starpoint;
 	}
-	public void setWritedate(String writedate) {
-		this.writedate = writedate;
+	public void setStarpoint(float starpoint) {
+		this.starpoint = starpoint;
 	}
 	
 }

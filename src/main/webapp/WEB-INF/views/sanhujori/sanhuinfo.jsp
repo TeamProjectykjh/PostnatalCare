@@ -31,13 +31,21 @@ h1{
   <div class="row">
 	 <c:forEach items="${list}" var="my" varStatus="status">
 	 	<div class="col-lg-4 col-md-4 col-xl-4">
-	    	<div class="col"><a href="sanhudetail?num=${my.num }"><img src="sanhuimg/${my.sanhupath }" style="height=400px; width=300px;" class="img-thumbnail"></a></div>
+	    	<div class="col"><a href="sanhudetail?num=${my.num }&state=${my.jobstate}"><img src="sanhuimg/${my.sanhupath }" style="height=400px; width=300px;" class="img-thumbnail"></a></div>
 	    	<label>${status.count}번</label><br>
-	    	<label>${my.name }</label>
+	    	<label>${my.name }</label><br>
+	    	<c:choose>
+	    	<c:when test="${my.jobstate eq 0 }">
+	    	<label>🟢 고용가능</label>
+	    	</c:when>
+	    	<c:otherwise>
+	    	<label>🔴 고용불가</label>
+	    	</c:otherwise>
+	    	</c:choose>
 	    </div>
 	  </c:forEach>
   </div>
 </div>
-<button onclick="location.href='index'" style="margin-bottom: 8%">메인으로</button>
+<button onclick="location.href='index'" style="margin-bottom: 5%">메인으로</button>
 </body>
 </html>

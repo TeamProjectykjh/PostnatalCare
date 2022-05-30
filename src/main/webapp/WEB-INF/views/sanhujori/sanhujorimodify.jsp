@@ -106,7 +106,7 @@ function PreviewImage() {
     </script>
 </div>
 <input style="margin-bottom: 8%" type="submit" value="전송" class="btn btn-success" onclick="if(!confirm('정말 수정하시겠습니까?')) return false">
-<input style="margin-bottom: 8%" type="button" value="취소" onclick="location.href='index'" class="btn btn-warning">
+<input style="margin-bottom: 8%" type="button" value="취소" onclick="location.href='sanhuchoice'" class="btn btn-warning">
 </form>
 </body>
 </html>

@@ -31,4 +31,8 @@
 		update pos_nurse SET nurpath = #{param1}, nurlicensename = #{param2}, nurserial = #{param3}, nurrecord = #{param4},
 		 nurcontent = #{param5} where nurnum = #{param6}
 	</update>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 963df738deaebea7c20ded3fca31260b48d667a4
 </mapper>
