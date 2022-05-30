@@ -79,7 +79,7 @@ table tr th {
 <meta charset="UTF-8">
 </head>
 <body>
-<table style="margin-top: 3%; width:85%;">
+<table style="margin-top: 3%; width:85%; margin-bottom: 5%;">
 <tr><td>
 <div class="tabs">
   <input type="radio" name="tabs" id="tabone" checked="checked">
@@ -149,6 +149,7 @@ table tr th {
 		</form>
 	</c:when>
 	<c:otherwise>
+	<div style="margin-bottom: 3%">
 		<br>
 		<h5><label>고용기간</label></h5>
 		<br>
@@ -159,9 +160,10 @@ table tr th {
 		<button type="button" onclick="location.href='jobcancel'">고용취소</button>&emsp;
 		</c:if>
 		<button type="button" onclick="location.href='sanhuinfo'">뒤로가기</button>
+	</div>
 	</c:otherwise>
 </c:choose>
-	</td></tr>
+</td></tr>
 </table>
 </body>
 </html>

@@ -86,8 +86,11 @@ public class SanhuController {
 		SanhujoriDTO dto = dao.Sanhujoriout(num);
 		int sanhunum = dto.getSanhunum();
 		ArrayList<PostnatalDTO> posnumf = dao.posnumfind(usernum);
-	    int posnum = posnumf.get(0).getPosnum();
-		hs.setAttribute("sanhunum", sanhunum);
+		if(!posnumf.isEmpty()) {
+			int posnum = posnumf.get(0).getPosnum();
+		    mo.addAttribute("posnum", posnum);
+			hs.setAttribute("sanhunum", sanhunum);
+		}
 		ArrayList<SanhuReviewDTO> reviewlist = dao.reviewout(sanhunum);
 		if(!reviewlist.isEmpty()) {
 			mo.addAttribute("reviewlist", reviewlist);
@@ -99,7 +102,6 @@ public class SanhuController {
 			mo.addAttribute("empdto", empdto);
 		}
 		mo.addAttribute("list", dto);
-		mo.addAttribute("posnum", posnum);
 		mo.addAttribute("empstate", empstate);
 		mo.addAttribute("state", state);
 		return "sanhudetail";

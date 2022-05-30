@@ -19,17 +19,21 @@ function multidel(){
 	  $("input:checkbox[name='options']:checked").each(function() {
 	  checkBoxArr.push($(this).val());     // 체크된 것만 값을 뽑아서 배열에 push
 	})
+	  var statu = confirm("정말 삭제 하실건가요?");
+	  if(!statu){
+	   return false;
+	  }
 	$.ajax({
 	      type  : "POST",
 	      url    : "<c:url value='/checkboxdel'/>",
 	      data: {
-	      checkBoxArr : checkBoxArr        // folder seq 값을 가지고 있음.
+	      checkBoxArr : checkBoxArr
 	      } ,
 	      success: function(result){
 	        	location.reload();
 	        },
 	        error: function(xhr, status, error) {
-	        	alert(error);
+	        	alert("삭제할 자격증을 선택하세요");
 	        }  
 	   });
 }

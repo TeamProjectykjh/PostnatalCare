@@ -70,7 +70,6 @@ values(pos_sanhu_seq.nextval, (SELECT num FROM pos_user WHERE num = #{param1}), 
 	select * from POS_POSTNATAL where num = #{param1}
 </select>
 
-
 <select id="reviewout" resultType="com.team.postnatalcare.Sanhumanagement.SanhuReviewDTO">
 	select * from POS_REVIEW where sanhunum = #{param1}
 </select>
@@ -89,4 +88,5 @@ values(pos_sanhu_seq.nextval, (SELECT num FROM pos_user WHERE num = #{param1}), 
 	FROM (SELECT *FROM pos_employ ORDER BY employnum DESC)
 	WHERE sanhunum = #{param1} and ROWNUM= 1
 </select>
+
 </mapper>
