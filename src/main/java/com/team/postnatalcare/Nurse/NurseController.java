@@ -47,16 +47,16 @@ public class NurseController {
 	public String Nurse2(HttpServletRequest req, Model mo){
 		int num = Integer.parseInt(req.getParameter("num"));
 		String name = req.getParameter("name");
-		int phone = Integer.parseInt(req.getParameter("phone"));
+		int phone = Integer.parseInt(req.getParameter("phone"));		
 		mo.addAttribute("usernum", num);
 		mo.addAttribute("username", name);
-		mo.addAttribute("userphone", phone);
+		mo.addAttribute("userphone", phone);		
 		return "inputnurseinfo";
 	}
 	@RequestMapping(value = "/nurseinfonext", method = RequestMethod.POST)
 	public String Nurse3(MultipartHttpServletRequest multi){
-		int num = Integer.parseInt(multi.getParameter("num"));
-		int nurnum = Integer.parseInt(multi.getParameter("nurnum"));
+		
+		int num = Integer.parseInt(multi.getParameter("num"));		
 		MultipartFile mf = multi.getFile("nurpath");
 		String nurpath = mf.getOriginalFilename();
 		int phone = Integer.parseInt(multi.getParameter("phone"));
@@ -66,10 +66,10 @@ public class NurseController {
 		String nurrecord = multi.getParameter("nurrecord");
 		String nurcontent = multi.getParameter("nurcontent");		
 		NurseMapper dao = NursesqlSession.getMapper(NurseMapper.class);
-		dao.insert(num ,nurnum, nurlicensename, nurpath, nurserial, nurrecord, nurcontent, name, phone);
-
+		dao.insert(num , nurlicensename, nurpath, nurserial, nurrecord, nurcontent, name, phone);		
 		System.out.println("/ num : "+num+"/ nurlicensename : "+nurlicensename+"/ nurpath : "+nurpath+"/ nurserial : "+nurserial
 				+"/ nurrecord : "+nurrecord+"/ nurcontent : "+nurcontent+"/ name : "+name+"/ phone : "+phone);
+		
 		return "redirect:nurselista";
 	}
 	
@@ -90,5 +90,13 @@ public class NurseController {
 		
 		return "redirect:nurselista";
 	}
-
+	@RequestMapping(value = "/modifyshh")
+	public String Nurse6(HttpServletRequest req,Model mo){
+		
+		int nurnum = Integer.parseInt(req.getParameter("nurnum"));
+		NurseMapper dao = NursesqlSession.getMapper(NurseMapper.class);
+		NursejoinDTO dto = dao.modifyselect(nurnum);
+		mo.addAttribute("dto", dto);
+		return "modifyform";
+	}
 }

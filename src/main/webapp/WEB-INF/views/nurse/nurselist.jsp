@@ -43,7 +43,7 @@
 							<tr>
 								<th>수정/삭제</th>
 								<td>
-									<a href="">Modify</a> / 
+									<a href="modifyshh?nurnum=${ko.nurnum }">Modify</a> / 
 									<a href="deletelist?nurnum=${ko.nurnum }">Delete</a>
 								</td>
 							</tr>							
