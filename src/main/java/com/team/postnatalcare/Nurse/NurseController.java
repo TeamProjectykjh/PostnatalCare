@@ -133,9 +133,10 @@ public class NurseController {
 	public String deletelist(HttpServletRequest req,Model mo){
 		
 		int nurnum = Integer.parseInt(req.getParameter("nurnum"));
+		System.out.println("/nurnum : "+nurnum);
 		NurseMapper dao = NursesqlSession.getMapper(NurseMapper.class);
 		dao.delete(nurnum);
-		System.out.println("/nurnum : "+nurnum);
+		
 		return "redirect:nurselista";
 	}
 	@RequestMapping(value = "/modifyshh")

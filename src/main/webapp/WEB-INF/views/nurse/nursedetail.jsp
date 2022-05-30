@@ -40,9 +40,6 @@
 <c:choose>
 <c:when test="${state==1}">
 <input style="margin-bottom: 8%" type="submit" value="수정" class="btn btn-success">
-<a href="deletelist?nurnum=${info.nurnum }">
-		<input type="button" value="삭제"  class="btn btn-success" style="margin-bottom: 8%;">
-		</a>
 </c:when>		
 </c:choose>
 </c:forEach>

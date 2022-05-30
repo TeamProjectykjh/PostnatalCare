@@ -37,7 +37,7 @@ public class SanhuController {
 		MultipartFile mf = multi.getFile("imgfile");
 		String sanhupath = mf.getOriginalFilename();
 		try(
-				FileOutputStream fos = new FileOutputStream("C:/JAVA/Spring/PostnatalCare/src/main/webapp/sanhuimg/" + sanhupath);
+				FileOutputStream fos = new FileOutputStream("C:/Users/한호근/OneDrive/바탕 화면/프젝/PostnatalCare/src/main/webapp/sanhuimg" + sanhupath);
 			    InputStream is = mf.getInputStream();
 				){
 			      int readCount = 0;
@@ -131,7 +131,7 @@ public class SanhuController {
 			sanhupath = request.getParameter("imgdefault");
 		}
 		try(
-				FileOutputStream fos = new FileOutputStream("C:/JAVA/Spring/PostnatalCare/src/main/webapp/sanhuimg/" + sanhupath);
+				FileOutputStream fos = new FileOutputStream("C:/Users/한호근/OneDrive/바탕 화면/프젝/PostnatalCare/src/main/webapp/sanhuimg" + sanhupath);
 			    InputStream is = mf.getInputStream();
 				){
 			      int readCount = 0;
