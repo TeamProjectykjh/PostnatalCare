@@ -72,10 +72,10 @@ public class HomeController {
       }else if(job.equals("의사")){
     	  sqlparam = "pos_doctor";
       }
-
       else if(job.equals("간호사")){
     	  sqlparam = "pos_nurse";
       }
+     
       else if(job.equals("산모")){
     	  sqlparam = "pos_postnatal";
       }
