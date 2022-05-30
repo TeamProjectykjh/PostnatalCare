@@ -7,8 +7,33 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
+
+//아래 코드로 경로(URL)를 찾을수도있다
+//var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+//var getContextPath = location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
+
+function multidel(){
+	  var checkBoxArr = []; 
+	  $("input:checkbox[name='options']:checked").each(function() {
+	  checkBoxArr.push($(this).val());     // 체크된 것만 값을 뽑아서 배열에 push
+	})
+	$.ajax({
+	      type  : "POST",
+	      url    : "<c:url value='/checkboxdel'/>",
+	      data: {
+	      checkBoxArr : checkBoxArr        // folder seq 값을 가지고 있음.
+	      } ,
+	      success: function(result){
+	        	location.reload();
+	        },
+	        error: function(xhr, status, error) {
+	        	alert(error);
+	        }  
+	   });
+}
+
 $(document).ready(function(){
    //툴팁 활성화
    $('[data-toggle="tooltip"]').tooltip();
@@ -41,29 +66,16 @@ $(document).ready(function () {
         $('#modilicode').val($(this).data('code'));
     });
 });
-
-
-
-
-
-//String[] brdID = request.getParameterValues("chklst"); 배열로 받기
-// for(int i =0 ; i < chk.length ; i++)
-//           {
-//            String sqlString = "delete from student where sno="+chk[i];
-//            stmt.executeUpdate(sqlString);
-//            out.println("<h2>"+sqlString+"</h2>");
-//          }
-
 </script>
 </head>
   <body>
     <div class="container">
         <div class="table-wrapper">
             <div class="table-title">
-                <div class="row">
-                    <div class="col-sm-6">
+                <div class="row" style="margin-top: 3%;">
+                  <div class="col-sm-6">
                   <h2>자격증 관리</h2>
-               </div>
+              	  </div>
                
                <div class="col-sm-6">
                   <a href="#addEmployeeModal" class="btn btn-success" data-bs-toggle="modal" style="float: right; margin-left: 10px;"><span>자격증 추가</span></a>

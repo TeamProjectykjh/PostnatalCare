@@ -5,7 +5,7 @@
 
 <!-- 유저 테이블(name), 산후관리사(num) 조회 -->
 <select id="jobsearch" resultType="com.team.postnatalcare.Sanhumanagement.SanhuNameDTO">
-	SELECT pos_sanhujori.num, pos_user.name, pos_sanhujori.sanhupath
+	SELECT pos_sanhujori.num, pos_user.name, pos_sanhujori.sanhupath, pos_sanhujori.jobstate
 	from pos_sanhujori 
 	join pos_user 
 	ON pos_sanhujori.num = pos_user.num
@@ -50,7 +50,7 @@ values(pos_sanhu_seq.nextval, (SELECT num FROM pos_user WHERE num = #{param1}), 
 </insert>
 
 <select id="sanhuliout" resultType="com.team.postnatalcare.Sanhumanagement.SanhuLicenseDTO">
-	select * from pos_license order by linum asc
+	select * from pos_license where sanhunum = #{param1} order by linum asc
 </select>
 
 <insert id="sanhulisave">
@@ -66,9 +66,27 @@ values(pos_sanhu_seq.nextval, (SELECT num FROM pos_user WHERE num = #{param1}), 
 	update pos_license SET liname = #{param2}, licode = #{param3} where linum = #{param1}
 </update>
 
-
 <select id="posnumfind" resultType="com.team.postnatalcare.Sanmo.PostnatalDTO">
-	select * from POS_POSTNATAL
+	select * from POS_POSTNATAL where num = #{param1}
 </select>
 
+
+<select id="reviewout" resultType="com.team.postnatalcare.Sanhumanagement.SanhuReviewDTO">
+	select * from POS_REVIEW where sanhunum = #{param1}
+</select>
+
+<select id="reviewavg" resultType="float">
+	SELECT ROUND(AVG(starpoint),1) FROM pos_review where sanhunum = #{param1}
+</select>
+
+<update id="jobstatechange">
+	update pos_sanhujori SET jobstate = #{param2} where sanhunum = #{param1}
+</update>
+
+<select id="period" resultType="com.team.postnatalcare.Sanhumanagement.SanhuEmployDTO">
+	SELECT
+    *
+	FROM (SELECT *FROM pos_employ ORDER BY employnum DESC)
+	WHERE sanhunum = #{param1} and ROWNUM= 1
+</select>
 </mapper>

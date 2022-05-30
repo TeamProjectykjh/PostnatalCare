@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.team.postnatalcare.Doctor.DoctorMapper">
+
+	<insert id="doctorsave">
+		insert into pos_doctor(docnum, num, doclicensename, docpath, docserial, docrecord, doctorcontent) values(pos_doctor_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6})
+	</insert>
+	
+		
+	<select id="doctordetail" resultType="com.team.postnatalcare.Doctor.DoctorDTO">
+		select * from pos_doctor where num = #{param1}
+	</select>
+	
+	<select id="docmodify" resultType="com.team.postnatalcare.Doctor.DoctorDTO">
+		select * from pos_doctor where docnum = #{param1}
+	</select>
+	
+	<update id="docmodifysave">
+		update pos_doctor SET doclicensename = #{param1}, docpath = #{param2}, docserial = #{param3}, docrecord = #{param4}, doctorcontent = #{param5} where docnum = #{param6}
+	</update>
+	
+	<select id="doctorlist" resultType="com.team.postnatalcare.Doctor.DoctorlistDTO">
+		select pos_doctor.docpath,pos_doctor.doclicensename,pos_user.num,pos_user.name
+		from pos_doctor,pos_user
+		where pos_doctor.num=pos_user.num
+	</select>
+	
+	<select id="mypostnatal" resultType="com.team.postnatalcare.Doctor.MypostnatalDTO">
+		select u.name,p.num,p.docnum,p.posnum
+		from pos_user u,pos_postnatal p 
+		where p.num=u.num and docnum=(select docnum from pos_doctor where num=#{param1})
+	</select>
+	
+</mapper>

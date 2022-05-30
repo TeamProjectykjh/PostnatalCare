@@ -19,5 +19,9 @@ public interface SanhuMapper {
 	public void sanhulidel(int linum);
 	public void sanhulimodi(int linum, String liname, String licode);
 	public void sanhuemploymentsave(int sanhunum, int posnum, String empstartday, String empendday);
-	public PostnatalDTO posnumfind(int num);
+	public ArrayList<PostnatalDTO> posnumfind(int num);
+	public ArrayList<SanhuReviewDTO> reviewout(int sanhunum);
+	public float reviewavg(int sanhunum);
+	public void jobstatechange(int sanhunum, int changeflag);
+	public SanhuEmployDTO period(int sanhunum);
 }
