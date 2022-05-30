@@ -50,6 +50,10 @@
    <definition name="review" extends="baseLayout">   
       <put-attribute name="body" value="/WEB-INF/views/postnatal/review.jsp" />
    </definition>
+   
+   <definition name="mysanhujori" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/postnatal/mysanhujori.jsp" />
+   </definition>
    <!-- Postnatal 국태 작업끝 -->
    
    

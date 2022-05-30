@@ -56,10 +56,24 @@
 	<select id="sanhuname" resultType="com.team.postnatalcare.Sanmo.SanhuDTO" >
 		select u.name from pos_sanhujori s,(select name,num from pos_user)u where s.num = u.num and s.sanhunum=(select sanhunum from pos_user where num = #{param1})
 	</select>
-	
-	<select id="test" resultType="com.team.postnatalcare.Sanmo.SanhuDTO" >
-		select * from pos_sanhujori
+	 	
+ 	<insert id="employsave">
+ 		insert into pos_employ(employnum,posnum,sanhunum,empstartday,empendday) values(pos_employ_seq.nextval,#{param1},#{param2},#{param3},#{param4})
+ 	</insert>
+ 	
+ 	<select id="emplist" resultType="com.team.postnatalcare.Sanmo.EmpDTO" >
+		select u.name,u.num,s.num,s.sanhunum,e.employnum,e.posnum,e.sanhunum,e.empstartday,e.empendday,p.posnum,p.num
+  		from pos_user u,pos_sanhujori s,pos_employ e,pos_postnatal p
+ 		where u.num=s.num and s.sanhunum=e.sanhunum and e.posnum=p.posnum and p.num=#{param1}
 	</select>
-
+ 		
+ 	<select id="posnum" resultType="com.team.postnatalcare.Sanmo.PostnatalDTO" >
+		select posnum from pos_postnatal where num = #{param1} 
+	</select>
+	
+	<insert id="reviewsave">
+ 		insert into pos_review(reviewnum,employnum,posnum,sanhunum,starpoint,ment) values(pos_review_seq.nextval,#{param1},#{param2},#{param3},#{param4},#{param5})
+ 	</insert>
+ 	
 </mapper>
 
