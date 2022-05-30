@@ -10,9 +10,6 @@ public interface SanmoMapper {
 	public ArrayList<UserDTO> username(int num);
 	public ArrayList<DocDTO> docname();
 	public ArrayList<NurDTO> nurname();
-	public void user(String name);
-	public void doc(String docname);
-	public void nur(String nurname);
 	public void insertsave(int num,int docnum,int nurnum,String startday,String endday,String baby,String protect,int emergencyphone);
 	
 	//개인정보 출력 부분
@@ -31,8 +28,14 @@ public interface SanmoMapper {
 	public ArrayList<QuestionnaireDTO> alllist(int posnum,String qusday);
 	////
 	
-	//산루조리사 협업 후기작성 
-	public ArrayList<SanhuDTO> sanhuname(int num);
-	public ArrayList<SanhuDTO> test();
-	//public void  sanmoinsert(String name,String docname,String nurname,String startday,String endday,String baby,String protect,int emergencyphone);
+	//산후조리사 협업 후기작성 
+	public ArrayList<SanhuDTO> sanhuname(int num);	
+ 	
+	//산후조리사 고용 출력 //리뷰
+	public ArrayList<EmpDTO> emplist(int num);
+	public ArrayList<SanhuDTO> huname(int num);
+	public ArrayList<PostnatalDTO> posnum(int num);
+	
+	//리뷰 저장
+	public void reviewsave(int employnum,int posnum,int sanhunum,float starpoint,String ment);
 }

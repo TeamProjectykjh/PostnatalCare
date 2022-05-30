@@ -72,10 +72,19 @@ public class HomeController {
       }else if(job.equals("의사")){
     	  sqlparam = "pos_doctor";
       }
+<<<<<<< HEAD
    	else if(job.equals("간호사")){
  	  sqlparam = "pos_nurse";
    	}
      
+=======
+      else if(job.equals("간호사")){
+    	  sqlparam = "pos_nurse";
+      }
+      else if(job.equals("산모")){
+    	  sqlparam = "pos_postnatal";
+      }
+>>>>>>> 2bca1f30e4573bdd39a145e774098217af76e215
       if(sqlparam != "") {
          //sqlparam에 값이 없다면 넘기기
          //(추후 원하는 사람있다면 else if로 값 넣기)
