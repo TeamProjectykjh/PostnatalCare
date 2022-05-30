@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
-
+import org.apache.catalina.User;
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,6 +36,13 @@ public class NurseController {
 	@Autowired
 	SqlSession NursesqlSession;
 	NurseMapper dao;	
+	
+	//간호사 근무 일정
+	@RequestMapping(value = "/Nursecalendar")
+	public String Nursecalendar(HttpServletRequest req){
+		
+		return "calendar";
+	}	
 	
 	//CRUD
 	@RequestMapping(value = "/Nurseinfo")
@@ -87,7 +94,7 @@ public class NurseController {
 		System.out.println("/ num : "+num+"/ nurlicensename : "+nurlicensename+"/ nurpath : "+nurpath+"/ nurserial : "+nurserial
 				+"/ nurrecord : "+nurrecord+"/ nurcontent : "+nurcontent+"/ name : "+name+"/ phone : "+phone);
 		
-		return "redirect:nurselista";
+		return "redirect:index";
 	}
 	@RequestMapping(value = "/nurselista")
 	public String nurselista(HttpServletRequest req ,Model mo){	

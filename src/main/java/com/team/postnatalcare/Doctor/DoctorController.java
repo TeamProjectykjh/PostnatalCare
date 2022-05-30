@@ -56,7 +56,7 @@ public class DoctorController {
 		String docpath = mf.getOriginalFilename();
 		try(
 			
-				FileOutputStream fos = new FileOutputStream("C:/Users/한호근/OneDrive/바탕 화면/프젝/PostnatalCare/src/main/webapp/doctorimg" + docpath);
+				FileOutputStream fos = new FileOutputStream("/PostnatalCare/src/main/webapp/doctorimg/" + docpath);
 
 			    InputStream is = mf.getInputStream();
 			    ){
@@ -133,7 +133,7 @@ public class DoctorController {
 		String docpath = mf.getOriginalFilename();
 		
 		try( 
-				FileOutputStream fos = new FileOutputStream("C:/Users/한호근/OneDrive/바탕 화면/프젝/PostnatalCare/src/main/webapp/doctorimg" + docpath);
+				FileOutputStream fos = new FileOutputStream("/PostnatalCare/src/main/webapp/doctorimg/" + docpath);
 			    InputStream is = mf.getInputStream();
 			    ){
 			      int readCount = 0;

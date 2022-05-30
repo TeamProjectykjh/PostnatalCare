@@ -46,6 +46,7 @@ public class HomeController {
 //   로그인 후 메인이 되는 페이지
    @RequestMapping(value = "/index")
    public String home(HttpServletRequest request) {
+	   
       HttpSession hs = request.getSession();
       Mapper dao = sqlSession.getMapper(Mapper.class);
       String id = (String)hs.getAttribute("id");
@@ -58,6 +59,7 @@ public class HomeController {
       hs.setAttribute("num", num);
       hs.setAttribute("name", name);
       int switchi = 0;
+      int switcc =0;
       String sqlparam = "";
       //동적으로 테이블 조회를 위한 String
       int usernum = userinfo.get(0).getNum();
@@ -70,7 +72,9 @@ public class HomeController {
       }else if(job.equals("의사")){
     	  sqlparam = "pos_doctor";
       }
-      
+   	else if(job.equals("간호사")){
+ 	  sqlparam = "pos_nurse";
+   	}
      
       if(sqlparam != "") {
          //sqlparam에 값이 없다면 넘기기
@@ -79,12 +83,16 @@ public class HomeController {
          if(dto != null) {
             switchi = 1;
          }
+         if(dto != null) {
+             switcc = 1;
+          }
       }
       if(job.equals("산모")) {
     	  hs.setAttribute("empstate", 1);
       } else {
     	  hs.setAttribute("empstate", 0);
       }
+      hs.setAttribute("switcc", switcc);
       hs.setAttribute("switchi", switchi);
       return "main";
    }

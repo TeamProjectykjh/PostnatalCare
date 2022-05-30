@@ -67,13 +67,26 @@
 		        </s:otherwise>
 		        </s:choose>
         	</s:when>
+        	
         	<s:when test="${job.job eq '간호사'}">
+        		<s:choose>
+        			<s:when test="${switcc eq 0 }">
 		        <ul class="navbar-nav me-auto mb-2 mb-lg-0">		          
 		          <li class="nav-item">
 		            <a class="nav-link active" aria-current="page" href="inputnurseinfo?num=${job.num}&name=${job.name}&phone=${job.phone}">간호사 정보 입력</a>
 		          </li>		          
 		        </ul>
+		        </s:when>
+		        <s:otherwise>
+		         <ul class="navbar-nav me-auto mb-2 mb-lg-0">		          
+		          <li class="nav-item">
+		            <a class="nav-link active" aria-current="page" href="Nursecalendar">의료진 근무 일정</a>
+		          </li>		          
+		        </ul>		        
+		        </s:otherwise>
+		        </s:choose>
         	</s:when>
+        	
         	<s:when test="${job.job eq '산후조리사'}">
 		        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 		        <s:choose>
