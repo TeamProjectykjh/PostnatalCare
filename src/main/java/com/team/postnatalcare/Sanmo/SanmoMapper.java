@@ -20,17 +20,19 @@ public interface SanmoMapper {
 	public ArrayList<NurnameDTO> nursename(int num);
 	public ArrayList<PostnatalDTO> poslist(int num);
 	////
-	
+	//문진표 작성 할떄 이름 값 받기//
 	public ArrayList<UserDTO> self(int num);
 	public ArrayList<PostnatalDTO> sanmonum(int num);
-	
-	public void que(int postnum,String qusday,String quscondition,String quspain,String qusdiscomfort,String qustext);
+	////
+	//문진표 값 저장
+	public void selfsave(int postnum,String qusday,String quscondition,String quspain,String qusdiscomfort,String qustext);
 	public ArrayList<UserDTO> userlist(int num);
-	public ArrayList<QuestionnaireDTO> quslist();
+	public ArrayList<QuestionnaireDTO> quslist(int num);
+	public ArrayList<QuestionnaireDTO> alllist(int posnum,String qusday);
+	////
 	
-	
-	public ArrayList<QuestionnaireDTO> alllist(int qusnum);
-	
-	
+	//산루조리사 협업 후기작성 
+	public ArrayList<SanhuDTO> sanhuname(int num);
+	public ArrayList<SanhuDTO> test();
 	//public void  sanmoinsert(String name,String docname,String nurname,String startday,String endday,String baby,String protect,int emergencyphone);
 }

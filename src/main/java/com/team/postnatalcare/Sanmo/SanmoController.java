@@ -62,7 +62,7 @@ public class SanmoController {
 		dao = SanmosqlSession.getMapper(SanmoMapper.class);
 		dao.insertsave(num,docnum,nurnum,startday,endday,baby,protect,emergencyphone);
 		System.out.println("num:"+num+"docnum:"+docnum+"nurnum:"+nurnum+"startday:"+startday+"endday:"+endday+"baby:"+baby+"protect:"+protect+"emergencyphone:"+emergencyphone);
-		return "reservationlistout";
+		return "redirect:index";
 	
 	}
 
@@ -87,7 +87,7 @@ public class SanmoController {
 	public String SelfChecker(HttpServletRequest request,Model mo) {
 		int num = Integer.parseInt(request.getParameter("num"));
 		dao = SanmosqlSession.getMapper(SanmoMapper.class);
-		ArrayList<UserDTO> list = dao.self(num);
+		ArrayList<UserDTO> list = dao.username(num);
 		ArrayList<PostnatalDTO> plist = dao.sanmonum(num);
 		mo.addAttribute("list", list);
 		mo.addAttribute("plist", plist);
@@ -103,8 +103,8 @@ public class SanmoController {
 		String qusdiscomfort = request.getParameter("qusdiscomfort");
 		String qustext = request.getParameter("qustext");
 		dao = SanmosqlSession.getMapper(SanmoMapper.class);
-		dao.que(posnum,qusday,quscondition,quspain,qusdiscomfort,qustext);
-		return "selfsave";
+		dao.selfsave(posnum,qusday,quscondition,quspain,qusdiscomfort,qustext);
+		return "redirect:index";
 	}
 	
 	@RequestMapping(value = "/selfout")
@@ -112,7 +112,7 @@ public class SanmoController {
 		int num = Integer.parseInt(request.getParameter("num"));
 		dao = SanmosqlSession.getMapper(SanmoMapper.class);
 		ArrayList<UserDTO> list = dao.userlist(num);
-		ArrayList<QuestionnaireDTO> qlist = dao.quslist();
+		ArrayList<QuestionnaireDTO> qlist = dao.quslist(num);
 		ArrayList<DocnameDTO> dlist = dao.doctorname(num);
 		ArrayList<NurnameDTO> nlist = dao.nursename(num);
 		mo.addAttribute("list", list);
@@ -124,14 +124,40 @@ public class SanmoController {
 	
 	@RequestMapping(value = "/detail")
 	public String detail(HttpServletRequest request,Model mo) {
-		int qusnum = Integer.parseInt(request.getParameter("qusnum"));
+		int posnum = Integer.parseInt(request.getParameter("posnum"));
+		String qusday = request.getParameter("qusday");
 		dao = SanmosqlSession.getMapper(SanmoMapper.class);
-		ArrayList<QuestionnaireDTO> qlist = dao.alllist(qusnum);
+		ArrayList<QuestionnaireDTO> qlist = dao.alllist(posnum,qusday);
 		mo.addAttribute("qlist", qlist);
 		return "detail";
 	}
 	
+	@RequestMapping(value = "/employ")
+	public String employ(HttpServletRequest request,Model mo) {
+	int num = Integer.parseInt(request.getParameter("num"));
+	dao = SanmosqlSession.getMapper(SanmoMapper.class);
+	ArrayList<UserDTO> list = dao.username(num);
+	ArrayList<SanhuDTO> slist = dao.sanhuname(num);
+	mo.addAttribute("list", list);
+	mo.addAttribute("slist", slist);
+	return "employ";
+	}
 	
+	@RequestMapping(value = "/personalhistory")
+	public String history(HttpServletRequest request,Model mo) {
+		dao = SanmosqlSession.getMapper(SanmoMapper.class);
+		ArrayList<SanhuDTO> slist = dao.test();
+		mo.addAttribute("slist", slist);
+		return "personalhistory";
+	}
 	
+	@RequestMapping(value = "/review")
+	public String review(HttpServletRequest request,Model mo) {
+		int num = Integer.parseInt(request.getParameter("num"));
+		dao = SanmosqlSession.getMapper(SanmoMapper.class);
+		ArrayList<UserDTO> list = dao.username(num);
+		mo.addAttribute("list", list);
+		return "review";
+	}
 
 }

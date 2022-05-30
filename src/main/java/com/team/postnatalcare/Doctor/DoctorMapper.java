@@ -11,4 +11,5 @@ public interface DoctorMapper {
 
 	public void docmodifysave(String doclicensename,String docpath,int docserial,String docrecord,String doctorcontent, int docnum);
 	public ArrayList<DoctorlistDTO> doctorlist();
+	public ArrayList<MypostnatalDTO> mypostnatal(int num);
 }

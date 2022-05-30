@@ -58,23 +58,20 @@
 		            <a class="nav-link active" aria-current="page" href="calendar">의료진 휴진일정</a>
 		          </li>
 		          <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="doctordetail?num=${job.num}&name=${job.name}">내 프로필 관리</a>
+		            <a class="nav-link active" aria-current="page" href="doctordetail?num=${job.num}&name=${job.name}&username=${name}">내 프로필 관리</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link active" aria-current="page" href="mypostnatal?num=${job.num}&name=${job.name}&username=${name}">담당 산모조회</a>
 		          </li>
 		        </ul>
 		        </s:otherwise>
 		        </s:choose>
         	</s:when>
         	<s:when test="${job.job eq '간호사'}">
-		        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-		          <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="Nurseinfo">간호사 정보 보기</a>
-		          </li>
+		        <ul class="navbar-nav me-auto mb-2 mb-lg-0">		          
 		          <li class="nav-item">
 		            <a class="nav-link active" aria-current="page" href="inputnurseinfo?num=${job.num}&name=${job.name}&phone=${job.phone}">간호사 정보 입력</a>
-		          </li>
-		           <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="nursetest">간호사 정보 보기(기능만 구현)</a>
-		          </li>
+		          </li>		          
 		        </ul>
         	</s:when>
         	<s:when test="${job.job eq '산후조리사'}">
@@ -88,15 +85,6 @@
 		        	<s:otherwise>
 						<li class="nav-item">						
 							<a class="nav-link active" aria-current="page" href="sanhuchoice">산후조리사정보수정</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="sanhuinfo">상세조회</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="aaaa">테스트</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="rating">후기</a>
 						</li>
 					</s:otherwise>
 				</s:choose>

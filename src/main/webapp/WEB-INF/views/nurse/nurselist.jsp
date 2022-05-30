@@ -1,56 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="https://technext.github.io/zay-shop/assets/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://technext.github.io/zay-shop/assets/css/templatemo.css" rel="stylesheet">
+
+<style type="text/css">
+/*** Service ***/
+.service-item {
+    box-shadow: 0 0 45px rgba(0, 0, 0, .07);
+    border: 1px solid transparent;
+    transition: .5s;
+}
+
+.service-item:hover {
+    margin-top: -10px;
+    box-shadow: none;
+    border: 1px solid #DEE2E6;
+}
+</style>
 </head>
-	<body>
-		<table border="2"  style="width: 800px;" align="center">			
-			<c:forEach items="${lista}" var="ko">
-				<tr>	
-								
-					<td><img src="nurseimg/${ko.nurpath}" style="width: 400px; height: 300px;"></td>					
-					
-					<td>
-						<table border="2" style="width: 400px; text-align: center; height: 300px;">
-							<tr>
-								<th>이름</th>
-								<td>${ko.name }</td>
-							</tr>							
-							<tr>
-								<th>전화번호</th>
-								<td>${ko.phone }</td>
-							</tr>							
-							<tr>
-								<th>자격증 이름</th>
-								<td>${ko.nurlicensename }</td>
-							</tr>							
-							<tr>
-								<th>자격증 번호</th>
-								<td>${ko.nurserial }</td>
-							</tr>							
-							<tr>
-								<th>경력사항</th>
-								<td>${ko.nurrecord }</td>
-							</tr>							
-							<tr>
-								<th>소개</th>
-								<td>${ko.nurcontent }</td>
-							</tr>	
-							<tr>
-								<th>수정/삭제</th>
-								<td>
-									<a href="modifyshh?nurnum=${ko.nurnum }">Modify</a> / 
-									<a href="deletelist?nurnum=${ko.nurnum }">Delete</a>
-								</td>
-							</tr>							
-						</table>						
-					</td>
-				</tr>
-			</c:forEach>
-		</table>
-	</body>
-</html>
+<body>
+			<!-- modifyshh?nurnum=${list.nurnum }&name=${list.name} -->
+			<div class="row g-4 mb-5">
+			<c:forEach items="${lista}" var="list">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                    <a style="text-decoration-line: none;" class="service-item d-block rounded text-center h-100 p-4" href="nursedetail?num=${list.num}&name=${list.name}&username=${name}">
+                        <img style="object-fit: cover; height: 70%;" class="img-fluid rounded mb-4" src="nurseimg/${list.nurpath}" >
+                        <h4 style="color: black" class="mb-0">${list.name} 간호사님</h4>
+                        <h5 style="color: black" class="mb-0">${list.nurlicensename}</h5>
+                        <a href="deletelist?nurnum=${list.nurnum }">삭제</a>
+                        <!-- <img src="doctorimg/${info.docpath}" class="img-fluid rounded-start" alt="..."> -->
+                    </a>
+                </div>
+                 </c:forEach>
+            </div>           
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</body>
+
