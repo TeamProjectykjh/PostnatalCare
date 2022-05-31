@@ -20,10 +20,14 @@
         <s:forEach items="${userinfo}" var="job">
 		<s:choose>
 			<s:when test="${job.job eq '산모'}">
-		        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<s:choose>
+		        	<s:when test="${switchi eq 0}">
 		          <li class="nav-item">
 		            <a class="nav-link active" aria-current="page" href="reservation?num=${job.num }">산모개인정보등록</a>
-		          </li>
+		          </li>    
+		          </s:when>
+		        <s:otherwise>
 		          <li class="nav-item">
 		            <a class="nav-link active" aria-current="page" href="reservationlistout?num=${job.num }">산모개인정보</a>
 		          </li>
@@ -34,12 +38,13 @@
 		           <a class="nav-link active" aria-current="page" href="selfout?num=${job.num }">일일문진표내역</a>
 		          </li>
 		          <li class="nav-item">
-		           <a class="nav-link active" aria-current="page" href="employ?num=${job.num }">산후조리사예약</a>
+		           <a class="nav-link active" aria-current="page" href="mysanhujori?num=${job.num }">산후조리사예약확인</a>
 		          </li>
 		          <li class="nav-item">
-		           <a class="nav-link active" aria-current="page" href="selfout?num=${job.num }">산후조리사예약확인</a>
+		           <a class="nav-link active" aria-current="page" href="review?num=${job.num }&name=${job.name}">리뷰작성</a>
 		          </li>
-		          
+		         </s:otherwise>
+		        </s:choose>
 		        </ul>
         	</s:when>
         	<s:when test="${job.job eq '의사'}">
@@ -67,19 +72,26 @@
 		        </s:otherwise>
 		        </s:choose>
         	</s:when>
+        	
         	<s:when test="${job.job eq '간호사'}">
-		        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-		          <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="Nurseinfo">간호사 정보 보기</a>
-		          </li>
+        		<s:choose>
+        			<s:when test="${switcc eq 0 }">
+		        <ul class="navbar-nav me-auto mb-2 mb-lg-0">		          
 		          <li class="nav-item">
 		            <a class="nav-link active" aria-current="page" href="inputnurseinfo?num=${job.num}&name=${job.name}&phone=${job.phone}">간호사 정보 입력</a>
-		          </li>
-		           <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="nursetest">간호사 정보 보기(기능만 구현)</a>
-		          </li>
+		          </li>		          
 		        </ul>
+		        </s:when>
+		        <s:otherwise>
+		         <ul class="navbar-nav me-auto mb-2 mb-lg-0">		          
+		          <li class="nav-item">
+		            <a class="nav-link active" aria-current="page" href="Nursecalendar">의료진 근무 일정</a>
+		          </li>		          
+		        </ul>		        
+		        </s:otherwise>
+		        </s:choose>
         	</s:when>
+        	
         	<s:when test="${job.job eq '산후조리사'}">
 		        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 		        <s:choose>
@@ -91,15 +103,6 @@
 		        	<s:otherwise>
 						<li class="nav-item">						
 							<a class="nav-link active" aria-current="page" href="sanhuchoice">산후조리사정보수정</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="sanhuinfo">상세조회</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="aaaa">테스트</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="rating">후기</a>
 						</li>
 					</s:otherwise>
 				</s:choose>

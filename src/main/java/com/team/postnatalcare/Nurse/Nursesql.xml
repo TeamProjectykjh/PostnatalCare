@@ -4,19 +4,33 @@
 <mapper namespace="com.team.postnatalcare.Nurse.NurseMapper"> 
  	
 	<insert id="insert">
-		insert into pos_nurse(nurnum, num, nurlicensename, nurpath, nurserial, nurrecord, nurcontent)
-		 values(pos_nurse_seq.nextval, #{param1},#{param2},#{param3},#{param4},#{param5},
-		 #{param6})
+		insert into pos_nurse(nurnum, num, nurlicensename, nurpath, nurserial, nurrecord, nurcontent) 
+		values(pos_nurse_seq.nextval, #{param1},#{param2},#{param3},#{param4},#{param5},#{param6})
 	</insert>	
+	
+	<select id="nursedetail" resultType="com.team.postnatalcare.Nurse.NursejoinDTO">
+		select * from pos_nurse <![CDATA[where num = #{param1}]]>
+	</select>
 
 	<select id="select" resultType="com.team.postnatalcare.Nurse.NursejoinDTO">
 		select pos_nurse.nurnum,pos_nurse.nurlicensename, pos_nurse.nurpath, pos_nurse.nurserial, 
-		pos_nurse.nurrecord,pos_nurse.nurcontent, pos_user.name, pos_user.phone 
+		pos_nurse.nurrecord,pos_nurse.nurcontent, pos_user.name, pos_user.phone , pos_user.num
 		from pos_nurse,pos_user
 		where pos_nurse.num=pos_user.num
 	</select>
 	
 	<delete id="delete">
-		delete from pos_nurse where nurnum=#{param1}
+		delete from pos_nurse where nurnum = #{param1}
 	</delete>
+	
+	<select id="modifyselect" resultType="com.team.postnatalcare.Nurse.NurseDTO">
+		select * from pos_nurse <![CDATA[where nurnum = #{param1}]]>
+	</select>
+	
+	<update id="modifysava">
+		update pos_nurse SET nurpath = #{param1}, nurlicensename = #{param2}, nurserial = #{param3}, nurrecord = #{param4},
+		 nurcontent = #{param5} 
+		 <![CDATA[where nurnum = #{param6}]]>
+	</update>
+	
 </mapper>

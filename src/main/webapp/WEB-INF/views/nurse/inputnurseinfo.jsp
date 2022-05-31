@@ -13,12 +13,13 @@
 	<body>
 		<h4 style="text-align: center; padding-top: 20px;">간호사 정보 입력</h4>
 			<form action="nurseinfonext" method="post" enctype="multipart/form-data">
-			<input type="hidden" name="num" value="${usernum }">
-			<input type="hidden" name="nurnum" >
-			    <div class="mb-3">
-			        <label class="form-label" >사진</label>
-			        <input type="file"  name="nurpath" class="form-control" placeholder="nurpath">
+			<input type="hidden" name="num" value="${usernum }">	
+					
+			    <div class="mb-3">			  		    	
+			        <label for="nurfile" class="form-label" >사진</label>
+			        <input class="form-control" type="file"  id="nurfile"  name="nurpath"  >
 			    </div>
+			    
 			    <div class="mb-3">
 			        <label class="form-label" >전화번호</label>
 			        <input type="text"  name="phone" class="form-control" 

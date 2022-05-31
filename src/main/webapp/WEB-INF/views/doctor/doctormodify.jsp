@@ -26,14 +26,17 @@
 				<c:forEach items="${docinfo}" var="doc">
 				<label class="form-label" style="margin-top: 3%; font-size: 25px; font-weight: bold;">${name} 의사님
 						프로필 수정</label>
+				
 				<div class="mb-3">  
-				  <label for="imgfile"><img src="doctorimg/${doc.docpath }" id="preview" height="400px" width="300px" class="img-thumbnail"></label>
+				  <label for="imgfile"><img src="doctorimg/${doc.docpath }" id="preview" height="400px" width="300px" 
+				  class="img-thumbnail"></label>
 				  <input type="file" id="imgfile" name="imgfile" style="display:none" onchange="PreviewImage();">
+				
 				</div>
 				<div class="mb-3">
-					<input type="hidden" name="docnum" value="${doc.docnum}">
- 					
+					<input type="hidden" name="docnum" value="${doc.docnum}"> 		
 				</div>
+				
 				<div style="margin-bottom: 3%">
 					<div class="input-group flex-nowrap">
 						<span class="input-group-text" id="addon-wrapping">면허 이름</span>

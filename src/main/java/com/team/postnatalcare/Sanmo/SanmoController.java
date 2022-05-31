@@ -132,32 +132,38 @@ public class SanmoController {
 		return "detail";
 	}
 	
-	@RequestMapping(value = "/employ")
-	public String employ(HttpServletRequest request,Model mo) {
-	int num = Integer.parseInt(request.getParameter("num"));
-	dao = SanmosqlSession.getMapper(SanmoMapper.class);
-	ArrayList<UserDTO> list = dao.username(num);
-	ArrayList<SanhuDTO> slist = dao.sanhuname(num);
-	mo.addAttribute("list", list);
-	mo.addAttribute("slist", slist);
-	return "employ";
-	}
-	
-	@RequestMapping(value = "/personalhistory")
-	public String history(HttpServletRequest request,Model mo) {
-		dao = SanmosqlSession.getMapper(SanmoMapper.class);
-		ArrayList<SanhuDTO> slist = dao.test();
-		mo.addAttribute("slist", slist);
-		return "personalhistory";
-	}
-	
 	@RequestMapping(value = "/review")
 	public String review(HttpServletRequest request,Model mo) {
 		int num = Integer.parseInt(request.getParameter("num"));
 		dao = SanmosqlSession.getMapper(SanmoMapper.class);
 		ArrayList<UserDTO> list = dao.username(num);
+		ArrayList<EmpDTO> elist = dao.emplist(num);
 		mo.addAttribute("list", list);
+		mo.addAttribute("elist", elist);
 		return "review";
+	}
+
+	@RequestMapping(value = "/reviewsave")
+	public String reviewsave(HttpServletRequest request,Model mo) {
+		int employnum = Integer.parseInt(request.getParameter("employnum"));
+		int posnum = Integer.parseInt(request.getParameter("posnum"));
+		int sanhunum = Integer.parseInt(request.getParameter("sanhunum"));
+		float starpoint =	Float.parseFloat(request.getParameter("rating"));
+		String ment = request.getParameter("ment");
+		System.out.println("employnum:"+employnum+"posnum"+posnum+"sanhunum"+sanhunum+"starpoint"+starpoint+"ment"+ment);
+		dao = SanmosqlSession.getMapper(SanmoMapper.class);
+		dao.reviewsave(employnum,posnum,sanhunum,starpoint,ment);
+		return "redirect:index";
+	}
+	
+	//산후조리 예약확인페이지
+	@RequestMapping(value = "/mysanhujori")
+	public String mysanhujori(HttpServletRequest request,Model mo) {
+		int num = Integer.parseInt(request.getParameter("num"));
+		dao = SanmosqlSession.getMapper(SanmoMapper.class);
+		ArrayList<EmpDTO> elist = dao.emplist(num);
+		mo.addAttribute("elist", elist);
+		return "mysanhujori";
 	}
 
 }

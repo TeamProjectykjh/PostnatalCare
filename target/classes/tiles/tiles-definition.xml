@@ -14,6 +14,9 @@
    <definition name="address" extends="baseLayout">   
       <put-attribute name="body" value="/WEB-INF/views/address.jsp" />
    </definition>
+   <definition name="info" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/info.jsp" />
+   </definition>
    
    <!-- Postnatal 국태 작업 -->
    <definition name="reservation" extends="baseLayout">   
@@ -46,6 +49,10 @@
    
    <definition name="review" extends="baseLayout">   
       <put-attribute name="body" value="/WEB-INF/views/postnatal/review.jsp" />
+   </definition>
+   
+   <definition name="mysanhujori" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/postnatal/mysanhujori.jsp" />
    </definition>
    <!-- Postnatal 국태 작업끝 -->
    
@@ -85,17 +92,25 @@
    </definition>
    <!-- Sanhu 진현 작업 끝 -->
    
-   <!-- Nurse 병문 작업 -->   
-   <definition name="Nurseinfo" extends="baseLayout">   
-      <put-attribute name="body" value="/WEB-INF/views/nurse/Nurseinfo.jsp" />
-   </definition>
+   <!-- Nurse 병문 작업 -->     
+    <definition name="calendar" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/nurse/calendar.jsp" />
+   </definition>  
    
    <definition name="inputnurseinfo" extends="baseLayout">   
       <put-attribute name="body" value="/WEB-INF/views/nurse/inputnurseinfo.jsp" />
+   </definition>   
+   
+   <definition name="modifyform" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/nurse/modifyform.jsp" />
    </definition>
    
    <definition name="nurselist" extends="baseLayout">   
       <put-attribute name="body" value="/WEB-INF/views/nurse/nurselist.jsp" />
+   </definition>
+   
+   <definition name="nursedetail" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/nurse/nursedetail.jsp" />
    </definition>
    <!-- Nurse 병문 작업 -->
    

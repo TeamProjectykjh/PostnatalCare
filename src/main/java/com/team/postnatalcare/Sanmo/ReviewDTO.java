@@ -5,19 +5,20 @@ public class ReviewDTO {
 	int employnum;
 	int posnum;
 	int sanhunum;
-	int statpoint;
+	float starpoint;
 	String ment;
+	String name;
 	public ReviewDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public ReviewDTO(int reviewnum, int employnum, int posnum, int sanhunum, int statpoint, String ment) {
+	public ReviewDTO(int reviewnum, int employnum, int posnum, int sanhunum, float starpoint, String ment) {
 		super();
 		this.reviewnum = reviewnum;
 		this.employnum = employnum;
 		this.posnum = posnum;
 		this.sanhunum = sanhunum;
-		this.statpoint = statpoint;
+		this.starpoint = starpoint;
 		this.ment = ment;
 	}
 	public int getReviewnum() {
@@ -44,11 +45,11 @@ public class ReviewDTO {
 	public void setSanhunum(int sanhunum) {
 		this.sanhunum = sanhunum;
 	}
-	public int getStatpoint() {
-		return statpoint;
+	public float getStarpoint() {
+		return starpoint;
 	}
-	public void setStatpoint(int statpoint) {
-		this.statpoint = statpoint;
+	public void setStarpoint(float starpoint) {
+		this.starpoint = starpoint;
 	}
 	public String getMent() {
 		return ment;

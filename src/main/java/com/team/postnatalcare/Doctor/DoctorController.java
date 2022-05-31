@@ -55,7 +55,9 @@ public class DoctorController {
 		MultipartFile mf = mp.getFile("docpath");
 		String docpath = mf.getOriginalFilename();
 		try(
+			
 				FileOutputStream fos = new FileOutputStream("/PostnatalCare/src/main/webapp/doctorimg/" + docpath);
+
 			    InputStream is = mf.getInputStream();
 			    ){
 			      int readCount = 0;
@@ -126,9 +128,11 @@ public class DoctorController {
 		int docserial = Integer.parseInt(request.getParameter("docserial"));
 		String docrecord = request.getParameter("docrecord");
 		String doctorcontent = request.getParameter("doctorcontent");
+		
 		MultipartFile mf = multi.getFile("imgfile");
 		String docpath = mf.getOriginalFilename();
-		try(
+		
+		try( 
 				FileOutputStream fos = new FileOutputStream("/PostnatalCare/src/main/webapp/doctorimg/" + docpath);
 			    InputStream is = mf.getInputStream();
 			    ){
