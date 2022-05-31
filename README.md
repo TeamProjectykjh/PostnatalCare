@@ -1,7 +1,57 @@
 # PostnatalCare
 실행 첫 페이지  localhost:본인포트/PostnatalCare/login
+![로그인화면](https://user-images.githubusercontent.com/84373336/171112170-0909f82c-b246-4c3f-b68b-683915f23502.jpg)
 
-DB생성 참고
+# PostnatalCare/index
+![의사로그인](https://user-images.githubusercontent.com/84373336/171113234-6ce5da6e-2a3a-4147-95ac-e3aa5856d5d0.jpg)
+
+# PostnatalCare/calendar
+![의료진일정](https://user-images.githubusercontent.com/84373336/171112542-5c814269-6790-4afc-af7e-14ccc0aee142.png)
+
+# PostnatalCare/admin
+![계정 비활성화 후 화면](https://user-images.githubusercontent.com/84373336/171112656-5963e04b-6c4f-4cd6-b0a1-826a1bce962e.jpg)
+
+# PostnatalCare/doctorsave
+![의사 상세정보 수정](https://user-images.githubusercontent.com/84373336/171113101-54f4a18b-8976-4892-acb1-21c034fe60da.jpg)
+
+# PostnatalCare/doctorlist
+![의료진소개](https://user-images.githubusercontent.com/84373336/171112963-72808c77-7141-46b1-9066-a86f0142d4f8.jpg)
+
+# PostnatalCare/address
+![오시는길](https://user-images.githubusercontent.com/84373336/171113412-a3e322c6-a072-4462-9a95-8188c1cb9f52.jpg)
+
+# PostnatalCare/nursedetail
+![간호사 정보수정](https://user-images.githubusercontent.com/84373336/171113621-63bc0595-faa3-4113-b722-e02bc6cf2bd0.jpg)
+
+# PostnatalCare/nurselist
+![간호사 소개](https://user-images.githubusercontent.com/84373336/171113756-a7e0436a-a183-4a5b-ade4-c69579843c1b.jpg)
+
+# PostnatalCare/sanhujoridetail
+![내정보 수정](https://user-images.githubusercontent.com/84373336/171113953-c7a61fa1-7dc6-46c1-9ae1-0b24a7c4ab2f.jpg)
+
+# PostnatalCare/sanhujoridetail
+![내정보 자격증 등록](https://user-images.githubusercontent.com/84373336/171114040-e244ea54-351e-4d84-8233-42d8f9fed657.jpg)
+
+# PostnatalCare/license
+![자격증 추가](https://user-images.githubusercontent.com/84373336/171114129-b00b68bd-ab18-4156-bfd5-cf7b2992e986.jpg)
+
+# PostnatalCare/postnatallist
+![다른 산모가 고용 시](https://user-images.githubusercontent.com/84373336/171114743-7edff166-52cd-4f2a-a9c5-18619b98e600.jpg)
+
+# PostnatalCare/sanhuinfo
+![산후조리사 클릭 시](https://user-images.githubusercontent.com/84373336/171114488-9aeef058-fb04-4545-878e-9b79d20cbd60.jpg)
+
+# PostnatalCare/review
+![후기](https://user-images.githubusercontent.com/84373336/171115155-50759e4f-26d1-4fbf-9a37-89de344e212d.jpg)
+
+# PostnatalCare/questionnair
+![일일문진표 내역](https://user-images.githubusercontent.com/84373336/171114813-cff4c60a-1882-4f59-b825-4d9462847adc.jpg)
+
+# PostnatalCare/questionnairdetial
+![일일문진표 내역 클릭 시](https://user-images.githubusercontent.com/84373336/171115277-f595bc3b-670a-44b6-aea8-c6bc2ef3993d.jpg)
+
+
+# DB생성 참고
 # 관리자 생성 SQL 
 insert into pos_user (num,id,password,state,job,name,age,phone,gender,address) values(pos_user_seq.nextval,'admin','admin',1,'admin','admin','day',0,'남자','address');
 
