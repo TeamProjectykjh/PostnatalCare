@@ -1,5 +1,40 @@
 # PostnatalCare
-실행 첫 페이지  localhost:본인포트/PostnatalCare/login
+
+* 1.1. 개발환경    
+ 1) 프레임워크 : Spring 3.1.1 , Mybatis 3.2.8 , Apache Tiles 2.2.2    
+ 2) DB : Oracle 11g    
+ 3) 라이브러리 : Bootstrap5.1 , JSTL 1.2 , SummerNote 0.8.18    
+ 4) JDK : JAVA 1.8SE    
+ 5) Build : Maven    
+ 6) Server : Apache Tomcat 9.0    
+ 7) Front : HTML5 , CSS3 , JavaScript 1.0    
+ 8) tools : SqlDevelpoer , Eclipse , VScode , GitBash    
+ 9) 버전관리 : GitHub
+
+* 1.2. 프로젝트 특징
+
+
+   1) 산후조리원에서 의사의 진료와 접수를 제외 한 시스템을 웹 프로젝트로 구현 
+
+   2) 의료진 소개와 산후조리원 소개 등을 산모(유저)가 쉽게 접근 
+
+   3) 오시는 길 기능은 GoogleMap API를 사용 
+
+   4) 의료진 휴가(휴진) 일정은 GoogleCalendar API를 사용하여 등록된 사용자가 관리 
+
+   5) 관리자 권한을 주어 회원 가입 시 관리자가 승인을 해야 사용가능(필요 시 사용정지) 
+
+   6) 산후조리사의 정보(자격증, 별점, 후기, 경력등)를 미리 확인하여 고용가능 
+
+   7) 에디터 라이브러리를 사용하여 내용 입력 시 테이블 , 색 변경 등 사용성 향상 
+
+   8) 산모가 간단한 일일 문진표를 등록하여 의사회진 시 효율 증대 
+
+
+#
+
+
+# 실행 첫 페이지  localhost:본인포트/PostnatalCare/login
 ![로그인화면](https://user-images.githubusercontent.com/84373336/171112170-0909f82c-b246-4c3f-b68b-683915f23502.jpg)
 
 # PostnatalCare/index
