@@ -114,7 +114,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
                     <a style="text-decoration-line: none;" class="service-item d-block rounded text-center h-100 p-4" href="sanhuinfo">
-                        <img style="object-fit: cover; height: 70%;" class="img-fluid rounded mb-4" src="https://technext.github.io/dgcom/img/service-3.jpg" alt="">
+                        <img style="object-fit: cover; height: 70%;" class="img-fluid rounded mb-4" src="https://contents.lotteon.com/itemimage/_v163107/LO/15/60/09/82/26/_1/56/00/98/22/7/LO1560098226_1560098227_1.jpeg/dims/resizef/554X554" alt="">
                         <h4 style="color: black" class="mb-0">산후 관리사 소개</h4>
                     </a>
                 </div>

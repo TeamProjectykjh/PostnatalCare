@@ -28,6 +28,6 @@ document.getElementById("nowTime").innerHTML = hours + "시 " + minutes + "분 "
 <title>Insert title here</title>
 </head>
 <body>
-footer <span style="font-size: large;" id="nowTime"></span>
+(주)PostnatalCare Service <span style="font-size: large;" id="nowTime"></span>
 </body>
 </html>

@@ -6,6 +6,11 @@
 <html>
 <head>
 <style type="text/css">
+button{
+border-radius: 10px;
+background-color: white;
+border-color: purple;
+}
 table {
   width:60%;
   height: 100px;

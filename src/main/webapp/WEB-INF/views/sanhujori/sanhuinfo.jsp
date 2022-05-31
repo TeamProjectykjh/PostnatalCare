@@ -31,7 +31,7 @@ h1{
   <div class="row">
 	 <c:forEach items="${list}" var="my" varStatus="status">
 	 	<div class="col-lg-4 col-md-4 col-xl-4">
-	    	<div class="col"><a href="sanhudetail?num=${my.num }&state=${my.jobstate}"><img src="sanhuimg/${my.sanhupath }" style="height=400px; width=300px;" class="img-thumbnail"></a></div>
+	    	<div class="col"><a href="sanhudetail?num=${my.num }&state=${my.jobstate}"><img src="sanhuimg/${my.sanhupath }" style="height:400px; width:300px;" class="img-thumbnail"></a></div>
 	    	<label>${status.count}번</label><br>
 	    	<label>${my.name }</label><br>
 	    	<c:choose>
@@ -46,6 +46,6 @@ h1{
 	  </c:forEach>
   </div>
 </div>
-<button onclick="location.href='index'" style="margin-bottom: 5%">메인으로</button>
+<button style="margin-top: 5%" class="btn btn-secondary" onclick="location.href='index'" style="margin-bottom: 5%">메인으로</button>
 </body>
 </html>

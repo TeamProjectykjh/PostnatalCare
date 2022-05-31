@@ -28,12 +28,12 @@
 	
 	                  <div class="form-outline mb-1">
 	                  	<label class="form-label">아이디</label>
-	                    <input name="id" class="form-control form-control-sm" />   
+	                    <input name="id" class="form-control form-control-sm" required/>   
 	                  </div>
 	
 	                  <div class="form-outline mb-1">
 	                  	<label class="form-label">비밀번호</label>
-	                    <input type="password" name="password" class="form-control form-control-sm" />
+	                    <input type="password" name="password" class="form-control form-control-sm" required/>
 	                  </div>
 	                  <!-- state default values ==1 -->
 	                  <div>
@@ -42,7 +42,7 @@
 	                  
 	                  <div class="form-outline mb-1">
 	                    <label class="form-label">이름</label>
-	                    <input  name="name" class="form-control form-control-sm" />
+	                    <input  name="name" class="form-control form-control-sm" required/>
 	                  </div>
 	                  
 	                  <div class="form-outline mb-1">
@@ -58,7 +58,7 @@
 	                  
 	                  <div class="form-outline mb-1">
 	                   <label class="form-label">생년월일</label>
-	                   <input type="date" name="age" class="form-control form-control-sm" />
+	                   <input type="date" name="age" class="form-control form-control-sm" required/>
 	                  </div>
 	                    
 	                    <div class="form-outline mb-1">
@@ -69,12 +69,12 @@
 	                	 
 	                    <div class="form-outline mb-1">
 		                   <label class="form-label">전화번호</label>
-		                   <input type="tel" name="phone" class="form-control form-control-sm" />
+		                   <input type="tel" name="phone" class="form-control form-control-sm" required/>
 	                	 </div>
 	                	 
 	                	  <div class="form-outline mb-1">
 		                   <label class="form-label">주소</label>
-		                   <input name="address" class="form-control form-control-sm" />
+		                   <input name="address" class="form-control form-control-sm" required/>
 	                	 </div>
 	                
 	                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">

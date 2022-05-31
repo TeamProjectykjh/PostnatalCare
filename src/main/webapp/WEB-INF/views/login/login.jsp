@@ -31,13 +31,13 @@
 	
 	                  <div class="form-outline mb-4">
 	                  <label class="form-label" for="form2Example17">아이디</label>
-	                    <input name="id" class="form-control form-control-lg" />
+	                    <input name="id" class="form-control form-control-lg" required/>
 	                    
 	                  </div>
 	
 	                  <div class="form-outline mb-4">
 	                  <label class="form-label" for="form2Example27">비밀번호</label>
-	                    <input type="password" name="password" class="form-control form-control-lg" />
+	                    <input type="password" name="password" class="form-control form-control-lg" required/>
 	                  </div>
 	
 	                  <div class="pt-1 mb-4">

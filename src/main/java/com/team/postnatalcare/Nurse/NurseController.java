@@ -73,7 +73,7 @@ public class NurseController {
 	    MultipartFile mf = multi.getFile("nurpath"); // file형식의 nurpath라는 name을 가져오겠다
 		String nurpath = mf.getOriginalFilename(); //파일명을 String 형식으로 받겠다
 		try(							
-				FileOutputStream fos = new FileOutputStream("E:/spring/PostnatalCare/src/main/webapp/nurseimg/" + nurpath);
+				FileOutputStream fos = new FileOutputStream("/PostnatalCare/src/main/webapp/nurseimg/" + nurpath);
 			    //출력 파일의 저장 경로 지정
 				InputStream is = mf.getInputStream();
 				//
@@ -182,7 +182,7 @@ public class NurseController {
 		String nurpath = mf.getOriginalFilename();
 		System.out.println("nurpath : "+nurpath);
 		try(
-				FileOutputStream fos = new FileOutputStream("E:/spring/PostnatalCare/src/main/webapp/nurseimg" + nurpath);
+				FileOutputStream fos = new FileOutputStream("/PostnatalCare/src/main/webapp/nurseimg/" + nurpath);
 			    InputStream is = mf.getInputStream();
 			    ){
 			      int readCount = 0;
