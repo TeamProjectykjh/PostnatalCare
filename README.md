@@ -1,11 +1,7 @@
 # PostnatalCare
-
-상세 내용 컨트롤러,SQL.XML에 주석확인
-톰캣연동 후 실행 첫 페이지  localhost:본인포트/PostnatalCare/login
+실행 첫 페이지  localhost:본인포트/PostnatalCare/login
 
 DB생성 참고
-PostnatalCare\src\main\java\com\team\postnatalcare\CREATESQL
-
 # 관리자 생성 SQL 
 insert into pos_user (num,id,password,state,job,name,age,phone,gender,address) values(pos_user_seq.nextval,'admin','admin',1,'admin','admin','day',0,'남자','address');
 
