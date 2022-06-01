@@ -34,7 +34,7 @@
 #
 
 
-# 실행 첫 페이지  localhost:본인포트/PostnatalCare/login
+# 실행 첫 페이지  localhost:Port/PostnatalCare/login
 ![로그인화면](https://user-images.githubusercontent.com/84373336/171112170-0909f82c-b246-4c3f-b68b-683915f23502.jpg)
 
 # PostnatalCare/index
