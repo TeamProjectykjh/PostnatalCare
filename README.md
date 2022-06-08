@@ -1,6 +1,6 @@
 # PostnatalCare
 
-* 1.1. 개발환경    
+* 1.1 개발환경    
  1) 프레임워크 : Spring 3.1.1 , Mybatis 3.2.8 , Apache Tiles 2.2.2    
  2) DB : Oracle 11g    
  3) 라이브러리 : Bootstrap5.1 , JSTL 1.2 , SummerNote 0.8.18    
@@ -11,7 +11,7 @@
  8) tools : SqlDevelpoer , Eclipse , VScode , GitBash    
  9) 버전관리 : GitHub
 
-* 1.2. 프로젝트 특징
+* 1.2 프로젝트 특징
 
 
    1) 산후조리원에서 의사의 진료와 접수를 제외 한 시스템을 웹 프로젝트로 구현 
