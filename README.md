@@ -7,7 +7,7 @@
  4) JDK : JAVA 1.8SE    
  5) Build : Maven    
  6) Server : Apache Tomcat 9.0    
- 7) Front : HTML5 , CSS3 , JavaScript 1.0    
+ 7) Front : jsp, HTML5 , CSS3 , JavaScript 1.0    
  8) tools : SqlDevelpoer , Eclipse , VScode , GitBash    
  9) 버전관리 : GitHub
 
