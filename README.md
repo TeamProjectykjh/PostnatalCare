@@ -1,4 +1,5 @@
 # PostnatalCare
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FTeamProjectykjh%2FPostnatalCare&count_bg=%23EAC3DC&title_bg=%2373B2DA&icon=cliqz.svg&icon_color=%23FFFFFF&title=hits&edge_flat=false)](https://github.com/TeamProjectykjh/PostnatalCare)</br>
 
 * 1.1 개발환경    
  1) 프레임워크 : Spring 3.1.1 , Mybatis 3.2.8 , Apache Tiles 2.2.2    
